@@ -1,0 +1,44 @@
+project:
+  type: website
+
+  preview: 
+    port: 3333
+    browser: true
+    watch-inputs: true
+    navigate: true
+  
+  resources:
+    - "files/**"
+
+# website metadata values
+description-meta: "A (hopefully) useful blogging site mainly about `python` and `rust`"
+
+website:
+  title: "Heuristic Pedals"
+  favicon: ./files/favicon.ico
+  site-url: https://heuristic-pedals.github.io/home/
+  repo-url: https://github.com/heuristic-pedals/home/
+  navbar:
+    logo: ./files/favicon.ico
+    pinned: true
+
+    left:
+      - text: "Home"
+        href: "index.qmd"
+
+    right:
+      - icon: github
+        aria-label: github
+        href: https://github.com/heuristic-pedals
+  open-graph: 
+    image: ./files/hp_logo_reduced.png
+    description: "{{< meta description-meta >}}"
+    locale: en_UK
+  page-footer:
+    center: | 
+      Any views or opinions expressed in this site are purely my own.
+  
+format:
+  html:
+    light: flatly
+    dark: darkly
