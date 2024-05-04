@@ -40,5 +40,6 @@ website:
   
 format:
   html:
-    light: flatly
-    dark: darkly
+    theme:
+      - flatly
+      - files/custom-light.scss
