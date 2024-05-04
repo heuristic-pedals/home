@@ -16,6 +16,8 @@ description-meta: "A (hopefully) useful blogging site mainly about `python` and 
 website:
   title: "Heuristic Pedals"
   favicon: ./files/favicon.ico
+  site-url: https://heuristic-pedals.github.io/home/
+  repo-url: https://github.com/heuristic-pedals/home/
   navbar:
     logo: ./files/favicon.ico
     pinned: true
