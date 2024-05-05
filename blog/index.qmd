@@ -14,3 +14,17 @@ listing:
   date-format: iso
 ---
 
+Welcome to the blog posts section! Use the dropdown, search box, and category filters to look for posts.
+
+::: {.callout-tip collapse="true" appearance="simple"}
+
+## Each post is categorised by at least one tag using the [Diátaxis][diataxis] approach...
+
+- `explanation`: discussions focusing on understanding something.
+- `how-to`: concise instructions for getting something done.
+- `reference`: information on how something works or how to work with it. 
+- `tutorial`: lesson and learning oriented examples of something.
+
+:::
+
+[diataxis]: https://diataxis.fr
