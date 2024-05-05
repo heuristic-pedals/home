@@ -42,6 +42,7 @@ website:
   
 format:
   html:
+    css: files/styles.css
     theme:
       - flatly
       - files/custom-light.scss
