@@ -15,7 +15,7 @@ title-block-banner: "#000000"
 title-block-banner-color: "#FFFFFF"
 ---
 
-This how-to guide will show you how to:
+This guide will show you how to:
 
 ::: {.intro-div}
 
