@@ -8,10 +8,60 @@ layout: post
 categories: [cli, how-to]
 image: jazz.jpg
 image-alt: |
-  A man playing jazz on a saxaphone. Photo by [Jens Thekkeveettil](https://unsplash.com/@jensth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-playing-saxophone-dBWvUqBoOU8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+  A man playing jazz on a saxophone. Photo by [Jens Thekkeveettil](https://unsplash.com/@jensth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-playing-saxophone-dBWvUqBoOU8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 toc: true
 title-block-style: default
 title-block-banner: "#000000"
 title-block-banner-color: "#FFFFFF"
 ---
 
+This how-to guide will show you how to:
+
+::: {.intro-div}
+
+- Install [oh-my-zsh][oh-my-zsh].
+- Install git, auto-suggestion, and syntax highlighting plugins.
+- Modify your `oh-my-zsh` theme.
+
+:::
+
+As a prerequisite, must have [zsh][zsh] installed before installing and using `oh-my-zsh`. [git][git-install] is also an optional prerequisite.
+
+## Installation
+
+## Plugins
+
+### Notable plugins
+
+::: {.callout-note}
+
+All available [plugins are recorded on the oh-my-zsh website][plugins].
+
+:::
+
+## Themes
+
+::: {.callout-note}
+
+All available [themes are recorded on the oh-my-zsh website][themes].
+
+:::
+
+## Further Reading
+
+::: {.callout-tip icon=false}
+
+## Hooray
+
+🎉 You made it to the end of the first ever `heuristic-pedals` blog post! 🎉
+
+:::
+
+[oh-my-zsh]: https://ohmyz.sh
+[zsh]: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#zsh
+[git-install]: https://github.com/git-guides/install-git
+[git]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
+[auto-suggest]: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+[syntax-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+[plugins]: https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+[themes]: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
