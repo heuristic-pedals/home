@@ -10,5 +10,8 @@ image: jazz.jpg
 image-alt: |
   A man playing jazz on a saxaphone. Photo by [Jens Thekkeveettil](https://unsplash.com/@jensth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-playing-saxophone-dBWvUqBoOU8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 toc: true
+title-block-style: default
+title-block-banner: "#000000"
+title-block-banner-color: "#FFFFFF"
 ---
 
