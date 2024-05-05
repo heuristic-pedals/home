@@ -1,0 +1,16 @@
+---
+title: "Blog Posts"
+listing:
+  contents: posts
+  type: grid
+  sort:
+    - "date"
+    - "title desc"
+  page-size: 9
+  categories: unnumbered
+  fields: [image, date, title, description, categories, reading-time]
+  filter-ui: [title, date]
+  sort-ui: [title, date]
+  date-format: iso
+---
+

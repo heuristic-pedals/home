@@ -1,0 +1,14 @@
+---
+title: "'Jazzing Up' `zsh` with `oh-my-zsh`"
+description: "How to set-up `oh-my-zsh` with some helpful plugins and themes."
+date: 05/05/2024
+date-modified: last-modified
+date-format: iso
+layout: post
+categories: [cli, how-to]
+image: jazz.jpg
+image-alt: |
+  A man playing jazz on a saxaphone. Photo by [Jens Thekkeveettil](https://unsplash.com/@jensth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-playing-saxophone-dBWvUqBoOU8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+toc: true
+---
+
