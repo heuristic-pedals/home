@@ -38,7 +38,8 @@ website:
     locale: en_UK
   page-footer:
     center: | 
-      Any views or opinions expressed in this site are purely my own.
+      Any views or opinions expressed on this site are purely my own.<br>
+      If you'd like to contribute or if find any issues please [raise a ticket on GitHub](https://github.com/heuristic-pedals/home/issues).
   
 format:
   html:
