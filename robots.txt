@@ -1,1 +1,1 @@
-Sitemap: https://heuristic-pedals.github.io/home/sitemap.xml
+Sitemap: https://heuristicpedals.com/sitemap.xml

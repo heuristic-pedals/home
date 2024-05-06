@@ -4,6 +4,48 @@
     "href": "index.html",
     "title": "Heuristic Pedals",
     "section": "",
-    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!"
+    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!\n\nWhere next?\nHead over to the blog section for a range of posts covering software and coding related topics."
+  },
+  {
+    "objectID": "blog/posts/oh-my-zsh-setup/index.html",
+    "href": "blog/posts/oh-my-zsh-setup/index.html",
+    "title": "‘Jazzing Up’ zsh with oh-my-zsh",
+    "section": "",
+    "text": "This guide will show you how to:"
+  },
+  {
+    "objectID": "blog/posts/oh-my-zsh-setup/index.html#installation",
+    "href": "blog/posts/oh-my-zsh-setup/index.html#installation",
+    "title": "‘Jazzing Up’ zsh with oh-my-zsh",
+    "section": "Installation",
+    "text": "Installation\nFollow these steps to install oh-my-zsh:\n\nRetrieve and execute the installation script (located in the main branch of the oh-my-zsh GitHub repo):\n\nsh -c \"$(curl -fsSL \\\n    https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"\n\nYou may then need to restart your terminal session for these changes to take effect.\n\nThat’s it, the base installation of oh-my-zsh is then ready to go!"
+  },
+  {
+    "objectID": "blog/posts/oh-my-zsh-setup/index.html#plugins",
+    "href": "blog/posts/oh-my-zsh-setup/index.html#plugins",
+    "title": "‘Jazzing Up’ zsh with oh-my-zsh",
+    "section": "Plugins",
+    "text": "Plugins\noh-my-zsh comes with a wide range of built-in plugins. These are listed on the plugins page of the oh my zsh website.\nHowever, some plugins (mainly custom ones) need to be installed before use. The installing plugins section shows you how to install two such useful plugins: zsh-auto-suggestion and zsh-syntax-highlighting.\nThe adding/modifying plugins section walks you through how to add new, and change the configuration of, your plugins. This section is applicable to both built-in and custom plugins.\n\nInstalling Plugins\n\nAuto-suggestion\nThe zsh-auto-suggestion plugin recommends commands as you type in the terminal based on your recent history and completions. It can be installed as follows:\n\nClone the plugin from the GitHub repository into the local custom plugins directory:\n\ngit clone https://github.com/zsh-users/zsh-autosuggestions \\\n    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions\n\nAdd the plugin to your oh-my-zsh configuration as outlined in the adding/modifying plugins section.\n\nThat’s it! For alternative ways of installing this plugin, see the zsh-auto-suggestion installation instructions.\n\n\nSyntax Highlighting\nThe zsh-syntax-highlighting plugin enables command highlighting as you type - available and correctly entered commands are coloured green and unavailable/mistyped commands are red. It can be installed in a similar way to zsh-auto-suggestions:\n\nClone the plugin from the GitHub repository into the local custom plugins directory:\n\ngit clone https://github.com/zsh-users/zsh-syntax-highlighting.git \\\n    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting\n\nAdd the plugin to your oh-my-zsh configuration as outlined in the adding/modifying plugins section.\n\nAnd you’re done! For alternative ways of installing the plugin, see the zsh-syntax-highlighting installation instructions.\n\n\n\nAdding/Modifying Plugin Configuration\nYou can add built-in/installed custom plugins, or changing your plugin configuration, as follows:\n\nOpen your .zshrc config file:\n\nopen ~/.zshrc\n\nFind the plugins variable. This should look something like plugins=(... &lt;PLUGIN_NAME&gt; ...). This is a space separated list of activated plugins surrounded by brackets. At the start, this list will likely only contain the git plugin.\nAdd/remove the name(s) of the plugin(s) you’d like to activate/deactivate. Ensure the list of plugin names is space separated.\nSave your .zshrc configuration file, and restart your terminal session for the changes to take effect."
+  },
+  {
+    "objectID": "blog/posts/oh-my-zsh-setup/index.html#themes",
+    "href": "blog/posts/oh-my-zsh-setup/index.html#themes",
+    "title": "‘Jazzing Up’ zsh with oh-my-zsh",
+    "section": "Themes",
+    "text": "Themes\nA list of built-in themes is recorded on the oh-my-zsh website. To change your oh-my-zsh theme, just follow these steps:\n\nOpen your .zshrc config file:\n\nopen ~/.zshrc\n\nFind the ZSH_THEME variable, and change this to match the name of your theme of choice. At the start, this will likely be set to the default built-in theme robbyrussell.\nSave your .zshrc configuration file, and restart your terminal session for the changes to take effect."
+  },
+  {
+    "objectID": "blog/posts/oh-my-zsh-setup/index.html#further-reading-final-thoughts",
+    "href": "blog/posts/oh-my-zsh-setup/index.html#further-reading-final-thoughts",
+    "title": "‘Jazzing Up’ zsh with oh-my-zsh",
+    "section": "Further Reading & Final Thoughts",
+    "text": "Further Reading & Final Thoughts\nThe oh-my-zsh website is a great place to go for detailed and up-to-date information.\nAll the available built-in plugins are recorded on the oh-my-zsh website. I find the following plugins helpful: git (aliases), docker (completion support and aliases), gcloud (completion support), python (aliases and virtual environment commands) and terraform (completion support and aliases). This is by no means a complete list though, there are lots to choose from! Try not to add too many plugins at once otherwise you may find the terminal slow, particularly at startup.\nAll the available built-in themes are listed on the oh-my-zsh website. I use the gnzh theme because it is simple, clean and separates the command line onto a separate line - I personally find that easier to read and scan quickly. Some themes are reportedly more easy to customise, like agnoster, but if you aren’t looking to edit/build your own then the choice of theme is purely personal preference.\nIf you’re wondering what else oh-my-zsh could offer you, take a look at this great post which gives a quick overview of it’s main offerings. Also, if you’re finding your terminal too slow due to lots of plugins and unnecessary ‘bloat’, you’re definitely not alone! Check out this interesting article which shows you how to set-up an oh-my-zsh-like terminal without using oh-my-zsh.\n\n\n\n\n\n\nHooray\n\n\n\n🎉 You made it to the end of the first ever heuristic-pedals blog post! Thanks for your time and I hope you found this helpful! 🎉"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog Posts",
+    "section": "",
+    "text": "Welcome to the blog posts section! Use the dropdown, search box, and category filters to look for posts.\n\n\n\n\n\n\nEach post is categorised by at least one tag using the Diátaxis approach…\n\n\n\n\n\n\nexplanation: discussions focusing on understanding something.\nhow-to: concise instructions for getting something done.\nreference: information on how something works or how to work with it.\ntutorial: lesson and learning oriented examples of something.\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n‘Jazzing Up’ zsh with oh-my-zsh\n\n\n4 min\n\n\n\ncli\n\n\nhow-to\n\n\n\nHow to set-up oh-my-zsh with some helpful plugins and themes.\n\n\n\n2024-06-05\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
