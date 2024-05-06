@@ -1,0 +1,163 @@
+---
+title: "'Jazzing Up' `zsh` with `oh-my-zsh`"
+description: "How to set-up `oh-my-zsh` with some helpful plugins and themes."
+date: 06/05/2024
+date-modified: last-modified
+date-format: iso
+layout: post
+categories: [cli, how-to]
+image: jazz.jpg
+image-alt: |
+  A man playing jazz on a saxophone. Photo by [Jens Thekkeveettil](https://unsplash.com/@jensth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-playing-saxophone-dBWvUqBoOU8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+toc: true
+title-block-style: default
+title-block-banner: "#000000"
+title-block-banner-color: "#FFFFFF"
+---
+
+This guide will show you how to:
+
+::: {.intro-div}
+
+- Install [oh-my-zsh](index.qmd#installation).
+- Install [auto-suggestion](index.qmd#auto-suggestion) and [syntax highlighting](index.qmd#syntax-highlighting) plugins.
+- Modify your `oh-my-zsh` [plugin configuration](index.qmd#addingmodifying-plugin-configuration).
+- Modify your `oh-my-zsh` [theme](index.qmd#themes).
+
+:::
+
+::: {.callout-warning}
+
+## Make sure the following prerequisites are installed before continuing...
+
+- [zsh][zsh] (needed to install and use [oh-my-zsh][oh-my-zsh]).
+- [git][git-install] (used here to install plugins and -- optionally if you chose to use it -- for the git plugin itself).
+
+You can check this by calling `zsh --version`/`git --version` in a terminal.
+
+:::
+
+## Installation
+
+Follow these steps to install `oh-my-zsh`:
+
+1. Retrieve and execute the installation script (located in the main branch of the [oh-my-zsh GitHub repo][oh-my-zsh-tools]):
+
+```zsh
+sh -c "$(curl -fsSL \
+    https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+2. You may then need to restart your terminal session for these changes to take effect.
+
+That's it, the base installation of `oh-my-zsh` is then ready to go!
+
+## Plugins
+
+`oh-my-zsh` comes with a wide range of built-in plugins. These are listed on the [plugins page of the oh my zsh website][plugins].
+
+However, some plugins (mainly custom ones) need to be installed before use. The [installing plugins section](index.qmd#installing-plugins) shows you how to install two such useful plugins: `zsh-auto-suggestion` and `zsh-syntax-highlighting`.
+
+The [adding/modifying plugins section](index.qmd#addingmodifying-plugin-configuration) walks you through how to add new, and change the configuration of, your plugins. This section is applicable to both built-in and custom plugins.
+
+### Installing Plugins
+
+#### Auto-suggestion
+
+The [zsh-auto-suggestion plugin][auto-suggest] recommends commands as you type in the terminal based on your recent history and completions. It can be installed as follows:
+
+1. Clone the plugin from the GitHub repository into the local custom plugins directory:
+
+```zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+2. Add the plugin to your `oh-my-zsh` configuration as outlined in the [adding/modifying plugins section](index.qmd#addingmodifying-plugin-configuration).
+
+That's it! For alternative ways of installing this plugin, see the [zsh-auto-suggestion installation instructions][auto-suggest-install].
+
+#### Syntax Highlighting
+
+The [zsh-syntax-highlighting plugin][syntax-highlight] enables command highlighting as you type - available and correctly entered commands are coloured green and unavailable/mistyped commands are red. It can be installed in a similar way to `zsh-auto-suggestions`:
+
+1. Clone the plugin from the GitHub repository into the local custom plugins directory:
+
+```zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+2. Add the plugin to your `oh-my-zsh` configuration as outlined in the [adding/modifying plugins section](index.qmd#addingmodifying-plugin-configuration).
+
+And you're done! For alternative ways of installing the plugin, see the [zsh-syntax-highlighting installation instructions][syntax-highlight-install].
+
+
+### Adding/Modifying Plugin Configuration
+
+You can add built-in/installed custom plugins, or changing your plugin configuration, as follows:
+
+1. Open your `.zshrc` config file:
+
+```zsh
+open ~/.zshrc
+```
+
+2. Find the `plugins` variable. This should look something like `plugins=(... <PLUGIN_NAME> ...)`. This is a space separated list of activated plugins surrounded by brackets. At the start, this list will likely only contain the `git` plugin.
+
+3. Add/remove the name(s) of the plugin(s) you'd like to activate/deactivate. Ensure the list of plugin names is space separated.
+
+4. Save your `.zshrc` configuration file, and restart your terminal session for the changes to take effect.
+
+## Themes
+
+A list of [built-in themes is recorded on the oh-my-zsh website][themes]. To change your `oh-my-zsh` theme, just follow these steps:
+
+1. Open your `.zshrc` config file:
+
+```zsh
+open ~/.zshrc
+```
+
+2. Find the `ZSH_THEME` variable, and change this to match the name of your theme of choice. At the start, this will likely be set to the default built-in theme [robbyrussell][robbyrussell].
+
+3. Save your `.zshrc` configuration file, and restart your terminal session for the changes to take effect.
+
+## Further Reading & Final Thoughts
+
+The [oh-my-zsh website][oh-my-zsh] is a great place to go for detailed and up-to-date information.
+
+All the available [built-in plugins][plugins] are recorded on the oh-my-zsh website. I find the following plugins helpful: [git][git] (aliases), [docker][docker] (completion support and aliases), [gcloud][gcloud] (completion support), [python][python] (aliases and virtual environment commands) and [terraform][terraform] (completion support and aliases). This is by no means a complete list though, there are lots to choose from! Try not to add too many plugins at once otherwise you may find the terminal slow, particularly at startup.
+
+All the available [built-in themes][themes] are listed on the oh-my-zsh website. I use the [gnzh][gnzh] theme because it is simple, clean and separates the command line onto a separate line - I personally find that easier to read and scan quickly. Some themes are reportedly more easy to customise, like [agnoster][agnoster], but if you aren't looking to edit/build your own then the choice of theme is purely personal preference.
+
+If you're wondering what else `oh-my-zsh` could offer you, take a look at [this great post][oh-my-zsh-post] which gives a quick overview of it's main offerings. Also, if you're finding your terminal too slow due to lots of plugins and unnecessary 'bloat', you're definitely not alone! Check out [this interesting article][zsh-alternative] which shows you how to set-up an `oh-my-zsh`-like terminal without using `oh-my-zsh`.
+
+::: {.callout-tip icon=false}
+
+## Hooray
+
+🎉 You made it to the end of the first ever `heuristic-pedals` blog post! Thanks for your time and I hope you found this helpful! 🎉
+
+:::
+
+[oh-my-zsh]: https://ohmyz.sh
+[zsh]: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#zsh
+[git-install]: https://github.com/git-guides/install-git
+[git]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
+[docker]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+[gcloud]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gcloud
+[python]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/python
+[gnzh]: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#gnzh
+[agnoster]: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#agnoster
+[terraform]: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/terraform
+[auto-suggest]: https://github.com/zsh-users/zsh-autosuggestions/tree/master
+[auto-suggest-install]: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+[syntax-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting
+[syntax-highlight-install]: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+[plugins]: https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+[themes]: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+[zsh-alternative]: https://ianyepan.github.io/posts/moving-away-from-ohmyzsh/
+[oh-my-zsh-post]: https://dev.to/equiman/why-oh-my-zsh-is-so-cool-31gd
+[oh-my-zsh-tools]: https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/install.sh
+[robbyrussell]: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell

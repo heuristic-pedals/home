@@ -16,7 +16,7 @@ description-meta: "A (hopefully) useful blogging site mainly about `python` and 
 website:
   title: "Heuristic Pedals"
   favicon: ./files/favicon.ico
-  site-url: https://heuristic-pedals.github.io/home/
+  site-url: https://heuristicpedals.com
   repo-url: https://github.com/heuristic-pedals/home/
   navbar:
     logo: ./files/favicon.ico
@@ -25,6 +25,8 @@ website:
     left:
       - text: "Home"
         href: "index.qmd"
+      - text: "Blog"
+        href: "blog/index.qmd"
 
     right:
       - icon: github
@@ -36,10 +38,12 @@ website:
     locale: en_UK
   page-footer:
     center: | 
-      Any views or opinions expressed in this site are purely my own.
+      Any views or opinions expressed on this site are purely my own.<br>
+      If you'd like to contribute or find any issues please [raise a ticket on GitHub](https://github.com/heuristic-pedals/home/issues).
   
 format:
   html:
+    css: files/styles.css
     theme:
       - flatly
       - files/custom-light.scss
