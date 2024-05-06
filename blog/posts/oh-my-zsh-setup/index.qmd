@@ -1,7 +1,7 @@
 ---
 title: "'Jazzing Up' `zsh` with `oh-my-zsh`"
 description: "How to set-up `oh-my-zsh` with some helpful plugins and themes."
-date: 06/05/2024
+date: 05/06/2024
 date-modified: last-modified
 date-format: iso
 layout: post
