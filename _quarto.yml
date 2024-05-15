@@ -37,9 +37,13 @@ website:
     description: "{{< meta description-meta >}}"
     locale: en_UK
   page-footer:
-    center: | 
-      Any views or opinions expressed on this site are purely my own.<br>
-      If you'd like to contribute or find any issues please [raise a ticket on GitHub](https://github.com/heuristic-pedals/home/issues).
+    border: true
+    left: |
+      This site is built using [![](https://quarto.org/quarto.png){fig-alt="quarto" width=80px}](https://quarto.org)
+    center: |
+      Any opinions expressed are my own. [Contribute](https://github.com/heuristic-pedals/) or [report an issue](https://github.com/heuristic-pedals/home/issues) on GitHub.
+    right: |
+      [![](https://simpleanalyticsbadges.com/?mode=dark&counter=false&radius=10&text=white&background=black&logo=#C8102E){fig-alt="simple analytics" width=168px}](https://www.simpleanalytics.com)
   
 format:
   html:
