@@ -47,3 +47,4 @@ format:
     theme:
       - flatly
       - files/custom-light.scss
+    include-after-body: html/analytics.html
