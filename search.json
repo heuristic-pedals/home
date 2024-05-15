@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Heuristic Pedals",
-    "section": "",
-    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!\n\nWhere next?\nHead over to the blog section for a range of posts covering software and coding related topics."
-  },
-  {
     "objectID": "blog/posts/oh-my-zsh-setup/index.html",
     "href": "blog/posts/oh-my-zsh-setup/index.html",
     "title": "‘Jazzing Up’ zsh with oh-my-zsh",
@@ -40,6 +33,13 @@
     "title": "‘Jazzing Up’ zsh with oh-my-zsh",
     "section": "Further Reading & Final Thoughts",
     "text": "Further Reading & Final Thoughts\nThe oh-my-zsh website is a great place to go for detailed and up-to-date information.\nAll the available built-in plugins are recorded on the oh-my-zsh website. I find the following plugins helpful: git (aliases), docker (completion support and aliases), gcloud (completion support), python (aliases and virtual environment commands) and terraform (completion support and aliases). This is by no means a complete list though, there are lots to choose from! Try not to add too many plugins at once otherwise you may find the terminal slow, particularly at startup.\nAll the available built-in themes are listed on the oh-my-zsh website. I use the gnzh theme because it is simple, clean and separates the command line onto a separate line - I personally find that easier to read and scan quickly. Some themes are reportedly more easy to customise, like agnoster, but if you aren’t looking to edit/build your own then the choice of theme is purely personal preference.\nIf you’re wondering what else oh-my-zsh could offer you, take a look at this great post which gives a quick overview of it’s main offerings. Also, if you’re finding your terminal too slow due to lots of plugins and unnecessary ‘bloat’, you’re definitely not alone! Check out this interesting article which shows you how to set-up an oh-my-zsh-like terminal without using oh-my-zsh.\n\n\n\n\n\n\nHooray\n\n\n\n🎉 You made it to the end of the first ever heuristic-pedals blog post! Thanks for your time and I hope you found this helpful! 🎉"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Heuristic Pedals",
+    "section": "",
+    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!\n\nWhere next?\nHead over to the blog section for a range of posts covering software and coding related topics."
   },
   {
     "objectID": "blog/index.html",
