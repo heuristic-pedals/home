@@ -1,0 +1,16 @@
+---
+title: "Alternative Analytics for Quarto Sites?"
+description: "How to add Simple Analytics to a Quarto website."
+date: 05/19/2024
+date-modified: last-modified
+date-format: iso
+layout: post
+categories: [how-to, quarto]
+image: cookies.jpg
+image-alt: |
+  Cookies and milk. Photo by [Christina Branco](https://unsplash.com/@starvingartistfoodphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/stack-of-cookies-and-glass-of-milk-7P-wc2Z2Ujs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+toc: true
+title-block-style: default
+title-block-banner: "#000000"
+title-block-banner-color: "#FFFFFF"
+---
