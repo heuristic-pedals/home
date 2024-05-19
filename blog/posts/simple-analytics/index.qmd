@@ -1,0 +1,82 @@
+---
+title: "Alternative Analytics for quarto Sites?"
+description: "How to add `Simple Analytics` to a quarto website."
+date: 05/19/2024
+date-modified: last-modified
+date-format: iso
+layout: post
+categories: [quarto, how-to]
+image: cookies.jpg
+image-alt: |
+  Cookies and milk. Photo by [Christina Branco](https://unsplash.com/@starvingartistfoodphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/stack-of-cookies-and-glass-of-milk-7P-wc2Z2Ujs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+toc: true
+title-block-style: default
+title-block-banner: "#000000"
+title-block-banner-color: "#FFFFFF"
+---
+
+This guide will show you how to:
+
+::: {.intro-div}
+
+- Add a Google Analytics alternative, `Simple Analytics`, to a quarto website. 
+
+:::
+
+## Introduction
+
+When I started this blog I did not want to add site analytics. Partly because I do not feel this is important as a small blogging site. But mostly because I personally find user tracking, at the very least, an ethically grey area. It is certainly useful to help gain feedback on the extent, relevance, and engagement of online content. However, this is not without its bad side, in the context of spider-web-like marketing campaigns and user tracking with little to no care for privacy.
+
+The position is also quite tricky when it comes to using [quarto][quarto] (which this blogging site uses). It is an excellent tool for scientific writing and website development, but right now it only provides [easy integration][ga-quarto] for [Google Analytics][google-analytics]. Having only this single option is far from ideal. It supports a monopoly towards an already powerful tech giant who also [share user data with third parties for monetary purposes][sa-google].
+
+After some online research, my decision on site analytics changed thanks to a viable alternative option. This post looks to share another, privacy-focused, approach to site analytics when using quarto... Step forward `Simple Analytics`!
+
+## What is Simple Analytics?
+
+[Simple Analytics][simple-analytics] describe themselves as:
+
+> "A privacy-first Google Analytics alternative."
+
+They comply with a range of privacy policies, including GDPR, whilst using no site cookies and storing no personal details. [Their documentation][sa-docs] is excellent, giving very detailed insights into [their approaches][sa-approaches] and the [metrics they calculate][sa-metrics]. They also have a [thorough comparison with Google Analytics][sa-ga-compare] and have [open-sourced their analytics scripts][sa-scripts]. The dashboard and analytics they provide is clean, concise, and simple to use - an [live demo is hosted on their website][sa-demo]. Finally, I think their [pricing structure][sa-pricing] is fair, with a free tier, options for [students][sa-students], and a range of paid tiers to suit different needs.
+
+Putting all this together, with a strong focus on user privacy and pulling on the heart strings of my inner-geek, introducing Simple Analytics to this site was a no-brainer! If you have a site that uses analytics (especially one built with quarto) I hope this article resonates with you as discovering Simple Analytics did for me!
+
+## Adding Simple Analytics to quarto Websites
+
+::: {.callout-warning collapse="true"}
+
+## Always use the latest version of the Simple Analytics setup...
+
+Do not directly copy the example `.html` and `_quarto.yml` files linked within this section without checking the Simple Analytics documentation first. Always revert back to and use the latest installation script syntax shared by Simple Analytics to remain up-to-date. The links to the `heuristic-pedals` GitHub repo [`home`][hp-home] are purely shared for example purposes only.
+
+:::
+
+The following instructions show how to add Simple Analytics to a Quarto Website:
+
+1. Go to the Simple Analytics documentation [script set-up page][sa-setup-script] and copy the HTML/java snippet.
+2. Create a new `.html` file and add the HTML/java snippet.
+3. In your `_quarto.yml` configuration file, add the relative file path to the newly created HTML file in step 2, at the `format > HTML > include-after-body` location.
+4. Commit and deploy these changes to your site.
+5. Create a Simple Analytics log-in and then follow the on-screen instructions to add your domain to your account.
+
+As the last stage of step 5, Simple Analytics will search for the presence of this script in your website. Within a few minutes you will be set-up and ready to go 🥳
+
+For a firsthand demonstration of steps 2 and 3, you can check out example [`.html`][hp-example-html] and [`_quarto.yml`][hp-example-quarto] files within in the GitHub repo used for this site.
+
+[quarto]: https://quarto.org
+[ga-quarto]: https://quarto.org/docs/websites/website-tools.html#google-analytics
+[google-analytics]: https://marketingplatform.google.com/about/analytics/
+[simple-analytics]: https://www.simpleanalytics.com
+[sa-google]: https://www.simpleanalytics.com/blog/does-google-sell-your-data
+[sa-docs]: https://docs.simpleanalytics.com
+[sa-approaches]: https://docs.simpleanalytics.com/explained/time-on-page
+[sa-ga-compare]: https://www.simpleanalytics.com/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics
+[sa-metrics]: https://docs.simpleanalytics.com/what-we-collect
+[sa-scripts]: https://github.com/simpleanalytics/scripts
+[sa-demo]: https://dashboard.simpleanalytics.com/simpleanalytics.com?from=landing
+[sa-pricing]: https://www.simpleanalytics.com/pricing
+[sa-students]: https://dashboard.simpleanalytics.com/students
+[sa-setup-script]: https://docs.simpleanalytics.com/script
+[hp-home]: https://github.com/heuristic-pedals/home
+[hp-example-html]: https://github.com/heuristic-pedals/home/blob/main/html/analytics.html
+[hp-example-quarto]: https://github.com/heuristic-pedals/home/blob/56e74ec245d313b8a67660588bd1b18c0c49ffce/_quarto.yml#L54

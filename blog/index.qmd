@@ -4,7 +4,7 @@ listing:
   contents: posts
   type: grid
   sort:
-    - "date"
+    - "date desc"
     - "title desc"
   page-size: 9
   categories: unnumbered
@@ -16,9 +16,9 @@ listing:
 
 Welcome to the blog posts section! Use the dropdown, search box, and category filters to look for posts.
 
-::: {.callout-tip collapse="true" appearance="simple"}
+::: {.callout-tip collapse="true"}
 
-## Each post is categorised by at least one tag using the [Diátaxis][diataxis] approach...
+## Each post is categorised by at least one tag using the [Diátaxis][diataxis] framework...
 
 - `explanation`: discussions focusing on understanding something.
 - `how-to`: concise instructions for getting something done.
