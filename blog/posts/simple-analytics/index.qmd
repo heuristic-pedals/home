@@ -43,6 +43,26 @@ Putting all this together, with a strong focus on user privacy and pulling on th
 
 ## Adding Simple Analytics to quarto Websites
 
+::: {.callout-warning collapse="true"}
+
+## Always use the latest version of the Simple Analytics setup...
+
+Do not directly copy the example `.html` and `_quarto.yml` files linked within this section without checking the Simple Analytics documentation first. Always revert back to and use the latest installation script syntax shared by Simple Analytics to remain up-to-date. The links to the `heuristic-pedals` GitHub repo [`home`][hp-home] are purely shared for example purposes only.
+
+:::
+
+The following instructions show how to add Simple Analytics to a Quarto Website:
+
+1. Go to the Simple Analytics documentation [script set-up page][sa-setup-script] and copy the HTML/java snippet.
+2. Create a new `.html` file and add the HTML/java snippet.
+3. In your `_quarto.yml` configuration file, add the relative file path to the newly created HTML file in step 2, at the `format > HTML > include-after-body` location.
+4. Commit and deploy these changes to your site.
+5. Create a Simple Analytics log-in and then follow the on-screen instructions to add your domain to your account.
+
+As the last stage of step 5, Simple Analytics will search for the presence of this script in your website. Within a few minutes you will be set-up and ready to go 🥳
+
+For a firsthand demonstration of steps 2 and 3, you can check out example [`.html`][hp-example-html] and [`_quarto.yml`][hp-example-quarto] files within in the GitHub repo used for this site.
+
 [quarto]: https://quarto.org
 [ga-quarto]: https://quarto.org/docs/websites/website-tools.html#google-analytics
 [google-analytics]: https://marketingplatform.google.com/about/analytics/
@@ -56,3 +76,7 @@ Putting all this together, with a strong focus on user privacy and pulling on th
 [sa-demo]: https://dashboard.simpleanalytics.com/simpleanalytics.com?from=landing
 [sa-pricing]: https://www.simpleanalytics.com/pricing
 [sa-students]: https://dashboard.simpleanalytics.com/students
+[sa-setup-script]: https://docs.simpleanalytics.com/script
+[hp-home]: https://github.com/heuristic-pedals/home
+[hp-example-html]: https://github.com/heuristic-pedals/home/blob/main/html/analytics.html
+[hp-example-quarto]: https://github.com/heuristic-pedals/home/blob/56e74ec245d313b8a67660588bd1b18c0c49ffce/_quarto.yml#L54
