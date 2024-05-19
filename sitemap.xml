@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://heuristicpedals.com/blog/posts/oh-my-zsh-setup/index.html</loc>
-    <lastmod>2024-05-15T19:02:30.513Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heuristicpedals.com/index.html</loc>
-    <lastmod>2024-05-15T19:02:30.513Z</lastmod>
+    <loc>https://heuristicpedals.com/blog/posts/simple-analytics/index.html</loc>
+    <lastmod>2024-05-19T18:47:32.680Z</lastmod>
   </url>
   <url>
     <loc>https://heuristicpedals.com/blog/index.html</loc>
-    <lastmod>2024-05-15T19:02:30.513Z</lastmod>
+    <lastmod>2024-05-19T18:47:32.680Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heuristicpedals.com/index.html</loc>
+    <lastmod>2024-05-19T18:47:32.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heuristicpedals.com/blog/posts/oh-my-zsh-setup/index.html</loc>
+    <lastmod>2024-05-19T18:47:32.680Z</lastmod>
   </url>
 </urlset>

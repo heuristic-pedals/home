@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/simple-analytics/index.html",
       "/blog/posts/oh-my-zsh-setup/index.html"
     ]
   }

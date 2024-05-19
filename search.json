@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "blog/posts/simple-analytics/index.html",
+    "href": "blog/posts/simple-analytics/index.html",
+    "title": "Alternative Analytics for quarto Sites?",
+    "section": "",
+    "text": "This guide will show you how to:"
+  },
+  {
+    "objectID": "blog/posts/simple-analytics/index.html#introduction",
+    "href": "blog/posts/simple-analytics/index.html#introduction",
+    "title": "Alternative Analytics for quarto Sites?",
+    "section": "Introduction",
+    "text": "Introduction\nWhen I started this blog I did not want to add site analytics. Partly because I do not feel this is important as a small blogging site. But mostly because I personally find user tracking, at the very least, an ethically grey area. It is certainly useful to help gain feedback on the extent, relevance, and engagement of online content. However, this is not without its bad side, in the context of spider-web-like marketing campaigns and user tracking with little to no care for privacy.\nThe position is also quite tricky when it comes to using quarto (which this blogging site uses). It is an excellent tool for scientific writing and website development, but right now it only provides easy integration for Google Analytics. Having only this single option is far from ideal. It supports a monopoly towards an already powerful tech giant who also share user data with third parties for monetary purposes.\nAfter some online research, my decision on site analytics changed thanks to a viable alternative option. This post looks to share another, privacy-focused, approach to site analytics when using quarto… Step forward Simple Analytics!"
+  },
+  {
+    "objectID": "blog/posts/simple-analytics/index.html#what-is-simple-analytics",
+    "href": "blog/posts/simple-analytics/index.html#what-is-simple-analytics",
+    "title": "Alternative Analytics for quarto Sites?",
+    "section": "What is Simple Analytics?",
+    "text": "What is Simple Analytics?\nSimple Analytics describe themselves as:\n\n“A privacy-first Google Analytics alternative.”\n\nThey comply with a range of privacy policies, including GDPR, whilst using no site cookies and storing no personal details. Their documentation is excellent, giving very detailed insights into their approaches and the metrics they calculate. They also have a thorough comparison with Google Analytics and have open-sourced their analytics scripts. The dashboard and analytics they provide is clean, concise, and simple to use - an live demo is hosted on their website. Finally, I think their pricing structure is fair, with a free tier, options for students, and a range of paid tiers to suit different needs.\nPutting all this together, with a strong focus on user privacy and pulling on the heart strings of my inner-geek, introducing Simple Analytics to this site was a no-brainer! If you have a site that uses analytics (especially one built with quarto) I hope this article resonates with you as discovering Simple Analytics did for me!"
+  },
+  {
+    "objectID": "blog/posts/simple-analytics/index.html#adding-simple-analytics-to-quarto-websites",
+    "href": "blog/posts/simple-analytics/index.html#adding-simple-analytics-to-quarto-websites",
+    "title": "Alternative Analytics for quarto Sites?",
+    "section": "Adding Simple Analytics to quarto Websites",
+    "text": "Adding Simple Analytics to quarto Websites\n\n\n\n\n\n\nAlways use the latest version of the Simple Analytics setup…\n\n\n\n\n\nDo not directly copy the example .html and _quarto.yml files linked within this section without checking the Simple Analytics documentation first. Always revert back to and use the latest installation script syntax shared by Simple Analytics to remain up-to-date. The links to the heuristic-pedals GitHub repo home are purely shared for example purposes only.\n\n\n\nThe following instructions show how to add Simple Analytics to a Quarto Website:\n\nGo to the Simple Analytics documentation script set-up page and copy the HTML/java snippet.\nCreate a new .html file and add the HTML/java snippet.\nIn your _quarto.yml configuration file, add the relative file path to the newly created HTML file in step 2, at the format &gt; HTML &gt; include-after-body location.\nCommit and deploy these changes to your site.\nCreate a Simple Analytics log-in and then follow the on-screen instructions to add your domain to your account.\n\nAs the last stage of step 5, Simple Analytics will search for the presence of this script in your website. Within a few minutes you will be set-up and ready to go 🥳\nFor a firsthand demonstration of steps 2 and 3, you can check out example .html and _quarto.yml files within in the GitHub repo used for this site."
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog Posts",
+    "section": "",
+    "text": "Welcome to the blog posts section! Use the dropdown, search box, and category filters to look for posts.\n\n\n\n\n\n\nEach post is categorised by at least one tag using the Diátaxis framework…\n\n\n\n\n\n\nexplanation: discussions focusing on understanding something.\nhow-to: concise instructions for getting something done.\nreference: information on how something works or how to work with it.\ntutorial: lesson and learning oriented examples of something.\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nAlternative Analytics for quarto Sites?\n\n\n4 min\n\n\n\nquarto\n\n\nhow-to\n\n\n\nHow to add Simple Analytics to a quarto website.\n\n\n\n2024-05-19\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n‘Jazzing Up’ zsh with oh-my-zsh\n\n\n4 min\n\n\n\ncli\n\n\nhow-to\n\n\n\nHow to set-up oh-my-zsh with some helpful plugins and themes.\n\n\n\n2024-05-06\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Heuristic Pedals",
+    "section": "",
+    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!\n\nWhere next?\nHead over to the blog section for a range of posts covering software and coding related topics."
+  },
+  {
     "objectID": "blog/posts/oh-my-zsh-setup/index.html",
     "href": "blog/posts/oh-my-zsh-setup/index.html",
     "title": "‘Jazzing Up’ zsh with oh-my-zsh",
@@ -33,19 +75,5 @@
     "title": "‘Jazzing Up’ zsh with oh-my-zsh",
     "section": "Further Reading & Final Thoughts",
     "text": "Further Reading & Final Thoughts\nThe oh-my-zsh website is a great place to go for detailed and up-to-date information.\nAll the available built-in plugins are recorded on the oh-my-zsh website. I find the following plugins helpful: git (aliases), docker (completion support and aliases), gcloud (completion support), python (aliases and virtual environment commands) and terraform (completion support and aliases). This is by no means a complete list though, there are lots to choose from! Try not to add too many plugins at once otherwise you may find the terminal slow, particularly at startup.\nAll the available built-in themes are listed on the oh-my-zsh website. I use the gnzh theme because it is simple, clean and separates the command line onto a separate line - I personally find that easier to read and scan quickly. Some themes are reportedly more easy to customise, like agnoster, but if you aren’t looking to edit/build your own then the choice of theme is purely personal preference.\nIf you’re wondering what else oh-my-zsh could offer you, take a look at this great post which gives a quick overview of it’s main offerings. Also, if you’re finding your terminal too slow due to lots of plugins and unnecessary ‘bloat’, you’re definitely not alone! Check out this interesting article which shows you how to set-up an oh-my-zsh-like terminal without using oh-my-zsh.\n\n\n\n\n\n\nHooray\n\n\n\n🎉 You made it to the end of the first ever heuristic-pedals blog post! Thanks for your time and I hope you found this helpful! 🎉"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Heuristic Pedals",
-    "section": "",
-    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!\n\nWhere next?\nHead over to the blog section for a range of posts covering software and coding related topics."
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog Posts",
-    "section": "",
-    "text": "Welcome to the blog posts section! Use the dropdown, search box, and category filters to look for posts.\n\n\n\n\n\n\nEach post is categorised by at least one tag using the Diátaxis approach…\n\n\n\n\n\n\nexplanation: discussions focusing on understanding something.\nhow-to: concise instructions for getting something done.\nreference: information on how something works or how to work with it.\ntutorial: lesson and learning oriented examples of something.\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n‘Jazzing Up’ zsh with oh-my-zsh\n\n\n4 min\n\n\n\ncli\n\n\nhow-to\n\n\n\nHow to set-up oh-my-zsh with some helpful plugins and themes.\n\n\n\n2024-05-06\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
