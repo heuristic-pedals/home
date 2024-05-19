@@ -1,11 +1,11 @@
 ---
-title: "Alternative Analytics for Quarto Sites?"
-description: "How to add Simple Analytics to a Quarto website."
+title: "Alternative Analytics for quarto Sites?"
+description: "How to add `Simple Analytics` to a quarto website."
 date: 05/19/2024
 date-modified: last-modified
 date-format: iso
 layout: post
-categories: [how-to, quarto]
+categories: [quarto, how-to]
 image: cookies.jpg
 image-alt: |
   Cookies and milk. Photo by [Christina Branco](https://unsplash.com/@starvingartistfoodphotography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/stack-of-cookies-and-glass-of-milk-7P-wc2Z2Ujs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
@@ -14,3 +14,45 @@ title-block-style: default
 title-block-banner: "#000000"
 title-block-banner-color: "#FFFFFF"
 ---
+
+This guide will show you how to:
+
+::: {.intro-div}
+
+- Add a Google Analytics alternative, `Simple Analytics`, to a quarto website. 
+
+:::
+
+## Introduction
+
+When I started this blog I did not want to add site analytics. Partly because I do not feel this is important as a small blogging site. But mostly because I personally find user tracking, at the very least, an ethically grey area. It is certainly useful to help gain feedback on the extent, relevance, and engagement of online content. However, this is not without its bad side, in the context of spider-web-like marketing campaigns and user tracking with little to no care for privacy.
+
+The position is also quite tricky when it comes to using [quarto][quarto] (which this blogging site uses). It is an excellent tool for scientific writing and website development, but right now it only provides [easy integration][ga-quarto] for [Google Analytics][google-analytics]. Having only this single option is far from ideal. It supports a monopoly towards an already powerful tech giant who also [share user data with third parties for monetary purposes][sa-google].
+
+After some online research, my decision on site analytics changed thanks to a viable alternative option. This post looks to share another, privacy-focused, approach to site analytics when using quarto... Step forward `Simple Analytics`!
+
+## What is Simple Analytics?
+
+[Simple Analytics][simple-analytics] describe themselves as:
+
+> "A privacy-first Google Analytics alternative."
+
+They comply with a range of privacy policies, including GDPR, whilst using no site cookies and storing no personal details. [Their documentation][sa-docs] is excellent, giving very detailed insights into [their approaches][sa-approaches] and the [metrics they calculate][sa-metrics]. They also have a [thorough comparison with Google Analytics][sa-ga-compare] and have [open-sourced their analytics scripts][sa-scripts]. The dashboard and analytics they provide is clean, concise, and simple to use - an [live demo is hosted on their website][sa-demo]. Finally, I think their [pricing structure][sa-pricing] is fair, with a free tier, options for [students][sa-students], and a range of paid tiers to suit different needs.
+
+Putting all this together, with a strong focus on user privacy and pulling on the heart strings of my inner-geek, introducing Simple Analytics to this site was a no-brainer! If you have a site that uses analytics (especially one built with quarto) I hope this article resonates with you as discovering Simple Analytics did for me!
+
+## Adding Simple Analytics to quarto Websites
+
+[quarto]: https://quarto.org
+[ga-quarto]: https://quarto.org/docs/websites/website-tools.html#google-analytics
+[google-analytics]: https://marketingplatform.google.com/about/analytics/
+[simple-analytics]: https://www.simpleanalytics.com
+[sa-google]: https://www.simpleanalytics.com/blog/does-google-sell-your-data
+[sa-docs]: https://docs.simpleanalytics.com
+[sa-approaches]: https://docs.simpleanalytics.com/explained/time-on-page
+[sa-ga-compare]: https://www.simpleanalytics.com/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics
+[sa-metrics]: https://docs.simpleanalytics.com/what-we-collect
+[sa-scripts]: https://github.com/simpleanalytics/scripts
+[sa-demo]: https://dashboard.simpleanalytics.com/simpleanalytics.com?from=landing
+[sa-pricing]: https://www.simpleanalytics.com/pricing
+[sa-students]: https://dashboard.simpleanalytics.com/students
