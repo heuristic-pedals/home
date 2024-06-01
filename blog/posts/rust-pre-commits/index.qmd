@@ -66,12 +66,166 @@ rustup component add clippy
 
 ## Setting up pre-commit hooks
 
+This section provides two sets of instructions for adding pre-commit hooks to rust project. [Option 1](#option-1-using-pre-commit) uses `pre-commit`, which is a useful approach for those looking for an 'off-the-shelf' solution. [Option 2](#option-2-writing-own-hooks) explores writing hooks directly, meaning no additional external dependencies are required.
+
 ### Option 1: Using `pre-commit`
 
-### Option 2: Writing own git hooks
+### Option 2: Writing own hooks
+
+::: {.callout-note}
+
+The instruction in this section will work on MacOS and Linux, but not on Windows.
+
+:::
+
+This approach works by adding a script that executes when attempting to commit. It runs the necessary `cargo` compilation, formatting, and linting checks, then blocks the commit if an issue is detected at any stage.
+
+The following instructions add the same `check`, `fmt`, and `clippy` pre-commit checks as shown in the [previous section](#option-1-using-pre-commit). To demonstrate the flexibility of this approach, there is a version of the script where the test suite is also executed as part of the pre-commit checks (which is not currently achievable with the previous option). Adding test suite execution is purely a design choice, trading off between execution speed and risk of any changes causing test failures on the runners. 
+
+1. Within your git version controlled rust project directory, create a `pre-commit` file in the `.git/hooks/` directory:
+```zsh
+touch .git/hooks/pre-commit
+```
+
+2. Open the file, and add the following content:
+
+::: {.panel-tabset}
+
+## With `cargo test` hook
+
+```sh
+#!/bin/sh
+
+set -eu
+
+# formatting variables
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+BOLD=$(tput bold)
+NORM=$(tput sgr0)
+
+echo "Running pre-commit checks..."
+
+# cargo check hook
+if ! cargo check --workspace
+then
+    echo -e "cargo check: ......... ${RED}nok${NC}"
+    echo -e "${RED}Pre-commit: Issues detected when calling 'cargo check'."
+    exit 1
+fi
+
+echo -e "cargo check: ......... ${GREEN}ok${NC}"
+
+# cargo rustfmt hook
+if ! cargo fmt -- --check
+then
+    echo -e "cargo rustfmt: ....... ${RED}nok${NC}"
+    echo -e "${RED}Pre-commit: Code style issues detected with rustfmt."
+    exit 1
+fi
+
+echo -e "cargo rustfmt: ....... ${GREEN}ok${NC}"
+
+# cargo clippy hook
+if ! cargo clippy --all-targets -- -D warnings
+then
+    echo -e "cargo clippy: ........ ${RED}nok${NC}"
+    echo -e "${RED}Pre-commit: Issues detected by clippy."
+    exit 1
+fi
+
+echo -e "cargo clippy: ........ ${GREEN}ok${NC}"
+
+# cargo test hook
+if ! cargo test
+then
+    echo -e "cargo test: .......... ${RED}nok${NC}" 
+    echo -e "${RED}Pre-commit: Issues were detected when running the test suite." 
+    exit 1
+fi
+
+echo -e "cargo test: .......... ${GREEN}ok${NC}"
+
+echo -e "\n${GREEN}${BOLD}Success: ${NC}${NORM}All pre-commit checks passed ✅\n"
+
+exit 0
+```
+
+## Without `cargo test` hook
+
+```sh
+#!/bin/sh
+
+set -eu
+
+# formatting variables
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+BOLD=$(tput bold)
+NORM=$(tput sgr0)
+
+echo "Running pre-commit checks..."
+
+# cargo check hook
+if ! cargo check --workspace
+then
+    echo -e "cargo check: ......... ${RED}nok${NC}"
+    echo -e "${RED}Pre-commit: Issues detected when calling 'cargo check'."
+    exit 1
+fi
+
+echo -e "cargo check: ......... ${GREEN}ok${NC}"
+
+# cargo rustfmt hook
+if ! cargo fmt -- --check
+then
+    echo -e "cargo rustfmt: ....... ${RED}nok${NC}"
+    echo -e "${RED}Pre-commit: Code style issues detected with rustfmt."
+    exit 1
+fi
+
+echo -e "cargo rustfmt: ....... ${GREEN}ok${NC}"
+
+# cargo clippy hook
+if ! cargo clippy --all-targets -- -D warnings
+then
+    echo -e "cargo clippy: ........ ${RED}nok${NC}"
+    echo -e "${RED}Pre-commit: Issues detected by clippy."
+    exit 1
+fi
+
+echo -e "cargo clippy: ........ ${GREEN}ok${NC}"
+
+echo -e "\n${GREEN}${BOLD}Success: ${NC}${NORM}All pre-commit checks passed ✅\n"
+
+exit 0
+```
+
+:::
+
+::: {.callout-note}
+
+The above code in step 2 is inspired by a solution posted in a [deaddabe blog][deaddabe]. This is built on by adding additional hooks and CLI formatting.
+
+:::
+
+3. Make this file executable:
+```zsh
+chmod +x .git/hooks/pre-commit
+```
+
+4. Check the pre-commit hooks are working by calling:
+```zsh
+bash .git/hooks/pre-commit
+```
+
+5. Enjoy using rust with pre-commits 🥳
 
 [rustup]: https://rustup.rs
 [pre-commit]: https://pre-commit.com/index.html
 [fmt]: https://github.com/rust-lang/rustfmt
 [clippy]: https://github.com/rust-lang/rust-clippy
 [pre-receive-github]: https://docs.github.com/en/enterprise-server@3.9/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
+[deaddabe]: https://deaddabe.fr/blog/2021/09/29/git-pre-commit-hook-for-rust-projects/
