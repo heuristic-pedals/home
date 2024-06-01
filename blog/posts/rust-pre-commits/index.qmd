@@ -66,7 +66,22 @@ rustup component add clippy
 
 ## Setting up pre-commit hooks
 
-This section provides two sets of instructions for adding pre-commit hooks to rust project. [Option 1](#option-1-using-pre-commit) uses `pre-commit`, which is a useful approach for those looking for an 'off-the-shelf' solution. [Option 2](#option-2-writing-own-hooks) explores writing hooks directly, meaning no additional external dependencies are required.
+This section provides two sets of instructions for adding pre-commit hooks to rust project. [Option 1](#option-1-using-pre-commit) uses [`pre-commit`][pre-commit], which is a useful approach for those looking for an 'off-the-shelf' solution. [Option 2](#option-2-writing-own-hooks) explores writing hooks directly, meaning no additional external dependencies are required.
+
+They add the following hooks:
+
+| Hook | Description |
+| -- | ----- |
+| `cargo check` | Check source code and dependencies for compilation errors. |
+| `cargo fmt` | Check source code for formatting inconsistencies. |
+| `cargo clippy` | Run lints to check for common issues. |
+| `cargo test` | Run whole test suite. |
+
+::: {.callout-note}
+
+The `cargo test` hook is only available when using [Option 2](#option-2-writing-own-hooks).
+
+:::
 
 ### Option 1: Using `pre-commit`
 
