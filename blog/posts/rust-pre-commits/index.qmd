@@ -19,8 +19,8 @@ This guide will show you how to:
 
 ::: {.intro-div}
 
-- Add `fmt` and `clippy` components to `cargo`.
-- Add `cargo` `fmt`, `clippy`, and `test` git pre-commit hooks to a rust project. 
+- Add `rustfmt` and `clippy` components to `cargo`.
+- Add `cargo` `rustfmt`, `clippy`, and `test` git pre-commit hooks to a rust project. 
 
 :::
 
@@ -34,11 +34,11 @@ This guide will show you how to:
 
 ## Introduction
 
-Having code linting, formatting, and tests run automatically during CI runs is very advantageous. In particular, it helps enforce code standards and quality. From a rust perspective, having `cargo` on hand to do this is very helpful. However, executing these locally during development is a manual process, which can sometimes cause issues - as humans we forget a lot! In those cases, code could be pushed to a CI runner which then fails because there were problems when running the linter, formatter, and/or tests.
+Having code checks, linting, formatting, and tests run automatically during CI runs is very advantageous. In particular, it helps enforce code standards and quality. From a rust perspective, having `cargo` on hand to do this is very helpful. However, executing these locally during development is a manual process, which can sometimes cause issues - as humans we forget a lot! In those cases, code could be pushed to a CI runner which then fails because there were problems when running the linter, formatter, and/or tests.
 
-Pre-commits are renowned in many programming languages. Perhaps most notably the [`pre-commit` framework][pre-commit] itself. Pre-commit hooks can help prevent these issues by executing checks automatically before committing.
+Pre-commits are renowned in many programming languages (perhaps most notably the [`pre-commit` framework][pre-commit] itself). Pre-commit hooks can help prevent these issues by executing checks automatically before committing.
 
-This guide explores two options for adding pre-commit hooks within rust projects - see the [Setting up pre-commit hooks](#setting-up-pre-commit-hooks) section for more details. Both rely on `cargo`'s additional components [`fmt` formatter][fmt] and [`clippy` linter][clippy], so the following section starts by showing how these can be added to `cargo`.
+This guide explores two options for adding pre-commit hooks within rust projects - see the [Setting up pre-commit hooks](#setting-up-pre-commit-hooks) section for more details. Both rely on `cargo`'s additional components [`rustfmt` formatter][fmt] and [`clippy` linter][clippy], so the following section starts by showing how these can be added to `cargo`.
 
 ::: {.callout-warning collapse="true"}
 
@@ -48,11 +48,11 @@ This guide explores two options for adding pre-commit hooks within rust projects
 
 :::
 
-## Adding `fmt` and `clippy`
+## Adding `rustfmt` and `clippy`
 
-`fmt` and `clippy` can be added as additional components to `cargo`. 
+`rustfmt` and `clippy` can be added as additional components to `cargo`. 
 
-1. Install `fmt`:
+1. Install `rustfmt`:
 
 ```zsh
 rustup component add rustfmt
@@ -66,7 +66,7 @@ rustup component add clippy
 
 ## Setting up pre-commit hooks
 
-This section provides two sets of instructions for adding pre-commit hooks to rust project. [Option 1](#option-1-using-pre-commit) uses [`pre-commit`][pre-commit], which is a useful approach for those looking for an 'off-the-shelf' solution. [Option 2](#option-2-writing-own-hooks) explores writing hooks directly, meaning no additional external dependencies are required.
+This section provides two sets of instructions for adding pre-commit hooks within a rust project. [Option 1](#option-1-using-pre-commit) uses [`pre-commit`][pre-commit], which is a useful approach for those looking for an 'off-the-shelf' solution. [Option 2](#option-2-writing-own-hooks) explores writing hooks directly, meaning no additional external dependencies are required.
 
 They add the following hooks:
 
@@ -119,12 +119,12 @@ Check and update `rev` to the latest version before use. The above `repo` url wi
 pre-commit install
 ```
 
-4. Check the pre-commit hooks are working by calling:
+5. Check the pre-commit hooks are working by calling:
 ```zsh
 pre-commit run --all-files
 ```
 
-5. Enjoy using rust with pre-commits 🥳
+6. Enjoy using rust with pre-commits 🥳
 
 ### Option 2: Writing own hooks
 
@@ -136,7 +136,7 @@ The instruction in this section will work on MacOS and Linux, but not on Windows
 
 This approach works by adding a script that executes when attempting to commit. It runs the necessary `cargo` compilation, formatting, and linting checks, then blocks the commit if an issue is detected at any stage.
 
-The following instructions add the same `check`, `fmt`, and `clippy` pre-commit checks as shown in the [previous section](#option-1-using-pre-commit). To demonstrate the flexibility of this approach, there is a version of the script where the test suite is also executed as part of the pre-commit checks (which is not currently achievable with the previous option). Adding test suite execution is purely a design choice, trading off between execution speed and risk of any changes causing test failures on the runners. 
+The following instructions add the same `check`, `rustfmt`, and `clippy` pre-commit checks as shown in the [previous section](#option-1-using-pre-commit). To demonstrate the flexibility of this approach, there is a version of the script where the test suite is also executed as part of the pre-commit checks (which is not currently achievable with the previous option). Adding test suite execution is purely a design choice, trading off between execution speed and risk of any changes causing test failures on the runners. 
 
 1. Within your git version controlled rust project directory, create a `pre-commit` file in the `.git/hooks/` directory:
 ```zsh
@@ -263,7 +263,7 @@ exit 0
 
 ::: {.callout-note}
 
-The above code in step 2 is inspired by a solution posted in a [deaddabe blog][deaddabe]. This is built on by adding additional hooks and CLI formatting.
+The above code in step 2 is inspired by a solution posted in a [deaddabe blog][deaddabe]. This is built on here by adding additional hooks and CLI formatting.
 
 :::
 
