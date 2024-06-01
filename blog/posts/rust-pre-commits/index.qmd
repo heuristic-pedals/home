@@ -85,6 +85,47 @@ The `cargo test` hook is only available when using [Option 2](#option-2-writing-
 
 ### Option 1: Using `pre-commit`
 
+The instructions in this section use [`pre-commit`][pre-commit] and the currently supported [rust pre-commit hooks][doublify]. See [here for other supported hooks][other-hooks].
+
+1. Follow the [latest `pre-commit` installation][pre-commit-install] instructions.
+
+2. Within your git version controlled rust project root directory, create a `.pre-commit-config.yaml` file:
+```zsh
+touch .pre-commit-config.yaml
+```
+
+3. Open the file and add the following contents:
+```yaml
+repos:
+-   repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+    -   id: cargo-check
+        args: ["--workspace"]
+    -   id: fmt
+        args: ["--", "--check"]
+    -   id: clippy
+        args: ["--", "-D", "warnings"]
+```
+
+::: {.callout-note}
+
+Check and update `rev` to the latest version before use. The above `repo` url will provide the latest version number.
+
+:::
+
+4. Install the pre-commits:
+```zsh
+pre-commit install
+```
+
+4. Check the pre-commit hooks are working by calling:
+```zsh
+pre-commit run --all-files
+```
+
+5. Enjoy using rust with pre-commits 🥳
+
 ### Option 2: Writing own hooks
 
 ::: {.callout-note}
@@ -240,7 +281,10 @@ bash .git/hooks/pre-commit
 
 [rustup]: https://rustup.rs
 [pre-commit]: https://pre-commit.com/index.html
+[pre-commit-install]: https://pre-commit.com/index.html#install
+[other-hooks]: https://pre-commit.com/hooks.html
 [fmt]: https://github.com/rust-lang/rustfmt
 [clippy]: https://github.com/rust-lang/rust-clippy
 [pre-receive-github]: https://docs.github.com/en/enterprise-server@3.9/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
+[doublify]: https://github.com/doublify/pre-commit-rust
 [deaddabe]: https://deaddabe.fr/blog/2021/09/29/git-pre-commit-hook-for-rust-projects/
