@@ -24,8 +24,54 @@ This guide will show you how to:
 
 :::
 
+::: {.callout-warning}
+
+## Pre-requisite Installations
+
+- A stable rust toolchain and `cargo` (e.g. using [rustup]).
+
+:::
+
 ## Introduction
+
+Having code linting, formatting, and tests run automatically during CI runs is very advantageous. In particular, it helps enforce code standards and quality. From a rust perspective, having `cargo` on hand to do this is very helpful. However, executing these locally during development is a manual process, which can sometimes cause issues - as humans we forget a lot! In those cases, code could be pushed to a CI runner which then fails because there were problems when running the linter, formatter, and/or tests.
+
+Pre-commits are renowned in many programming languages. Perhaps most notably the [`pre-commit` framework][pre-commit] itself. Pre-commit hooks can help prevent these issues by executing checks automatically before committing.
+
+This guide explores two options for adding pre-commit hooks within rust projects - see the [Setting up pre-commit hooks](#setting-up-pre-commit-hooks) section for more details. Both rely on `cargo`'s additional components [`fmt` formatter][fmt] and [`clippy` linter][clippy], so the following section starts by showing how these can be added to `cargo`.
+
+::: {.callout-warning collapse="true"}
+
+## Pre-commit hooks aren't infallible...
+
+... they rely on users to install the pre-commit hooks locally, which presents another opportunity for us humans to make mistakes (by not installing before committing, for example). In this case pre-receive hooks maybe a better option. However, pre-receive hooks [on GitHub][pre-receive-github] seem to be an Enterprise only solution 😞.
+
+:::
 
 ## Adding `fmt` and `clippy`
 
+`fmt` and `clippy` can be added as additional components to `cargo`. 
+
+1. Install `fmt`:
+
+```zsh
+rustup component add rustfmt
+```
+
+2. Install `clippy`:
+
+```zsh
+rustup component add clippy
+```
+
 ## Setting up pre-commit hooks
+
+### Option 1: Using `pre-commit`
+
+### Option 2: Writing own git hooks
+
+[rustup]: https://rustup.rs
+[pre-commit]: https://pre-commit.com/index.html
+[fmt]: https://github.com/rust-lang/rustfmt
+[clippy]: https://github.com/rust-lang/rust-clippy
+[pre-receive-github]: https://docs.github.com/en/enterprise-server@3.9/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
