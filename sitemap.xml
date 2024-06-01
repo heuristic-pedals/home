@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://heuristicpedals.com/blog/posts/simple-analytics/index.html</loc>
-    <lastmod>2024-05-19T18:47:32.680Z</lastmod>
+    <lastmod>2024-06-01T19:53:36.350Z</lastmod>
   </url>
   <url>
-    <loc>https://heuristicpedals.com/blog/index.html</loc>
-    <lastmod>2024-05-19T18:47:32.680Z</lastmod>
+    <loc>https://heuristicpedals.com/blog/posts/rust-pre-commits/index.html</loc>
+    <lastmod>2024-06-01T19:53:36.350Z</lastmod>
   </url>
   <url>
     <loc>https://heuristicpedals.com/index.html</loc>
-    <lastmod>2024-05-19T18:47:32.684Z</lastmod>
+    <lastmod>2024-06-01T19:53:36.350Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heuristicpedals.com/blog/index.html</loc>
+    <lastmod>2024-06-01T19:53:36.350Z</lastmod>
   </url>
   <url>
     <loc>https://heuristicpedals.com/blog/posts/oh-my-zsh-setup/index.html</loc>
-    <lastmod>2024-05-19T18:47:32.680Z</lastmod>
+    <lastmod>2024-06-01T19:53:36.350Z</lastmod>
   </url>
 </urlset>
