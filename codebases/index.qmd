@@ -26,7 +26,7 @@ _Rust_ | _In Development_
 
 An ATOC.CIF to GTFS converter written in `rust`. 
 
-[GitHub][atoc2gtfs]{.btn .btn-outline-primary .btn role="button"} [Docs][atoc2gtfs-docs]{.btn .btn-outline-primary .btn role="button"}
+[GitHub][atoc2gtfs]{.btn .btn-outline-primary role="button"} [Docs][atoc2gtfs-docs]{.btn .btn-outline-primary role="button"}
 
 :::
 
@@ -52,7 +52,7 @@ _quarto_ | _In Development_
 
 Source code for this website.
 
-[Github][home]{.btn .btn-outline-primary .btn role="button"}
+[Github][home]{.btn .btn-outline-primary role="button"}
 
 :::
 
@@ -78,7 +78,7 @@ _Rust_ | _Mature_
 
 A small [grep]-like implementation in rust. Searches for a sub-string pattern within lines of a single file and returns them.
 
-[GitHub][minigrep]{.btn .btn-outline-primary .btn role="button"} [Docs][atoc2gtfs-docs]{.btn .btn-outline-primary .btn role="button"}
+[GitHub][minigrep]{.btn .btn-outline-primary role="button"} [Docs][atoc2gtfs-docs]{.btn .btn-outline-primary role="button"}
 
 :::
 
