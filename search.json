@@ -60,7 +60,35 @@
     "href": "index.html",
     "title": "Heuristic Pedals",
     "section": "",
-    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!\n\nWhere next?\nHead over to the blog section for a range of posts covering software and coding related topics."
+    "text": "A data scientist, ex-engineer, and even ex-er-physicist mainly writing about python and rust. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!\n\nWhere next?\n\nblog - a range of posts covering software and coding topics.\ncodebases - summary of heuristic-pedals code repositories."
+  },
+  {
+    "objectID": "codebases/index.html",
+    "href": "codebases/index.html",
+    "title": "Codebases",
+    "section": "",
+    "text": "Below is a summary of heuristic-pedals codebases. If you’d like to collaborate head over to GitHub.\n\n\n\n\n\n\n\n\nRust | In Development\nAn ATOC.CIF to GTFS converter written in rust.\nGitHub Docs\n\n\n\n\n\n\n\n\n\n\n\nquarto | In Development\nSource code for this website.\nGithub\n\n\n\n\n\n\n\n\n\n\n\nRust | Mature\nA small grep-like implementation in rust. Searches for a sub-string pattern within lines of a single file and returns them.\nGitHub Docs"
+  },
+  {
+    "objectID": "codebases/index.html#atoc2gtfs",
+    "href": "codebases/index.html#atoc2gtfs",
+    "title": "Codebases",
+    "section": "",
+    "text": "Rust | In Development\nAn ATOC.CIF to GTFS converter written in rust.\nGitHub Docs"
+  },
+  {
+    "objectID": "codebases/index.html#home",
+    "href": "codebases/index.html#home",
+    "title": "Codebases",
+    "section": "",
+    "text": "quarto | In Development\nSource code for this website.\nGithub"
+  },
+  {
+    "objectID": "codebases/index.html#minigrep",
+    "href": "codebases/index.html#minigrep",
+    "title": "Codebases",
+    "section": "",
+    "text": "Rust | Mature\nA small grep-like implementation in rust. Searches for a sub-string pattern within lines of a single file and returns them.\nGitHub Docs"
   },
   {
     "objectID": "blog/index.html",
