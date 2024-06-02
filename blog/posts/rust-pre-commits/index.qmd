@@ -2,7 +2,7 @@
 title: "Rust pre-commit hooks"
 description: "How to add git pre-commit hooks to `rust` projects."
 date: 06/01/2024
-date-modified: last-modified
+date-modified: 06/01/2024
 date-format: iso
 layout: post
 categories: [rust, how-to]
