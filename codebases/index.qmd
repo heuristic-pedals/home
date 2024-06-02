@@ -1,0 +1,93 @@
+---
+toc: true
+---
+
+# Codebases
+
+Below is a summary of `heuristic-pedals` codebases. If you'd like to collaborate head over to [GitHub].
+
+## `atoc2gtfs`
+
+:::: {.columns}
+
+::: {.column width="15%"}
+
+![](https://www.rust-lang.org/static/images/rust-logo-blk.svg){width="100%"}
+
+:::
+
+::: {.column width="2%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="83%"}
+
+_Rust_ | _In Development_
+
+An ATOC.CIF to GTFS converter written in `rust`. 
+
+[GitHub][atoc2gtfs]{.btn .btn-outline-primary role="button"} [Docs][atoc2gtfs-docs]{.btn .btn-outline-primary role="button"}
+
+:::
+
+::::
+
+## `home`
+
+:::: {.columns}
+
+::: {.column width="15%"}
+
+![](../files/hp_logo_reduced.png){width="100%"}
+
+:::
+
+::: {.column width="2%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="83%"}
+
+_quarto_ | _In Development_
+
+Source code for this website.
+
+[Github][home]{.btn .btn-outline-primary role="button"}
+
+:::
+
+::::
+
+## `minigrep`
+
+:::: {.columns}
+
+::: {.column width="15%"}
+
+![](https://www.rust-lang.org/static/images/rust-logo-blk.svg){width="100%"}
+
+:::
+
+::: {.column width="2%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="83%"}
+
+_Rust_ | _Mature_
+
+A small [grep]-like implementation in rust. Searches for a sub-string pattern within lines of a single file and returns them.
+
+[GitHub][minigrep]{.btn .btn-outline-primary role="button"} [Docs][atoc2gtfs-docs]{.btn .btn-outline-primary role="button"}
+
+:::
+
+::::
+
+[GitHub]: https://github.com/heuristic-pedals
+[atoc2gtfs]: https://github.com/heuristic-pedals/atoc2gtfs
+[atoc2gtfs-docs]: https://heuristic-pedals.github.io/atoc2gtfs/atoc2gtfs/
+[minigrep]: https://github.com/heuristic-pedals/minigrep
+[grep]: https://www.gnu.org/software/grep/manual/grep.html
+[minigrep-docs]: https://heuristic-pedals.github.io/minigrep/minigrep/
+[home]: https://github.com/heuristic-pedals/home

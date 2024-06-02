@@ -13,4 +13,5 @@ A data scientist, ex-engineer, and even ex-er-physicist mainly writing about `py
 
 ### Where next?
 
-Head over to the [blog section](/blog/index.qmd) for a range of posts covering software and coding related topics.
+- [blog](/blog/index.qmd) - a range of posts covering software and coding topics.
+- [codebases](/codebases/index.qmd) - summary of `heuristic-pedals` code repositories.

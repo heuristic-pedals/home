@@ -27,6 +27,8 @@ website:
         href: "index.qmd"
       - text: "Blog"
         href: "blog/index.qmd"
+      - text: "Codebases"
+        href: "codebases/index.qmd"
 
     right:
       - icon: github
