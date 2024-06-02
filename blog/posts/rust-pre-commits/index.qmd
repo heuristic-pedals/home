@@ -2,7 +2,7 @@
 title: "Rust pre-commit hooks"
 description: "How to add git pre-commit hooks to `rust` projects."
 date: 06/01/2024
-date-modified: 06/01/2024
+date-modified: 06/02/2024
 date-format: iso
 layout: post
 categories: [rust, how-to]
@@ -20,7 +20,7 @@ This guide will show you how to:
 ::: {.intro-div}
 
 - Add `rustfmt` and `clippy` components to `cargo`.
-- Add `cargo` `rustfmt`, `clippy`, and `test` git pre-commit hooks to a rust project. 
+- Add `cargo` `check`, `rustfmt`, `clippy`, and `test` git pre-commit hooks to a rust project. 
 
 :::
 
