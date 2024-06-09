@@ -6,6 +6,32 @@ toc: true
 
 Below is a summary of `heuristic-pedals` codebases. If you'd like to collaborate head over to [GitHub].
 
+## `assumpdoc`
+
+:::: {.columns}
+
+::: {.column width="15%"}
+
+![](https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png){width="100%"}
+
+:::
+
+::: {.column width="2%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="83%"}
+
+_Python_ | _In Development_
+
+Easily add assumptions and caveats to documentation.
+
+[GitHub][assumpdoc]{.btn .btn-outline-primary role="button"} [Docs][assumpdoc-docs]{.btn .btn-outline-primary role="button"} [PyPi][assumpdoc-pypi]{.btn .btn-outline-primary role="button"}
+
+:::
+
+::::
+
 ## `atoc2gtfs`
 
 :::: {.columns}
@@ -91,3 +117,6 @@ A small [grep]-like implementation in rust. Searches for a sub-string pattern wi
 [grep]: https://www.gnu.org/software/grep/manual/grep.html
 [minigrep-docs]: https://heuristic-pedals.github.io/minigrep/minigrep/
 [home]: https://github.com/heuristic-pedals/home
+[assumpdoc]:https://github.com/heuristic-pedals/assumpdoc
+[assumpdoc-docs]: https://heuristic-pedals.github.io/assumpdoc/
+[assumpdoc-pypi]: https://pypi.org/project/assumpdoc/
