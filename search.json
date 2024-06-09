@@ -67,7 +67,14 @@
     "href": "codebases/index.html",
     "title": "Codebases",
     "section": "",
-    "text": "Below is a summary of heuristic-pedals codebases. If you’d like to collaborate head over to GitHub.\n\n\n\n\n\n\n\n\nRust | In Development\nAn ATOC.CIF to GTFS converter written in rust.\nGitHub Docs\n\n\n\n\n\n\n\n\n\n\n\nquarto | In Development\nSource code for this website.\nGithub\n\n\n\n\n\n\n\n\n\n\n\nRust | Mature\nA small grep-like implementation in rust. Searches for a sub-string pattern within lines of a single file and returns them.\nGitHub Docs"
+    "text": "Below is a summary of heuristic-pedals codebases. If you’d like to collaborate head over to GitHub.\n\n\n\n\n\n\n\n\nPython | In Development\nEasily add assumptions and caveats to documentation.\nGitHub Docs PyPi\n\n\n\n\n\n\n\n\n\n\n\nRust | In Development\nAn ATOC.CIF to GTFS converter written in rust.\nGitHub Docs\n\n\n\n\n\n\n\n\n\n\n\nquarto | In Development\nSource code for this website.\nGithub\n\n\n\n\n\n\n\n\n\n\n\nRust | Mature\nA small grep-like implementation in rust. Searches for a sub-string pattern within lines of a single file and returns them.\nGitHub Docs"
+  },
+  {
+    "objectID": "codebases/index.html#assumpdoc",
+    "href": "codebases/index.html#assumpdoc",
+    "title": "Codebases",
+    "section": "",
+    "text": "Python | In Development\nEasily add assumptions and caveats to documentation.\nGitHub Docs PyPi"
   },
   {
     "objectID": "codebases/index.html#atoc2gtfs",
