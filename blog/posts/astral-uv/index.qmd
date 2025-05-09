@@ -1,6 +1,6 @@
 ---
-title: "UV: A Rust based, 'cargo-like' package manager for Python"
-description: "How to get started with the UV Python package manager."
+title: "UV: A Rust-based, 'cargo-like' package manager for Python"
+description: "An overview of the `uv` Python package manager and how to use it."
 date: 09/05/2025
 date-modified: 09/05/2025
 date-format: iso
@@ -15,38 +15,47 @@ title-block-banner: "#000000"
 title-block-banner-color: "#FFFFFF"
 ---
 
-This page shares information on:
+This page contains:
 
 ::: {.intro-div}
 
-- `uv` as Python package manager.
-- How to install `uv`.
-- Using `uv`: comparing `venv` and `uv` for 'minimal' Python projects.
-- A summary of key `uv` features.
-- A handy `uv` 'cheat sheet'.
+- An introduction to `uv` as Python package manager.
+- Instructions for installing `uv`.
+- Advice on using `uv`, by comparing it with a more classical `venv`/`pip` workflow.
+- A summary of the key `uv` features.
+- A `uv` command 'cheat sheet'.
+
+:::
+
+:::{.callout-note collapse="true"}
+
+## A note on `uv` not yet having a v1.0.0 release...
+
+`uv` is still being actively developed. As such, care should be taken before using in any production environments. Also, [as stated in the `uv` documentation][uv-breaking-changes], prior to a v1.0.0 release all major updates will be reflected in minor version number changes. These minor updates may contain breaking changes and introduce new features. This page will be updated occasionally to reflect important changes to `uv` API and features, but differences may occur if this is not done in good time. Please be sure to check this page's modified date against any `uv` version release date to help identify any potential inconsistencies.
 
 :::
 
 ## Introduction
 
-Having experience in both Rust and Python, hearing about [`uv`] - a Rust based, Cargo-like package manager for Python - was like music to my ears!
+Having experience with both Rust and Python, when I first heard about [`uv`] - a Rust based, Cargo-like package manager for Python - I was happy to 'sign-up' right there and then!
 
-Like [`cargo`] does for Rust, `uv` aims to be the following for Python:
+Just like [`cargo`] is for Rust, `uv` is a single, simplified toolchain for Python dependency management, virtual environment control, and package building. `uv` also achieves significant performance gains compared with existing tools, thanks for it's Rust backend 🦀.
 
-- An extremely fast Python package installer and dependency resolver, thanks to it's Rust backend 🦀, and
-- A single, simplified toolchain for dependency management, virtual environment management, and package building.
+Over the past few months, I have been experimenting with `uv` as an alternative to my current day-to-day choice for dependency and virtual environment management: [`venv`] + [`pip`]. This page takes a look at `uv` in more detail, explores how it is similar/different to `venv` + `pip`, and summarises what additional capabilities it offers.
 
-Over the past few months, I have been experimenting with `uv` as an alternative to my current day-to-day choice: [`venv`] + [`pip`]. This page takes a look at `uv` in more detail, how it is similar/different to `venv` + `pip`, and what extra features it offers. This post in no way replaces the [official documentation and getting started][uv-get-started] guidance provided by the developers. Instead, it aims to summarise the core features of `uv` and help those already familiar with Python package management to get up to speed more quickly.
+This page does not aim to replace the [official `uv` documentation and getting started guidance][uv-get-started] - this should always to the 'go-to' resource. Instead, it aims to concisely summarise the core features of `uv` in a single place and support anyone interested in making the transition to `uv` from more classical Python workflows.
 
 ## Installation
 
 To install `uv`, it's best to check out the main [installation page][uv-install] for the latest instructions. There are multiple options including; standalone installers via `curl`/`wget`, using `brew` on macOS, and even via PyPI.
 
-## Comparing `venv` + `pip` with `uv`: A minimal project example
+## Comparing `uv` with a `venv`/`pip` workflow
 
-A minimal Python project requires at least; a virtual environment for dependencies, version control for source, light documentation (at least a `README.md`), a single Python file to develop source code in, and a means of sharing a reproducible virtual environment with others. Note: I wanted to add testing to this list too, but more on this later.
+One way to explore `uv`'s features is to compare it with a `venv`/`pip` approach to setting up and managing Python projects.
 
-With those things in mind, here is a comparison on how all of this can be done using both `venv` + `pip` and `uv`:
+A minimal Python project typically requires (at least); a single Python file, consideration for source code version control, a virtual environment with a means of sharing dependencies with others, and some form of documentation (at the very least, a `README.md`).
+
+With this type of minimal Python project in mind, here is a comparison of `venv`/`pip` and `uv` workflows:
 
 :::: {.columns}
 
@@ -84,12 +93,24 @@ touch README.md
 touch main.py
 ```
 
-7. Install dependencies:
+7. Update pip:
+```bash
+pip install --upgrade pip
+```
+
+8. Install dependencies into the virtual environment:
 ```bash
 pip install pandas geopandas
 ```
 
-8. Export dependencies:
+9. Write the source code.
+
+10. Run the source code:
+```bash
+python main.py
+```
+
+11. Export dependencies to make the environment reproducible:
 ```bash
 pip freeze > requirements.txt
 ```
@@ -112,17 +133,24 @@ uv init
 uv add pandas geopandas
 ```
 
+3. Write the source code.
+
+4. Run the source code:
+```bash
+uv run main.py
+```
+
 :::
 
 ::::
 
-OK... so quite a few things to note straight away:
+Comparing the workflows in this way indicates:
 
-- It's very clear `uv` is much more **succinct** - a minimal Python project can be initialised in far fewer steps.
-- The fact that the project structure is built automatically from a template means there are **fewer chances for set-up mistakes** and provides a more **consistent structure** between projects.
-- `uv` was much **quicker** when creating the virtual environment and installing the dependencies - fractions of a second vs several seconds for `venv`. This will come in handy for much larger Python packages, with more dependencies to install and resolve.
+- `uv` is much more **succinct** - a minimal Python project can be initialised in far fewer steps.
+- `uv` builds the core project structure is automatically, **lowering the likelihood of set-up mistakes** and providing a more **consistent structure** between projects.
+- `uv` was **much quicker** when creating the virtual environment and installing the dependencies - fractions of a second vs several seconds for `venv`/`pip`. This will be a significant benefit for larger Python packages, with more dependencies to install and resolve.
 
-There are also some notable differences in the directory structure and how the dependencies are managed:
+There are also other notable differences in the directory structure and how the dependencies have been managed/recorded:
 
 :::: {.columns}
 
@@ -165,62 +193,66 @@ There are also some notable differences in the directory structure and how the d
 
 ::::
 
-- `uv` adopts the **latest PEP standards**, specifically the [PEP 517] and [PEP 621] proposals. This all the Python project build and metadata information is contained within a [`pyproject.toml` file]. This means all the top-level project information, dependencies, and configuration can be controlled and managed from a single place.
-- `uv` uses a **dependency locking** via the [`uv.lock`] file, which in some ways is similar to a `requirements.txt` file. It is used to record the exact, resolved project dependencies so that it is more efficient and entirely reproducible when using the project across multiple machines. It should be checked into version control for these reason.
-- `uv` has a `.python-version` file to set a *default* Python version to use for the project environment. Again, this is to help consistency between project set-ups across multiple machines. It is an optional file and `uv` will run without it and will resolve a virtual environment based on the `pyproject.toml` specification - but this may come in handy to fix specific versions across machines when a range of Python versions is valid.
+- `uv` adopts the **latest PEP standards**, specifically [PEP 517] and [PEP 621] by using a [`pyproject.toml` file]. This means all the top-level project information, dependencies, and build configuration can be managed from a single place.
+- `uv` uses **dependency locking** via the [`uv.lock`] file, which in some ways is similar to a `requirements.txt` file. It is used to record the exact state of the resolved project dependencies, greatly improving reproducibility and usability across multiple machines (note: it should be checked into version control for these reasons).
+- `uv` has a `.python-version` file to set a default Python version for the project environment. Again, this is to support consistency between set-ups across multiple machines. However, it is an optional file and `uv` will run without it (`uv` will resolve a Python version based on the `pyproject.toml` specification) - but it may come in handy to fix to a specific version across machines when a range of Python versions are valid.
 
-Great, this gives us an initial insight into what `uv` does, but what other features does it offer?
+This comparison shows `uv` offers a vastly improved workflow compared to a more 'classical' `venv`/`pip` approach, but what other features does it offer?
 
 # Other `uv` Features
 
 ### Installing Python
 
-`uv` will use existing Python installations is they are [already available on your system][uv-python-versions-search]. However, being completely decoupled from Python, it can also help with Python distribution management and installation - just like [`pyenv`]!
+Since `uv` is completely decoupled from Python, it can help with Python distribution management and installation too - just like [`pyenv`]!
 
-Simply call `uv python install` or `uv python install <VERSION>` to install the latest or specific versions of Python respectively. Similarly, `uv python uninstall` and `uv python uninstall <VERSION` will uninstall the requested Python version.
+Simply call `uv python install` or `uv python install <VERSION>` to install the latest or a specific version of Python respectively. Similarly, `uv python uninstall` and `uv python uninstall <VERSION>` will uninstall the latest or requested Python version.
 
-You can also use `uv python list` to display all available and currently installed Python versions.
+You can also use `uv python list` to display all available and currently installed Python versions, and add the `--only-installed` flag to limit the display to only those versions currently installed.
 
-See the [uv Python installation documentation page][uv-python-install] for further information.
+:::{.callout-note}
+`uv` can also use any existing Python installations [already available on your machine][uv-python-versions-search].
+:::
 
-### Setting specific Python versions
+See the [`uv` Python installation documentation page][uv-python-install] for further information.
 
-Specifying versions of Python can be done in a few ways:
+### Use specific Python versions
 
-1. `uv init --python <VERSION>`: This will set the *minimum* (within `pyproject.toml`) and *default* (within `.python-version`) Python version at the project set-up stage.
-2. `uv venv --python <VERSION>`: Set the Python version at the virtual environment creation stage.
-3. Within the `pyproject.toml` (`uv` obeys the Python version restrictions defined here).
-4. Within `.python-version` (if the file exists).
+Specifying versions of Python for a project can be done in a few ways:
+
+1. `uv init --python <VERSION>`: Sets the *minimum* Python version at the project set-up stage (note: *minimum* refers to the `requires-python` argument within the `pyproject.toml` file).
+2. `uv venv --python <VERSION>`: Sets the Python version at the virtual environment creation stage.
+
+:::{.callout-note}
+It is still possible to subsequently set and control the [`requires-python`][pyproject-toml-python-requires] argument within the `pyproject.toml` file as needed, for example to introduce a range of valid Python versions.
+:::
 
 For more details, see the [uv Project Python versions documentation page][uv-python-versions]
 
 :::{.callout-tip}
 
 ## Tips on `uv` Python versions
-- If the requested Python version isn't installed, `uv` helpfully/unhelpfully automatically installs a version that matches the project constraints. See [the uv documentation][uv-python-versions-search] for more details on how `uv` searches for and uses Python versions. Note: if, like me, you find this can be rather opaque, the option can be disabled.
-- Use `uv python dir` to display the Python installation directory.
-- When the virtual environment is activated in the terminal, use `which python` and `python --version` to confirm the active Python distribution in use. 
+- If the requested Python version isn't installed, `uv` helpfully/un-helpfully automatically installs a version that matches the version constraints. If you find this to be rather opaque, the auto-install option can be disabled.
+- Use `uv python dir` to display the Python installation directory for the project.
+- See [the uv documentation][uv-python-versions-search] for more details on how `uv` searches for, installs, and uses Python versions.
 :::
 
-### Application or Library - no problem!
+### Working on different types of project? No problem!
 
-Python project structure can look very different depending on whether you're working on a web app, CLI tool, or piece of data analysis. `uv` still has this covered. `uv` adopts the terms `application`, `package`, and `library` to cater for different project type (just like Cargo does for Rust). During the `uv init` stage, add either the `--app`, `--package`, `--lib` flag to chose the type of project. A brief summary of the differences can be found in the table below.
+Python project structure can look very different depending on whether you're working on a web app, CLI tool, or conducting data analysis. Thankfully, `uv` still has this covered. `uv` adopts the terms `application`, `package`, and `library` to cater for different project types (just like Cargo does for Rust). During the `uv init` stage, you can add either the `--app`, `--package`, `--lib` flag to chose the type of project you'd like. A brief summary of the differences can be found in the table below.
 
-| `uv init` Flag | Usage | Description |
-| -- | --- | ---- |
-| `--app` | Developing/using scripts, web servers, and CLI interfaces | A single directory structure, with a `main.py` and additional project files. |
-| `--package` | Similar to `--app`, but with additional configuration for distribution | As above, but moves all Python source code into a subdirectory of `src` using the project name. Also adds additional entrypoint and build/distribution configuration to the `pyproject.toml`. |
-| `--library` | Developing Python modules or packages | Similar to `--package`, but without the entrypoint definition in the `pyproject.toml`. Also adds a `py.typed` to indicate that type hinting will be used (so it can be checked by type checkers). |
+| `uv init` Flag | Use-cases | Description |
+| -- | ---- | ----- |
+| `--app` |  Scripts, analyses, web servers, and CLI interfaces (and similar) | A single, simplified directory structure with a `main.py` and other project configuration files. |
+| `--package` | Same as `--app`, but with additional focus on building/distribution | As above, but moves all Python source code into a subdirectory of `src` using the project name. Also adds additional entrypoint definitions (for CLI usage) and build/distribution information to the `pyproject.toml`. |
+| `--library` | Python modules or packages | Similar to `--package`, but without the entrypoint definition in the `pyproject.toml`. Also adds a `py.typed` to indicate that type hinting will be used (so it can be checked by type checkers). |
 
-For more information, see the [creating projects][uv-creating-projects] section of the `uv` documentation.
-
-:::{.callout-tip}
-It is possible to also choose the build backend as needed, using the `--build-backend` flag. This opens up the possibility to build extensions that build using other languages, e.g. the `maturin` backend for projects with Rust.
-:::
+For more information, see the [creating projects][uv-creating-projects] section of the `uv` documentation. Also check out the [configuring projects][uv-configure-projects] page on creating more bespoke project structures with `uv`.
 
 ### Managing dependencies
 
-We've already seen the `uv add <PACKAGE>` can be used to add dependencies to projects. But, `uv` also provides a capability to group dependences, e.g. `uv add --dev pytest` and `uv add --group docs quartodoc` will add `pytest` to a test group, and `quartodoc` to a docs group respectively. This is handy for separating out dependencies that aren't part of the core source-code.
+We've already seen [during the comparison with `venv`/`pip`](#comparing-uv-with-a-venvpip-workflow) the command `uv add <PACKAGE>`, which adds dependencies to the project. But, `uv` also provides a capability to group dependences. For example, `uv add --dev pytest` and `uv add --group docs quartodoc` will add `pytest` to a `test` group, and `quartodoc` to a `docs` group respectively. This is handy for separating out dependencies that aren't part of the core source code and therefore minimising the dependencies that need to be installed to use the project.
+
+Specific versions of Packages can be added using `uv add <PACKAGE>==<VERSION>`, and even constrained using the typical `pip` comparator operators and syntax (e.g., `uv add "pandas>=<1.0.0,<2.0.0"` )
 
 Similarly, `uv remove <PACKAGE>` can be used to remove dependencies from a project.
 
@@ -228,7 +260,9 @@ For more information, like installed dependencies from GitHub/other sources, see
 
 ### Displaying dependencies
 
-From time to time, it's handy to know which dependencies are installed within a virtual environment. One way to achieve this is to use `uv pip list`, which displays the installed dependencies in tabular form (more on [`uv pip` later](#want-to-keep-that-venvpip-feel)).
+It's often useful to know which dependencies are installed within a virtual environment, and there are a few options to do this with `uv`.
+
+One way to achieve this is to use `uv pip list`, which displays the installed dependencies in tabular form (more on [the `uv pip` interface later](#want-to-keep-that-venvpip-feel)).
 
 Another option is `uv tree`, which displays the project dependencies as a tree/graph. An example output is shown below:
 ```bash
@@ -256,48 +290,50 @@ uv-test v0.1.0
 
 ### Keeping recorded and actual dependencies in-sync
 
-From time to time, dependencies installed within virtual environments and the definition within `pyproject.toml`/`requirements.txt` can diverge, e.g. manually upgrading a dependency in the virtual environment using `pip` but then forgetting to update the `pyproject.toml` file accordingly.
+Personally, I think this is the best feature of `uv`!
 
-`uv` to the rescue (again)! `uv sync` can be used to leverage the `uv.lock` file to synchronise and resolve any such discrepancies. Better still, while it's possible to use `uv lock --check` to check for discrepancies manually, `uv` can do this automatically before executing code! For example, using `uv run` to trigger scripts or command line within the project's environment, `uv` automatically locks and syncs the environment before executing it. This helps to guarantee everything is up-to-date and synchronised before running.
+From time to time, dependencies installed within virtual environments and their definition within `pyproject.toml`/`requirements.txt` files can diverge. For example, this may happen when manually upgrading a dependency in the virtual environment using `pip` but then forgetting to update the `pyproject.toml` file accordingly.
 
-For more insight on `uv`'s locking/synching functionality, see the [uv documentation][uv-lock-sync].
+`uv` to the rescue (and not for the first time)! `uv sync` leverages the `uv.lock` file to synchronise and resolve any dependency discrepancies. Better still, while it's possible to manually check for discrepancies using `uv lock --check`, `uv` can do this automatically! For example, when using `uv run` to trigger scripts or command line tools, `uv` automatically locks and synchronises the Project environment before execution. This guarantees everything is up-to-date before running, and the virtual environment/project configuration can no longer diverge.
 
-### Want to keep that `venv`/`pip` feel?
+For more insight on `uv`'s locking/synch-ing functionality, see the [uv documentation][uv-lock-sync].
 
-After working with `venv` + `pip` over a long period of time, the syntax and workflow becomes very familiar. Learning to use a new tool/API can be difficult and even a reason to delay picking up something new in the first place. Additionally, both `venv` and `pip` have a low level APIs that allows developers to control all aspects of a virtual environment/dependency toolchain.
+### But I want to keep that `venv`/`pip` feel...
 
-Yet again, `uv` solves both these problems! If you aren't comfortable in moving over the the `uv` API straight away, or you'd like access to the lower level API calls, `uv` supports the `uv venv` and `uv pip` commands. For example, `python -m venv .venv` becomes `uv venv .venv` and `pip install pandas` becomes `uv pip install pandas`. This helps make the transition to `uv` more straightforward, both from a legacy workflow and learning perspective.
+`venv`, `pip` and other tools are used extensively across the development community because they offer low level APIs to control every aspect of a virtual environment/dependency workflow. This also introduces familiarity and dependency, making it difficult to move away from when newer tools, like `uv`, are developed.
 
-For more details, see the [the pip interface][uv-pip-interface] section of the `uv` documentation.
+Yet again, `uv` solves both of these problems! If you aren't comfortable in moving over to the core `uv` API straight away, or you'd still like access the lower level API calls `venv` and `pip` provide, `uv` has incorporated `uv venv` and `uv pip` commands. They can be used to retain `venv`/`pip` compatibility within the `uv` toolchain itself. For example, `python3 -m venv .venv` becomes `uv venv .venv` and `pip install pandas` becomes `uv pip install pandas`.
 
-### Using tools
+For more details on these aspects, see [the pip interface][uv-pip-interface] section of the `uv` documentation. Be sure to also check out the [`uv`/`pip` compatibility page][uv-pip-compatibility] for more specific information on the pip interface compared with `venv`/`pip`.
 
-Many python packages and dependencies can be used as tools or via the CLI. For example, `pre-commit` can be executed across all files within a project space by calling `pre-commit run --all-files`.
+### Using CLI tools
 
-Within the context of `uv`, this is also achievable by calling `uvx` or `uv tool run`. Using the previous example, this becomes `uvx pre-commit run --all-files`. The advantage here over running the tool independently is that `uv` ensures the project is fully synchronised before executing, just like `uv run`. 
+Many python packages and dependencies can be used as tools via the CLI. For example, `pre-commit` can be executed across all files within a project space by calling `pre-commit run --all-files`.
+
+Within the context of `uv`, this is also achievable by calling `uvx` or `uv tool run`. Using the previous example, this becomes `uvx pre-commit run --all-files`. The main advantage of running tools with `uvx`/`uv tool run` is that `uv` ensures the project is fully synchronised before executing, just like `uv run`. 
 
 For more detailed information on using tools with `uv`, see the [`uv` using tools documentation page][uv-tools].
 
 ### Building and Publishing
 
-`uv` supports both building Python packages into source/binary distributions and uploading them to a registry. This is achieved using `uv build` and `uv publish` respectively. This means `uv` also supports the latter stages of a development workflow, where for example a Python package could be built and deployed to PyPI. For more information on these aspects, see the [`uv` building and publishing documentation page][uv-build-publish].
+`uv` supports both building Python packages into source/binary distributions and uploading them to a registry. This is achieved using `uv build` and `uv publish` commands. This allows `uv` to fully support the latter stages of a development workflow, where for example a Python package could be built and deployed to PyPI. For more information on these aspects, see the [`uv` building and publishing documentation page][uv-build-publish].
 
 ### Integrations
 
-Finally, `uv` also offer many integrations to help improve the whole workflow even further. Most notably:
+Finally, `uv` offers many integrations to help improve the entire workflow even further. Most notably:
 
-- [pre-commit hooks][uv-pre-commit], to help ensure the project environment is fully synchronised before committing.
+- [pre-commit hooks][uv-pre-commit], to help ensure the project is fully synchronised before committing.
 - [GitHub actions][uv-github-actions], when needing to bring in `uv` into CI/CD workflows.
-- [Docker image][uv-docker], which come in very handy when using `uv` within containers.
-- [FastAPI], for 'off-the-shelf' usability with [FastAPI] projects.
+- [Docker image][uv-docker], to use `uv` within containers.
+- [FastAPI], for developing [FastAPI]-based projects.
 
 For a more comprehensive list of `uv` integrations, check out the [integrations documentation page][uv-integrations].
 
-# A `uv` cheat sheet
+# `uv` command 'cheat sheet'
 
-The following sections summarise common `uv` commands and aims to be a quick summary of everything discussed in this post. 
+The following sections summarise common `uv` commands, and aims to be a quick summary of everything discussed in this page. For a more complete overview and through descriptions always refer to the `uv` documentation.
 
-## Python install/list/uninstall
+### Python install/list/uninstall
 
 | `uv` command | Description |
 | --- | ---- |
@@ -309,7 +345,7 @@ The following sections summarise common `uv` commands and aims to be a quick sum
 | `uv python uninstall` | Uninstall the latest version of Python. |
 | `uv python uninstall <VERSION>` | Uninstall a specific version of Python. |
 
-## init
+### init
 
 | `uv` command | Description |
 | --- | ---- |
@@ -322,13 +358,13 @@ The following sections summarise common `uv` commands and aims to be a quick sum
 | `uv init --no-pin-python` | Do not create a `.python-version` file for the project. |
 | `uv init --build-backend <BACKEND>` | Initialise a Python project with a specific build backend. |
 
-## add/remove/dependency management
+### add/remove/dependency management
 
 | `uv` command | Description |
 | --- | ---- |
 | `uv add <PACKAGE>` | Add dependency to project. |
 | `uv add <PACKAGE>==<VERSION>` | Add a dependency to the project, fixing the version. |
-| `uv add <PACKAGE>>=<VERSION_1>, <<VERSION_2>` | Add a dependency to the project, setting the version between a range. |
+| `uv add "<PACKAGE>>=<VERSION_1>, <<VERSION_2>"` | Add a dependency to the project, setting the version between a range. |
 | `uv add --dev <PACKAGE>` | Add dependency to the development dependency group. |
 | `uv add --group <GROUP> <PACKAGE>` | Add dependency to the specific group. |
 | `uv add --upgrade <PACKAGE>==<VERSION` | Upgrade an existing package to a specific version. |
@@ -336,20 +372,21 @@ The following sections summarise common `uv` commands and aims to be a quick sum
 | `uv pip list` | List project dependencies. |
 | `uv tree` | Visualise project dependencies in tree format. |
 
-## run/sync/lock
+### run/sync/lock
 | `uv` command | Description |
 | --- | ---- |
-| `uv run <OPTION>` | Run a command/script within the project environment (automatically locking and synching before execution). |
-| `uv sync` | Synchronise the `pyroject.toml` definition, `uv.lock` and virtual environment. |
+| `uv run <OPTION>` | Run a command/script within the project environment (automatically locking and synch-ing before execution). |
+| `uv sync` | Synchronise the `pyproject.toml` definition, `uv.lock` and virtual environment. |
 | `uv lock --check` | Check if the lock file is up-to-date. |
 | `uv lock --upgrade-package <PACKAGE>` | Upgrade package to the latest version, whilst trying to keep the remainder of the lockfile in check. |
 
-## tools
+### tools
 | `uv` command | Description |
 | --- | ---- |
 | `uvx <COMMAND>` | Run a command provided by a Python package. |
+| `uv tool run <COMMAND>` | Same as above. |
 
-## build/distribution
+### build/distribution
 | `uv` command | Description |
 | --- | ---- |
 | `uv build` | Build Python packages into source distributions and wheels. |
@@ -358,13 +395,14 @@ The following sections summarise common `uv` commands and aims to be a quick sum
 
 # Final Thoughts
 
-Swapping virtual environment/dependency management tools is like changing out of a pair of old slippers - they're familiar, comfortable, and not something you'd do without a good reason. This for me is `venv` + `pip`. `uv` bring that new running show vibe - lots of fancy, innovative features that are probably a lot better for you over the long term. Most notably, `uv` offers a complete package; Python distribution and external tool management, automated project set-up, enforcement of the latest PEP standards, and a vastly improved dependency management, resolution and synchronisation - all in one place! Of course there are also many others tools, like [PDM] and [poetry], which offer some of these features (and different ones too). But the Rust backend and 'all-in-one' package manager capabilities of `uv` win it for me - going forward I'll definitely try
+Swapping virtual environment/dependency management tools is like changing out of a pair of old slippers - they're familiar, comfortable, and not something you'd do without a good reason. For me, this is `venv` + `pip`. `uv` bring that new running show vibe - lots of fancy, innovative features that are probably a lot better for you over the long term. Most notably, `uv` offers a complete package; Python distribution and external tool management, automated project set-up, enforcement of the latest PEP standards, and a vastly improved dependency management, resolution and synchronisation - all in one place! Of course there are others tools, like [PDM] and [poetry], which offer some of these features (and different ones too). Also, admittedly it's not perfect - for example, I'd personally like 'off-the-shelf' Python testing integration (at least as part of the initial project set-up). But the rapid Rust backend, an 'all-in-one' tool, and the active development community, `uv` will likely become my go-to going forward.
 
 [`uv`]: https://docs.astral.sh/uv/
 [`venv`]: https://docs.python.org/3/library/venv.html
 [`pip`]: https://pypi.org/project/pip/
 [`cargo`]: https://github.com/rust-lang/cargo
 [`pyenv`]: https://github.com/pyenv/pyenv
+[uv-breaking-changes]: https://docs.astral.sh/uv/reference/policies/versioning/
 [uv-get-started]: https://docs.astral.sh/uv/getting-started/
 [uv-install]: https://docs.astral.sh/uv/getting-started/installation/
 [uv-python-install]: https://docs.astral.sh/uv/guides/install-python/
@@ -372,8 +410,10 @@ Swapping virtual environment/dependency management tools is like changing out of
 [uv-python-versions-search]: https://docs.astral.sh/uv/concepts/python-versions/#discovery-of-python-versions
 [uv-managing-dependencies]: https://docs.astral.sh/uv/concepts/projects/dependencies/
 [uv-creating-projects]: https://docs.astral.sh/uv/concepts/projects/init/#creating-projects
+[uv-configure-projects]: https://docs.astral.sh/uv/concepts/projects/config/
 [uv-lock-sync]: https://docs.astral.sh/uv/concepts/projects/sync/
 [uv-pip-interface]: https://docs.astral.sh/uv/getting-started/features/#the-pip-interface
+[uv-pip-compatibility]: https://docs.astral.sh/uv/pip/compatibility/
 [uv-pre-commit]: https://docs.astral.sh/uv/guides/integration/pre-commit/
 [uv-github-actions]: https://docs.astral.sh/uv/guides/integration/github/
 [uv-docker]: https://docs.astral.sh/uv/guides/integration/docker/
@@ -382,6 +422,7 @@ Swapping virtual environment/dependency management tools is like changing out of
 [fastapi]: https://github.com/fastapi/fastapi
 [uv-tools]: https://docs.astral.sh/uv/guides/tools/
 [uv-integrations]: https://docs.astral.sh/uv/guides/integration/
+[pyproject-toml-python-requires]: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#python-requires
 [PEP 517]: https://www.python.org/dev/peps/pep-0517
 [PEP 621]: https://www.python.org/dev/peps/pep-0621
 [`pyproject.toml` file]: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
