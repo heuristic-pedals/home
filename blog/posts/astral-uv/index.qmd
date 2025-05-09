@@ -1,0 +1,287 @@
+---
+title: "UV: A Rust based, 'cargo-like' package manager for Python"
+description: "How to get started with the UV Python package manager."
+date: 09/05/2025
+date-modified: 09/05/2025
+date-format: iso
+layout: post
+categories: [python, explanation]
+image: uv-light.jpg
+image-alt: |
+  A hallway with uv tube lights in a triangular pattern. Photo by [Sandro Katalina](https://unsplash.com/@jensth?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/purple-and-black-pyramid-wallpaper-k1bO_VTiZSs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+toc: true
+title-block-style: default
+title-block-banner: "#000000"
+title-block-banner-color: "#FFFFFF"
+---
+
+This page shares information on:
+
+::: {.intro-div}
+
+- `uv` as Python package manager.
+- How to install `uv`.
+- Using `uv`: comparing `venv` and `uv` for 'minimal' Python projects.
+- A summary of key `uv` features.
+- A handy `uv` 'cheat sheet'.
+
+:::
+
+::: {.callout-note}
+
+:::
+
+## Introduction
+
+Having experience in both Rust and Python, hearing about [`uv`] - a Rust based, Cargo-like package manager for Python - was like music to my ears!
+
+Like [`cargo`] does for Rust, `uv` aims to be the following for Python:
+
+- An extremely fast Python package installer and dependency resolver, thanks to it's Rust backend 🦀, and
+- A single, simplified toolchain for dependency management, virtual environment management, and package building.
+
+Over the past few months, I have been experimenting with `uv` as an alternative to my current day-to-day choice: [`venv`] + [`pip`]. This page takes a look at `uv` in more detail, how it is similar/different to `venv` + `pip`, and what extra features it offers. This post in no way replaces the [official documentation and getting started][uv-get-started] guidance provided by the developers. Instead, it aims to summarise the core features of `uv` and help those already familiar with Python package management to get up to speed more quickly.
+
+## Installation
+
+To install `uv`, it's best to check out the main [installation page][uv-install] for the latest instructions. There are multiple options including; standalone installers via `curl`/`wget`, using `brew` on macOS, and even via PyPI.
+
+## Comparing `venv` + `pip` with `uv`: A minimal project example
+
+A minimal Python project requires at least; a virtual environment for dependencies, version control for source, light documentation (at least a `README.md`), a single Python file to develop source code in, and a means of sharing a reproducible virtual environment with others. Note: I wanted to add testing to this list too, but more on this later.
+
+With those things in mind, here is a comparison on how all of this can be done using both `venv` + `pip` and `uv`:
+
+:::: {.columns}
+
+::: {.column width="47.5%"}
+
+**Using `venv`**
+
+1. Create a virtual environment:
+```bash
+python3 -m venv .venv
+```
+
+2. Activate the virtual environment:
+```bash
+source .venv/bin/activate
+```
+
+3. Initialise `git` version control:
+```bash
+git init
+```
+
+4. Add a `.gitignore`:
+```bash
+touch .gitignore
+```
+
+5. Add a `README.md`:
+```bash
+touch README.md
+```
+
+6. Create a Python file:
+```bash
+touch main.py
+```
+
+7. Install dependencies:
+```bash
+pip install pandas geopandas
+```
+
+8. Export dependencies:
+```bash
+pip freeze > requirements.txt
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="47.5%"}
+
+**Using `uv`**
+
+1. Setup project structure:
+```bash
+uv init
+```
+
+2. Install dependencies into a virtual environment:
+```bash
+uv add pandas geopandas
+```
+
+:::
+
+::::
+
+OK... so quite a few things to note straight away:
+
+- It's very clear `uv` is much more **succinct** - a minimal Python project can be initialised in far fewer steps.
+- The fact that the project structure is built automatically from a template means there are **fewer chances for set-up mistakes** and provides a more **consistent structure** between projects.
+- `uv` was much **quicker** when creating the virtual environment and installing the dependencies - fractions of a second vs several seconds for `venv`. This will come in handy for much larger Python packages, with more dependencies to install and resolve.
+
+There are also some notable differences in the directory structure and how the dependencies are managed:
+
+:::: {.columns}
+
+::: {.column width="47.5%"}
+
+**`venv` directory structure:**
+
+```bash
+.
+├── .git
+├── .gitignore
+├── .venv
+├── main.py
+├── README.md
+└── requirements.txt
+```
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="47.5%"}
+
+**`uv` directory structure:**
+
+```bash
+.
+├── .git
+├── .gitignore
+├── .python-version
+├── .venv
+├── main.py
+├── pyproject.toml
+├── README.md
+└── uv.lock
+```
+
+:::
+
+::::
+
+- `uv` adopts the **latest PEP standards**, specifically the [PEP 517] and [PEP 621] proposals. This all the Python project build and metadata information is contained within a [`pyproject.toml` file]. This means all the top-level project information, dependencies, and configuration can be controlled and managed from a single place.
+- `uv` uses a **dependency locking** via the [`uv.lock`] file, which in some ways is similar to a `requirements.txt` file. It is used to record the exact, resolved project dependencies so that it is more efficient and entirely reproducible when using the project across multiple machines. It should be checked into version control for these reason.
+- `uv` has a `.python-version` file to set a *default* Python version to use for the project environment. Again, this is to help consistency between project set-ups across multiple machines. It is an optional file and `uv` will run without it and will resolve a virtual environment based on the `pyproject.toml` specification - but this may come in handy to fix specific versions across machines when a range of Python versions is valid.
+
+Great, this gives us an initial insight into what `uv` does, but what other features does it offer?
+
+# Other `uv` Features
+
+### Installing Python
+
+`uv` will use existing Python installations is they are [already available on your system][uv-python-versions-search]. However, being completely decoupled from Python, it can also help with Python distribution management and installation - just like [`pyenv`]!
+
+Simply call `uv python install` or `uv python install <VERSION>` to install the latest or specific versions of Python respectively.
+
+See the [uv Python installation documentation page][uv-python-install] for further information.
+
+### Setting specific Python versions
+
+Specific versions of Python can be set in several ways:
+
+1. `uv init --python <VERSION>`: This will set the *minimum* (within `pyproject.toml`) and *default* (within `.python-version`) Python version at the project set-up stage.
+2. `uv venv --python <VERSION>`: Set the Python version at the virtual environment creation stage.
+
+For more details, see the [uv Project Python versions documentation page][uv-python-versions]
+
+:::{.callout-tip}
+
+## Tips on `uv` Python versions
+- If the requested Python version doesn't exist, `uv` rather helpfully/unhelpfully automatically installs the requested version. See [the uv documentation][uv-python-versions-search] for more details on how `uv` searches for and uses Python versions. Note: if you, like me, this can be unhelpful this option can be disabled.
+- When the `.venv` is activated in the terminal, use `which python` and `python --version` to confirm the active Python distribution. 
+:::
+
+### Application or Library - no problem!
+
+### Adding, isolated dependencies
+
+### Keeping recorded and actual dependencies in-sync
+
+### Using external tools
+
+### Want to keep that `venv`/`pip` feel?
+
+### Don't want to use `uv run`?
+
+### Visualising Python dependencies - `uv tree`
+
+```bash
+uv-test v0.1.0
+├── geopandas v1.0.1
+│   ├── numpy v2.2.5
+│   ├── packaging v25.0
+│   ├── pandas v2.2.3
+│   │   ├── numpy v2.2.5
+│   │   ├── python-dateutil v2.9.0.post0
+│   │   │   └── six v1.17.0
+│   │   ├── pytz v2025.2
+│   │   └── tzdata v2025.2
+│   ├── pyogrio v0.11.0
+│   │   ├── certifi v2025.4.26
+│   │   ├── numpy v2.2.5
+│   │   └── packaging v25.0
+│   ├── pyproj v3.7.1
+│   │   └── certifi v2025.4.26
+│   └── shapely v2.1.0
+│       └── numpy v2.2.5
+└── pandas v2.2.3 (*)
+(*) Package tree already displayed
+```
+
+### Integrations: Pre-commit, GitHub Actions, and Docker
+
+# A `uv` cheat sheet
+
+The following sections summarise common `uv` commands and aims to be a quick summary of everything discussed in this post. 
+
+## Python install
+
+| `uv` command | Description |
+| --- | ---- |
+| `uv python install` | Install the latest version of Python. |
+| `uv python install <VERSION>`| Install a specific version of Python. |
+| `uv python list` | List existing Python versions. |
+
+## init
+
+| `uv` command | Description |
+| --- | ---- |
+| `uv init` | Initialise a Python project within an existing directory. |
+| `uv init <PROJECT_NAME>`| Initialise a Python project within a new directory. |
+| `uv init --python <PYTHON_VERSION>` | Initialise a Python project with a specific minimum python version.
+| `uv init --app` | Initialise a Python project as an application (e.g., web servers, scripts, and CLIs). |
+| `uv init --package` | Initialise a Python project as a packaged application (i.e. an application with a build section in the `pyproject.toml`). |
+| `uv init --lib` | Initialise a Python project as a library. |
+| `uv init --no-pin-python` | Do not create a `.python-version` file for the project. |
+
+
+# Final Thoughts
+
+Swapping virtual management tools is like changing from a pair of old slippers - they're familiar, comfortable, and not something you'd do without a good reason. This for me is `venv`. `uv` bring that new running show vibe - lots of fancy, innovative features that's probably better for you over the long term. Most notably, `uv` offers; Python distribution and external tool management, automated project set-up, enforcement of the latest PEP standards, and a vastly improved dependency management and resolution - all in one place! Of course there are also many others tool like [PDM] and [poetry] which offer many of these features (and more) too. But the Rust backend and complete 'all round' package manager capabilities of `uv` win it for me - going forward I'll definitely try
+
+[`uv`]: https://docs.astral.sh/uv/
+[`venv`]: https://docs.python.org/3/library/venv.html
+[`pip`]: https://pypi.org/project/pip/
+[`cargo`]: https://github.com/rust-lang/cargo
+[`pyenv`]: https://github.com/pyenv/pyenv
+[uv-get-started]: https://docs.astral.sh/uv/getting-started/
+[uv-install]: https://docs.astral.sh/uv/getting-started/installation/
+[uv-python-install]: https://docs.astral.sh/uv/guides/install-python/
+[uv-python-versions]: https://docs.astral.sh/uv/concepts/python-versions/#project-python-versions
+[uv-python-versions-search]: https://docs.astral.sh/uv/concepts/python-versions/#discovery-of-python-versions
+[PEP 517]: https://www.python.org/dev/peps/pep-0517
+[PEP 621]: https://www.python.org/dev/peps/pep-0621
+[`pyproject.toml` file]: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+[`uv.lock`]: https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile
+[PDM]: https://pdm-project.org/en/latest/
+[poetry]: https://python-poetry.org
