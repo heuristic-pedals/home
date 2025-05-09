@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/posts/astral-uv/index.html",
       "/blog/posts/rust-pre-commits/index.html",
       "/blog/posts/simple-analytics/index.html",
       "/blog/posts/oh-my-zsh-setup/index.html"

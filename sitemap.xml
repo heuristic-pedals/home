@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://heuristicpedals.com/blog/posts/simple-analytics/index.html</loc>
-    <lastmod>2024-06-09T20:28:01.060Z</lastmod>
+    <loc>https://heuristicpedals.com/blog/index.html</loc>
+    <lastmod>2025-05-09T19:29:29.779Z</lastmod>
   </url>
   <url>
     <loc>https://heuristicpedals.com/blog/posts/rust-pre-commits/index.html</loc>
-    <lastmod>2024-06-09T20:28:01.060Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heuristicpedals.com/index.html</loc>
-    <lastmod>2024-06-09T20:28:01.060Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heuristicpedals.com/codebases/index.html</loc>
-    <lastmod>2024-06-09T20:28:01.060Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heuristicpedals.com/blog/index.html</loc>
-    <lastmod>2024-06-09T20:28:01.060Z</lastmod>
+    <lastmod>2025-05-09T19:29:29.780Z</lastmod>
   </url>
   <url>
     <loc>https://heuristicpedals.com/blog/posts/oh-my-zsh-setup/index.html</loc>
-    <lastmod>2024-06-09T20:28:01.060Z</lastmod>
+    <lastmod>2025-05-09T19:29:29.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heuristicpedals.com/codebases/index.html</loc>
+    <lastmod>2025-05-09T19:29:29.781Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heuristicpedals.com/index.html</loc>
+    <lastmod>2025-05-09T19:29:29.781Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heuristicpedals.com/blog/posts/simple-analytics/index.html</loc>
+    <lastmod>2025-05-09T19:29:29.781Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heuristicpedals.com/blog/posts/astral-uv/index.html</loc>
+    <lastmod>2025-05-09T19:29:29.779Z</lastmod>
   </url>
 </urlset>
