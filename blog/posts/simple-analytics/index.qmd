@@ -1,5 +1,5 @@
 ---
-title: "Alternative Analytics for quarto Sites?"
+title: "Alternative Analytics for quarto sites?"
 description: "How to add `Simple Analytics` to a quarto website."
 date: 05/19/2024
 date-modified: 05/19/2024
