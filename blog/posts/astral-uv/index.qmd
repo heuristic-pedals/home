@@ -213,7 +213,7 @@ Since `uv` is not connected to Python itself, it can effectively manage and inst
 
 To install the latest or a specific version of Python, simply run `uv python install` or `uv python install <VERSION>`. To uninstall the latest or requested Python version, use `uv python uninstall` or `uv python uninstall <VERSION>`.
 
-YYou can also list all available and installed Python versions using `uv python list`, and add the `--only-installed` flag to display only those currently installed.
+You can also list all available and installed Python versions using `uv python list`, and add the `--only-installed` flag to display only those currently installed.
 
 :::{.callout-note}
 `uv` can use any existing Python installations already on your machine [available here][uv-python-versions-search].
@@ -225,7 +225,7 @@ See the [`uv` Python installation documentation page][uv-python-install] for mor
 
 Setting Python versions for a project can be done in two ways:
 
-1. Run `uv init --python <VERSION>` to set the minimum Python version at the project setup stage (note that "minimum" refers to the [`requires-python`][pyproject-toml-python-requires] argument within the `pyproject.toml` file). This also sets the python version in the `.python-version` file if you do not optional remove it.
+1. Run `uv init --python <VERSION>` to set the minimum Python version at the project setup stage (note that "minimum" refers to the [`requires-python`][pyproject-toml-python-requires] argument within the `pyproject.toml` file). This also sets the python version in the `.python-version` file if you do not optionally remove it.
 2. Use `uv venv --python <VERSION>` to set the Python version during virtual environment creation.
 
 :::{.callout-note}
