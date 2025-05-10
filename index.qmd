@@ -9,9 +9,21 @@ about:
           href: https://github.com/heuristic-pedals
 ---
 
-A data scientist, ex-engineer, and even ex-er-physicist mainly writing about `python` and `rust`. This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!
+A data scientist, ex-engineer, and even ex-er-physicist mainly writing about `python` and `rust`.
+
+This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!
 
 ### Where next?
 
-- [blog](/blog/index.qmd) - a range of posts covering software and coding topics.
-- [codebases](/codebases/index.qmd) - summary of `heuristic-pedals` code repositories.
+<div class="grid-container">
+<div class="grid-item item1 jumbotron">
+<p class="jumbotron-icon">📝</p>
+<p>Posts covering software and coding topics</p>
+<a class="btn btn-primary btn-lg" href="./blog/index.qmd" role="button">Blog</a>
+</div>
+<div class="grid-item item2 jumbotron">
+<p class="jumbotron-icon">👨‍💻</p>
+<p>Summary of `heuristic-pedals` repositories</p>
+<a class="btn btn-primary btn-lg" href="./codebases/index.qmd" role="button">Codebases</a>
+</div>
+</div>
