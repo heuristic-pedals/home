@@ -19,11 +19,11 @@ This website serves as a place for me to record useful things I pick up and to i
 <div class="grid-item item1 jumbotron">
 <p class="jumbotron-icon">📝</p>
 <p>Posts covering software and coding topics</p>
-<a class="btn btn-primary btn-lg" href="./blog/index.qmd" role="button">Blog</a>
+<a class="btn btn-primary" href="./blog/index.qmd" role="button">Blog</a>
 </div>
 <div class="grid-item item2 jumbotron">
 <p class="jumbotron-icon">👨‍💻</p>
 <p>Summary of `heuristic-pedals` repositories</p>
-<a class="btn btn-primary btn-lg" href="./codebases/index.qmd" role="button">Codebases</a>
+<a class="btn btn-primary" href="./codebases/index.qmd" role="button">Codebases</a>
 </div>
 </div>
