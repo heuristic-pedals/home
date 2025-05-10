@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-09-05">
+<meta name="dcterms.date" content="2025-05-09">
 <meta name="description" content="A (hopefully) useful blogging site mainly about <code>python</code> and <code>rust</code>">
 
 <title>UV: A Rust-based, ‘cargo-like’ package manager for Python – Heuristic Pedals</title>
@@ -203,14 +203,14 @@ background: #000000;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2025-09-05</p>
+        <p class="date">2025-05-09</p>
       </div>
     </div>
     
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">2025-09-05</p>
+        <p class="date-modified">2025-05-10</p>
       </div>
     </div>
       
@@ -228,7 +228,7 @@ background: #000000;
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
   <li><a href="#comparing-uv-with-a-venvpip-workflow" id="toc-comparing-uv-with-a-venvpip-workflow" class="nav-link" data-scroll-target="#comparing-uv-with-a-venvpip-workflow">Comparing <code>uv</code> with a <code>venv</code>/<code>pip</code> workflow</a></li>
-  <li><a href="#other-uv-features" id="toc-other-uv-features" class="nav-link" data-scroll-target="#other-uv-features">Other <code>uv</code> Features</a>
+  <li><a href="#other-uv-features" id="toc-other-uv-features" class="nav-link" data-scroll-target="#other-uv-features">Other <code>uv</code> features</a>
   <ul class="collapse">
   <li><a href="#installing-python" id="toc-installing-python" class="nav-link" data-scroll-target="#installing-python">Installing Python</a></li>
   <li><a href="#use-specific-python-versions" id="toc-use-specific-python-versions" class="nav-link" data-scroll-target="#use-specific-python-versions">Use specific Python versions</a></li>
@@ -283,26 +283,31 @@ A note on <code>uv</code> not yet having a v1.0.0 release…
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>uv</code> is still being actively developed. As such, care should be taken before using in any production environments. Also, <a href="https://docs.astral.sh/uv/reference/policies/versioning/">as stated in the <code>uv</code> documentation</a>, prior to a v1.0.0 release all major updates will be reflected in minor version number changes. These minor updates may contain breaking changes and introduce new features. This page will be updated occasionally to reflect important changes to <code>uv</code> API and features, but differences may occur if this is not done in good time. Please be sure to check this page’s modified date against any <code>uv</code> version release date to help identify any potential inconsistencies.</p>
+<p><code>uv</code> is under active development. Use with caution in production environments. Minor updates in <code>uv</code> may include breaking changes and new features, as per the <a href="https://docs.astral.sh/uv/reference/policies/versioning/">documentation</a>. This page will be updated regularly, but there might be differences between this page’s last modified date and a <code>uv</code> version release date. Always compare these dates to spot any potential inconsistencies.</p>
 </div>
 </div>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Having experience with both Rust and Python, when I first heard about <a href="https://docs.astral.sh/uv/"><code>uv</code></a> - a Rust based, Cargo-like package manager for Python - I was happy to ‘sign-up’ right there and then!</p>
-<p>Just like <a href="https://github.com/rust-lang/cargo"><code>cargo</code></a> is for Rust, <code>uv</code> is a single, simplified toolchain for Python dependency management, virtual environment control, and package building. <code>uv</code> also achieves significant performance gains compared with existing tools, thanks for it’s Rust backend 🦀.</p>
-<p>Over the past few months, I have been experimenting with <code>uv</code> as an alternative to my current day-to-day choice for dependency and virtual environment management: <a href="https://docs.python.org/3/library/venv.html"><code>venv</code></a> + <a href="https://pypi.org/project/pip/"><code>pip</code></a>. This page takes a look at <code>uv</code> in more detail, explores how it is similar/different to <code>venv</code> + <code>pip</code>, and summarises what additional capabilities it offers.</p>
-<p>This page does not aim to replace the <a href="https://docs.astral.sh/uv/getting-started/">official <code>uv</code> documentation and getting started guidance</a> - this should always to the ‘go-to’ resource. Instead, it aims to concisely summarise the core features of <code>uv</code> in a single place and support anyone interested in making the transition to <code>uv</code> from more classical Python workflows.</p>
+<p>With knowledge in both Rust and Python, I was thrilled to learn about <a href="https://docs.astral.sh/uv/"><code>uv</code></a> - a tool similar to <a href="https://github.com/rust-lang/cargo"><code>cargo</code></a> for Python, made using Rust!</p>
+<p>Just like how <code>cargo</code> handles tasks in Rust, <code>uv</code> simplifies managing dependencies, creating virtual environments, and building packages in Python. Plus, it’s faster than existing tools due to its Rust backend 🦀.</p>
+<p>Over the last few months, I’ve been testing <code>uv</code> as an alternative to my usual choices for dependency and virtual environment management: <a href="https://docs.python.org/3/library/venv.html"><code>venv</code></a> + <a href="https://pypi.org/project/pip/"><code>pip</code></a>. This article delves deeper into <code>uv</code>, compares it with <code>venv</code> + <code>pip</code>, and highlights its unique advantages.</p>
+<p>Please note that this article does not replace the <a href="https://docs.astral.sh/uv/getting-started/">official <code>uv</code> documentation and getting started guide</a>. Instead, it provides a quick summary of the main features of <code>uv</code> in one place, helping those interested in switching from traditional Python workflows to <code>uv</code>.</p>
 </section>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>To install <code>uv</code>, it’s best to check out the main <a href="https://docs.astral.sh/uv/getting-started/installation/">installation page</a> for the latest instructions. There are multiple options including; standalone installers via <code>curl</code>/<code>wget</code>, using <code>brew</code> on macOS, and even via PyPI.</p>
+<p>To set up <code>uv</code>, it’s recommended to visit the primary <a href="https://docs.astral.sh/uv/getting-started/installation/">setup guide</a> for the most recent steps. You can choose from several methods such as:</p>
+<ol type="1">
+<li>Installing directly using <code>curl</code> or <code>wget</code>.</li>
+<li>Using <code>brew</code> on macOS systems.</li>
+<li>Obtaining it through PyPI.</li>
+</ol>
 </section>
 <section id="comparing-uv-with-a-venvpip-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-uv-with-a-venvpip-workflow">Comparing <code>uv</code> with a <code>venv</code>/<code>pip</code> workflow</h2>
-<p>One way to explore <code>uv</code>’s features is to compare it with a <code>venv</code>/<code>pip</code> approach to setting up and managing Python projects.</p>
-<p>A minimal Python project typically requires (at least); a single Python file, consideration for source code version control, a virtual environment with a means of sharing dependencies with others, and some form of documentation (at the very least, a <code>README.md</code>).</p>
-<p>With this type of minimal Python project in mind, here is a comparison of <code>venv</code>/<code>pip</code> and <code>uv</code> workflows:</p>
+<p>To get a feel for <code>uv</code>’s capabilities, let’s compare it to setting up and managing Python projects using a <code>venv</code>/<code>pip</code> approach.</p>
+<p>A basic Python project usually needs (at least): one Python file, version control, a virtual environment, a way of sharing dependencies with others, and some form of documentation - even if just a <code>README.md</code>.</p>
+<p>Here’s a comparison between the workflows of <code>venv</code>/<code>pip</code> and <code>uv</code>:</p>
 <div class="columns">
 <div class="column" style="width:47.5%;">
 <p><strong>Using <code>venv</code></strong></p>
@@ -366,13 +371,13 @@ A note on <code>uv</code> not yet having a v1.0.0 release…
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run main.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>Comparing the workflows in this way indicates:</p>
+<p>Comparing the two workflows shows:</p>
 <ul>
-<li><code>uv</code> is much more <strong>succinct</strong> - a minimal Python project can be initialised in far fewer steps.</li>
-<li><code>uv</code> builds the core project structure is automatically, <strong>lowering the likelihood of set-up mistakes</strong> and providing a more <strong>consistent structure</strong> between projects.</li>
-<li><code>uv</code> was <strong>much quicker</strong> when creating the virtual environment and installing the dependencies - fractions of a second vs several seconds for <code>venv</code>/<code>pip</code>. This will be a significant benefit for larger Python packages, with more dependencies to install and resolve.</li>
+<li>Creating a minimal Python project using <code>uv</code> takes fewer steps. It’s <strong>more concise</strong>.</li>
+<li>When setting up a project, <code>uv</code> builds the main structure automatically. This <strong>reduces the chance of mistakes during setup</strong> and <strong>provides a consistent structure across projects</strong>.</li>
+<li><code>uv</code> is <strong>faster when creating a virtual environment and installing dependencies</strong>. It takes fractions of a second compared to several seconds for <code>venv</code>/<code>pip</code>. This speed will be beneficial, especially for larger Python packages with many dependencies to install and resolve.</li>
 </ul>
-<p>There are also other notable differences in the directory structure and how the dependencies have been managed/recorded:</p>
+<p>The files within the directories and the dependency management methods used are different too:</p>
 <div class="columns">
 <div class="column" style="width:47.5%;">
 <p><strong><code>venv</code> directory structure:</strong></p>
@@ -399,19 +404,19 @@ A note on <code>uv</code> not yet having a v1.0.0 release…
 </div>
 </div>
 <ul>
-<li><code>uv</code> adopts the <strong>latest PEP standards</strong>, specifically <a href="https://www.python.org/dev/peps/pep-0517">PEP 517</a> and <a href="https://www.python.org/dev/peps/pep-0621">PEP 621</a> by using a <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/"><code>pyproject.toml</code> file</a>. This means all the top-level project information, dependencies, and build configuration can be managed from a single place.</li>
-<li><code>uv</code> uses <strong>dependency locking</strong> via the <a href="https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile"><code>uv.lock</code></a> file, which in some ways is similar to a <code>requirements.txt</code> file. It is used to record the exact state of the resolved project dependencies, greatly improving reproducibility and usability across multiple machines (note: it should be checked into version control for these reasons).</li>
-<li><code>uv</code> has a <code>.python-version</code> file to set a default Python version for the project environment. Again, this is to support consistency between set-ups across multiple machines. However, it is an optional file and <code>uv</code> will run without it (<code>uv</code> will resolve a Python version based on the <code>pyproject.toml</code> specification) - but it may come in handy to fix to a specific version across machines when a range of Python versions are valid.</li>
+<li><code>uv</code> follows the <strong>latest PEP standards</strong> (<a href="https://www.python.org/dev/peps/pep-0517">PEP 517</a> and <a href="https://www.python.org/dev/peps/pep-0621">PEP 621</a>). This means that all project information, dependencies, and build settings can be managed from a single place using a <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/"><code>pyproject.toml</code> file</a>.</li>
+<li><code>uv</code> also uses <strong>dependency locking</strong> with the help of an <a href="https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile"><code>uv.lock</code></a> file. Similar to a <code>requirements.txt</code> file, it records the exact state of the resolved project dependencies for better reproducibility and usability across multiple machines. Make sure you check this file into version control for these reasons.</li>
+<li>Additionally, <code>uv</code> has a <code>.python-version</code> file that sets a default Python version for the project environment. This helps with consistency between setups on different machines. However, it’s not strictly necessary. <code>uv</code> will automatically resolve a suitable Python version based on the <code>pyproject.toml</code> specification. Even in this case, it can still be useful to make sure all developers use the same python version.</li>
 </ul>
-<p>This comparison shows <code>uv</code> offers a vastly improved workflow compared to a more ‘classical’ <code>venv</code>/<code>pip</code> approach, but what other features does it offer?</p>
+<p>This basic comparison shows <code>uv</code> provides a much better way of working than the traditional <code>venv</code>/<code>pip</code> method. But what else can you do with it?</p>
 </section>
 <section id="other-uv-features" class="level1">
-<h1>Other <code>uv</code> Features</h1>
+<h1>Other <code>uv</code> features</h1>
 <section id="installing-python" class="level3">
 <h3 class="anchored" data-anchor-id="installing-python">Installing Python</h3>
-<p>Since <code>uv</code> is completely decoupled from Python, it can help with Python distribution management and installation too - just like <a href="https://github.com/pyenv/pyenv"><code>pyenv</code></a>!</p>
-<p>Simply call <code>uv python install</code> or <code>uv python install &lt;VERSION&gt;</code> to install the latest or a specific version of Python respectively. Similarly, <code>uv python uninstall</code> and <code>uv python uninstall &lt;VERSION&gt;</code> will uninstall the latest or requested Python version.</p>
-<p>You can also use <code>uv python list</code> to display all available and currently installed Python versions, and add the <code>--only-installed</code> flag to limit the display to only those versions currently installed.</p>
+<p>Since <code>uv</code> is not connected to Python itself, it can effectively manage and install Python distributions - similar to <a href="https://github.com/pyenv/pyenv"><code>pyenv</code></a>!</p>
+<p>To install the latest or a specific version of Python, simply run <code>uv python install</code> or <code>uv python install &lt;VERSION&gt;</code>. To uninstall the latest or requested Python version, use <code>uv python uninstall</code> or <code>uv python uninstall &lt;VERSION&gt;</code>.</p>
+<p>YYou can also list all available and installed Python versions using <code>uv python list</code>, and add the <code>--only-installed</code> flag to display only those currently installed.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -422,17 +427,17 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code>uv</code> can also use any existing Python installations <a href="https://docs.astral.sh/uv/concepts/python-versions/#discovery-of-python-versions">already available on your machine</a>.</p>
+<p><code>uv</code> can use any existing Python installations already on your machine <a href="https://docs.astral.sh/uv/concepts/python-versions/#discovery-of-python-versions">available here</a>.</p>
 </div>
 </div>
-<p>See the <a href="https://docs.astral.sh/uv/guides/install-python/"><code>uv</code> Python installation documentation page</a> for further information.</p>
+<p>See the <a href="https://docs.astral.sh/uv/guides/install-python/"><code>uv</code> Python installation documentation page</a> for more information.</p>
 </section>
 <section id="use-specific-python-versions" class="level3">
 <h3 class="anchored" data-anchor-id="use-specific-python-versions">Use specific Python versions</h3>
-<p>Specifying versions of Python for a project can be done in a few ways:</p>
+<p>Setting Python versions for a project can be done in two ways:</p>
 <ol type="1">
-<li><code>uv init --python &lt;VERSION&gt;</code>: Sets the <em>minimum</em> Python version at the project set-up stage (note: <em>minimum</em> refers to the <code>requires-python</code> argument within the <code>pyproject.toml</code> file).</li>
-<li><code>uv venv --python &lt;VERSION&gt;</code>: Sets the Python version at the virtual environment creation stage.</li>
+<li>Run <code>uv init --python &lt;VERSION&gt;</code> to set the minimum Python version at the project setup stage (note that “minimum” refers to the <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#python-requires"><code>requires-python</code></a> argument within the <code>pyproject.toml</code> file). This also sets the python version in the <code>.python-version</code> file if you do not optional remove it.</li>
+<li>Use <code>uv venv --python &lt;VERSION&gt;</code> to set the Python version during virtual environment creation.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -444,10 +449,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It is still possible to subsequently set and control the <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#python-requires"><code>requires-python</code></a> argument within the <code>pyproject.toml</code> file as needed, for example to introduce a range of valid Python versions.</p>
+<p>You can still adjust the <code>requires-python</code> argument within the <code>pyproject.toml</code> file as needed, for example to specify a range of valid Python versions for the project.</p>
 </div>
 </div>
-<p>For more details, see the <a href="https://docs.astral.sh/uv/concepts/python-versions/#project-python-versions">uv Project Python versions documentation page</a></p>
+<p>For more information, see the <a href="https://docs.astral.sh/uv/concepts/python-versions/#project-python-versions">uv Project Python versions documentation page</a></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -459,16 +464,17 @@ Tips on <code>uv</code> Python versions
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>If the requested Python version isn’t installed, <code>uv</code> helpfully/un-helpfully automatically installs a version that matches the version constraints. If you find this to be rather opaque, the auto-install option can be disabled.</li>
-<li>Use <code>uv python dir</code> to display the Python installation directory for the project.</li>
-<li>See <a href="https://docs.astral.sh/uv/concepts/python-versions/#discovery-of-python-versions">the uv documentation</a> for more details on how <code>uv</code> searches for, installs, and uses Python versions.</li>
+<li>If the requested Python version isn’t installed, <code>uv</code> will automatically install a suitable version based on constraints. To disable this behaviour, you can <a href="https://docs.astral.sh/uv/concepts/python-versions/#disabling-automatic-python-downloads">turn off auto-install</a>.</li>
+<li>Use <code>uv python dir</code> to find the Python installation directory for the project.</li>
+<li>For more details on how <code>uv</code> searches for, installs, and uses Python versions, see <a href="https://docs.astral.sh/uv/concepts/python-versions/#discovery-of-python-versions">the <code>uv</code> documentation</a>.</li>
 </ul>
 </div>
 </div>
 </section>
 <section id="working-on-different-types-of-project-no-problem" class="level3">
 <h3 class="anchored" data-anchor-id="working-on-different-types-of-project-no-problem">Working on different types of project? No problem!</h3>
-<p>Python project structure can look very different depending on whether you’re working on a web app, CLI tool, or conducting data analysis. Thankfully, <code>uv</code> still has this covered. <code>uv</code> adopts the terms <code>application</code>, <code>package</code>, and <code>library</code> to cater for different project types (just like Cargo does for Rust). During the <code>uv init</code> stage, you can add either the <code>--app</code>, <code>--package</code>, <code>--lib</code> flag to chose the type of project you’d like. A brief summary of the differences can be found in the table below.</p>
+<p>Working on a Python project can have different structures depending on whether it’s a web app, CLI tool, or data analysis.</p>
+<p>Thankfully, <code>uv</code> handles this well. <code>uv</code> uses the terms “application”, “package”, and “library” for various project types (similar to how Cargo does for Rust). During the <code>uv init</code> stage, you can choose a type of project by adding either the <code>--app</code>, <code>--package</code>, or <code>--lib</code> flag. Here’s a summary:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -477,7 +483,7 @@ Tips on <code>uv</code> Python versions
 </colgroup>
 <thead>
 <tr class="header">
-<th><code>uv init</code> Flag</th>
+<th><code>uv init</code> flag</th>
 <th>Use-cases</th>
 <th>Description</th>
 </tr>
@@ -486,7 +492,7 @@ Tips on <code>uv</code> Python versions
 <tr class="odd">
 <td><code>--app</code></td>
 <td>Scripts, analyses, web servers, and CLI interfaces (and similar)</td>
-<td>A single, simplified directory structure with a <code>main.py</code> and other project configuration files.</td>
+<td>A simple directory structure with a <code>main.py</code> and the other required project configuration files.</td>
 </tr>
 <tr class="even">
 <td><code>--package</code></td>
@@ -494,26 +500,25 @@ Tips on <code>uv</code> Python versions
 <td>As above, but moves all Python source code into a subdirectory of <code>src</code> using the project name. Also adds additional entrypoint definitions (for CLI usage) and build/distribution information to the <code>pyproject.toml</code>.</td>
 </tr>
 <tr class="odd">
-<td><code>--library</code></td>
+<td><code>--lib</code></td>
 <td>Python modules or packages</td>
 <td>Similar to <code>--package</code>, but without the entrypoint definition in the <code>pyproject.toml</code>. Also adds a <code>py.typed</code> to indicate that type hinting will be used (so it can be checked by type checkers).</td>
 </tr>
 </tbody>
 </table>
-<p>For more information, see the <a href="https://docs.astral.sh/uv/concepts/projects/init/#creating-projects">creating projects</a> section of the <code>uv</code> documentation. Also check out the <a href="https://docs.astral.sh/uv/concepts/projects/config/">configuring projects</a> page on creating more bespoke project structures with <code>uv</code>.</p>
+<p>For more details, visit the <a href="https://docs.astral.sh/uv/concepts/projects/init/#creating-projects">creating</a> and <a href="https://docs.astral.sh/uv/concepts/projects/config/">configuring</a> project sections of the <code>uv</code> documentation.</p>
 </section>
 <section id="managing-dependencies" class="level3">
 <h3 class="anchored" data-anchor-id="managing-dependencies">Managing dependencies</h3>
-<p>We’ve already seen <a href="#comparing-uv-with-a-venvpip-workflow">during the comparison with <code>venv</code>/<code>pip</code></a> the command <code>uv add &lt;PACKAGE&gt;</code>, which adds dependencies to the project. But, <code>uv</code> also provides a capability to group dependences. For example, <code>uv add --dev pytest</code> and <code>uv add --group docs quartodoc</code> will add <code>pytest</code> to a <code>test</code> group, and <code>quartodoc</code> to a <code>docs</code> group respectively. This is handy for separating out dependencies that aren’t part of the core source code and therefore minimising the dependencies that need to be installed to use the project.</p>
-<p>Specific versions of Packages can be added using <code>uv add &lt;PACKAGE&gt;==&lt;VERSION&gt;</code>, and even constrained using the typical <code>pip</code> comparator operators and syntax (e.g., <code>uv add "pandas&gt;=&lt;1.0.0,&lt;2.0.0"</code> )</p>
-<p>Similarly, <code>uv remove &lt;PACKAGE&gt;</code> can be used to remove dependencies from a project.</p>
-<p>For more information, like installed dependencies from GitHub/other sources, see the <a href="https://docs.astral.sh/uv/concepts/projects/dependencies/">managing dependencies</a> section of the <code>uv</code> documentation.</p>
+<p>We’ve already seen <a href="#comparing-uv-with-a-venvpip-workflow">during the comparison with <code>venv</code>/<code>pip</code></a> the command <code>uv add &lt;PACKAGE&gt;</code> adds dependencies to a project. But it also allows you to group dependencies using flags like <code>--dev</code>, <code>--group</code>. For example, <code>uv add --dev pytest</code> and <code>uv add --group docs quartodoc</code> will add <code>pytest</code> to a <code>test</code> group and <code>quartodoc</code> to a <code>docs</code> group respectively. This is useful for separating out dependencies that aren’t part of the core source code, reducing the number of required dependencies for the project.</p>
+<p>You can specify exact versions of packages using <code>uv add &lt;PACKAGE&gt;==&lt;VERSION&gt;</code>, and even constrain them with typical <code>pip</code> comparator operators (e.g., <code>uv add "pandas&gt;=1.0.0,&lt;2.0.0"</code> ). To remove dependencies from a project, use the command <code>uv remove &lt;PACKAGE&gt;</code>.</p>
+<p>For more details on managing dependencies, like those from GitHub/other sources, see the <a href="https://docs.astral.sh/uv/concepts/projects/dependencies/">managing dependencies</a> section of the <code>uv</code> documentation.</p>
 </section>
 <section id="displaying-dependencies" class="level3">
 <h3 class="anchored" data-anchor-id="displaying-dependencies">Displaying dependencies</h3>
-<p>It’s often useful to know which dependencies are installed within a virtual environment, and there are a few options to do this with <code>uv</code>.</p>
-<p>One way to achieve this is to use <code>uv pip list</code>, which displays the installed dependencies in tabular form (more on <a href="#want-to-keep-that-venvpip-feel">the <code>uv pip</code> interface later</a>).</p>
-<p>Another option is <code>uv tree</code>, which displays the project dependencies as a tree/graph. An example output is shown below:</p>
+<p>Knowing the installed dependencies within a virtual environment can be helpful, and there are several ways to do this with <code>uv</code>.</p>
+<p>One method is using <code>uv pip list</code>, which shows the installed dependencies in a table format (more on [the <code>uv</code> interface similar to <code>venv</code>/<code>pip</code> later][comparing-uv-with-a-venvpip-workflow]).</p>
+<p>Another choice is <code>uv tree</code>, which displays the project dependencies as a tree/graph. An example output can be found below:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv-test</span> v0.1.0</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> geopandas v1.0.1</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── numpy v2.2.5</span>
@@ -537,42 +542,42 @@ Tips on <code>uv</code> Python versions
 </section>
 <section id="keeping-recorded-and-actual-dependencies-in-sync" class="level3">
 <h3 class="anchored" data-anchor-id="keeping-recorded-and-actual-dependencies-in-sync">Keeping recorded and actual dependencies in-sync</h3>
-<p>Personally, I think this is the best feature of <code>uv</code>!</p>
-<p>From time to time, dependencies installed within virtual environments and their definition within <code>pyproject.toml</code>/<code>requirements.txt</code> files can diverge. For example, this may happen when manually upgrading a dependency in the virtual environment using <code>pip</code> but then forgetting to update the <code>pyproject.toml</code> file accordingly.</p>
-<p><code>uv</code> to the rescue (and not for the first time)! <code>uv sync</code> leverages the <code>uv.lock</code> file to synchronise and resolve any dependency discrepancies. Better still, while it’s possible to manually check for discrepancies using <code>uv lock --check</code>, <code>uv</code> can do this automatically! For example, when using <code>uv run</code> to trigger scripts or command line tools, <code>uv</code> automatically locks and synchronises the Project environment before execution. This guarantees everything is up-to-date before running, and the virtual environment/project configuration can no longer diverge.</p>
+<p>I think this is the best feature of <code>uv</code>!</p>
+<p>Sometimes, dependencies installed within virtual environments and their definitions in <code>pyproject.toml</code>/<code>requirements.txt</code> files can become out of sync. For example, this may happen when manually upgrading a dependency in the virtual environment using <code>pip</code>, and then forgetting to update the <code>pyproject.toml</code> file accordingly.</p>
+<p><code>uv</code> comes to the rescue (and not for the first time 🙂)! The command <code>uv sync</code> uses the <code>uv.lock</code> file to synchronise and resolve any dependency discrepancies. Even though you can manually check for discrepancies using <code>uv lock --check</code>, <code>uv</code> can also do this automatically! For example, when using <code>uv run</code> to execute python files, <code>uv</code> automatically locks and synchronises the Project environment before execution. This ensures everything is up-to-date before running, and the virtual environment/project configuration can no longer diverge.</p>
 <p>For more insight on <code>uv</code>’s locking/synch-ing functionality, see the <a href="https://docs.astral.sh/uv/concepts/projects/sync/">uv documentation</a>.</p>
 </section>
 <section id="but-i-want-to-keep-that-venvpip-feel" class="level3">
 <h3 class="anchored" data-anchor-id="but-i-want-to-keep-that-venvpip-feel">But I want to keep that <code>venv</code>/<code>pip</code> feel…</h3>
-<p><code>venv</code>, <code>pip</code> and other tools are used extensively across the development community because they offer low level APIs to control every aspect of a virtual environment/dependency workflow. This also introduces familiarity and dependency, making it difficult to move away from when newer tools, like <code>uv</code>, are developed.</p>
-<p>Yet again, <code>uv</code> solves both of these problems! If you aren’t comfortable in moving over to the core <code>uv</code> API straight away, or you’d still like access the lower level API calls <code>venv</code> and <code>pip</code> provide, <code>uv</code> has incorporated <code>uv venv</code> and <code>uv pip</code> commands. They can be used to retain <code>venv</code>/<code>pip</code> compatibility within the <code>uv</code> toolchain itself. For example, <code>python3 -m venv .venv</code> becomes <code>uv venv .venv</code> and <code>pip install pandas</code> becomes <code>uv pip install pandas</code>.</p>
-<p>For more details on these aspects, see <a href="https://docs.astral.sh/uv/getting-started/features/#the-pip-interface">the pip interface</a> section of the <code>uv</code> documentation. Be sure to also check out the <a href="https://docs.astral.sh/uv/pip/compatibility/"><code>uv</code>/<code>pip</code> compatibility page</a> for more specific information on the pip interface compared with <code>venv</code>/<code>pip</code>.</p>
+<p>Tools like <code>venv</code>, <code>pip</code>, and others are widely used in the development community because they provide low-level APIs to manage every aspect of a virtual environment/dependency workflow. This also creates familiarity and dependency, making it challenging to switch to newer tools such as <code>uv</code> when they become available.</p>
+<p>However, <code>uv</code> addresses both issues! If you’re not ready to transition to the core <code>uv</code> API immediately or prefer accessing lower-level API calls provided by <code>venv</code> and <code>pip</code>, <code>uv</code> includes commands like <code>uv venv</code> and <code>uv pip</code>. These can be used to maintain compatibility with <code>venv</code>/<code>pip</code> when using <code>uv</code>. For example, <code>python3 -m venv .venv</code> becomes <code>uv venv .venv</code>, and <code>pip install pandas</code> becomes <code>uv pip install pandas</code>.</p>
+<p>For more information on these aspects, see <a href="https://docs.astral.sh/uv/getting-started/features/#the-pip-interface">the pip interface</a> section of the <code>uv</code> documentation. Be sure to also check out the <a href="https://docs.astral.sh/uv/pip/compatibility/"><code>uv</code>/<code>pip</code> compatibility page</a> for more specific details on the pip interface compared with <code>venv</code>/<code>pip</code>.</p>
 </section>
 <section id="using-cli-tools" class="level3">
 <h3 class="anchored" data-anchor-id="using-cli-tools">Using CLI tools</h3>
-<p>Many python packages and dependencies can be used as tools via the CLI. For example, <code>pre-commit</code> can be executed across all files within a project space by calling <code>pre-commit run --all-files</code>.</p>
-<p>Within the context of <code>uv</code>, this is also achievable by calling <code>uvx</code> or <code>uv tool run</code>. Using the previous example, this becomes <code>uvx pre-commit run --all-files</code>. The main advantage of running tools with <code>uvx</code>/<code>uv tool run</code> is that <code>uv</code> ensures the project is fully synchronised before executing, just like <code>uv run</code>.</p>
-<p>For more detailed information on using tools with <code>uv</code>, see the <a href="https://docs.astral.sh/uv/guides/tools/"><code>uv</code> using tools documentation page</a>.</p>
+<p>Many Python packages and dependencies can be used as Command Line tools. For example, you can execute <code>pre-commit</code> across all files within a project by calling <code>pre-commit run --all-files</code>.</p>
+<p>In the context of <code>uv</code>, this is also possible using <code>uvx</code> or <code>uv tool run</code>. Using the previous example, this becomes <code>uvx pre-commit run --all-files</code>. The main advantage of running tools with <code>uvx</code>/<code>uv tool run</code> is that <code>uv</code> ensures the project is fully synchronised before executing, just like <code>uv run</code>.</p>
+<p>For more information on using tools with <code>UV</code>, see the <a href="https://docs.astral.sh/uv/guides/tools/"><code>UV</code> using tools documentation page</a>.</p>
 </section>
 <section id="building-and-publishing" class="level3">
 <h3 class="anchored" data-anchor-id="building-and-publishing">Building and Publishing</h3>
-<p><code>uv</code> supports both building Python packages into source/binary distributions and uploading them to a registry. This is achieved using <code>uv build</code> and <code>uv publish</code> commands. This allows <code>uv</code> to fully support the latter stages of a development workflow, where for example a Python package could be built and deployed to PyPI. For more information on these aspects, see the <a href="https://docs.astral.sh/uv/guides/package/#building-and-publishing-a-package"><code>uv</code> building and publishing documentation page</a>.</p>
+<p>With <code>uv</code>, you can also build Python packages into source/binary distributions and upload them to a registry using the commands <code>uv build</code> and <code>uv publish</code>. This enables <code>UV</code> to support the latter stages of a development workflow, such as building and deploying a Python package to PyPI. For more details on how to do this, see the <a href="https://docs.astral.sh/uv/guides/package/#building-and-publishing-a-package"><code>UV</code> building and publishing documentation page</a>.</p>
 </section>
 <section id="integrations" class="level3">
 <h3 class="anchored" data-anchor-id="integrations">Integrations</h3>
-<p>Finally, <code>uv</code> offers many integrations to help improve the entire workflow even further. Most notably:</p>
+<p>Finally, <code>uv</code> provides many integrations to enhance the workflow even more. Some notable integrations include:</p>
 <ul>
-<li><a href="https://docs.astral.sh/uv/guides/integration/pre-commit/">pre-commit hooks</a>, to help ensure the project is fully synchronised before committing.</li>
-<li><a href="https://docs.astral.sh/uv/guides/integration/github/">GitHub actions</a>, when needing to bring in <code>uv</code> into CI/CD workflows.</li>
+<li><a href="https://docs.astral.sh/uv/guides/integration/pre-commit/">pre-commit hooks</a>, which help ensure the project dependencies are fully up-to-date and synchronised before committing.</li>
+<li><a href="https://docs.astral.sh/uv/guides/integration/github/">GitHub actions</a>, for incorporating <code>uv</code> into CI/CD workflows.</li>
 <li><a href="https://docs.astral.sh/uv/guides/integration/docker/">Docker image</a>, to use <code>uv</code> within containers.</li>
-<li><a href="https://github.com/fastapi/fastapi">FastAPI</a>, for developing <a href="https://github.com/fastapi/fastapi">FastAPI</a>-based projects.</li>
+<li><a href="https://github.com/fastapi/fastapi">FastAPI</a>, for developing FastAPI-based projects.</li>
 </ul>
-<p>For a more comprehensive list of <code>uv</code> integrations, check out the <a href="https://docs.astral.sh/uv/guides/integration/">integrations documentation page</a>.</p>
+<p>For a complete list of <code>uv</code> integrations, see the <a href="https://docs.astral.sh/uv/guides/integration/">integrations documentation page</a>.</p>
 </section>
 </section>
 <section id="uv-command-cheat-sheet" class="level1">
 <h1><code>uv</code> command ‘cheat sheet’</h1>
-<p>The following sections summarise common <code>uv</code> commands, and aims to be a quick summary of everything discussed in this page. For a more complete overview and through descriptions always refer to the <code>uv</code> documentation.</p>
+<p>Here is a summary of <code>uv</code> commands - a quick summary of everything discussed in this page. For more complete and detailed guidance, always refer to the <a href="https://docs.astral.sh/uv/"><code>uv</code></a> documentation.</p>
 <section id="python-installlistuninstall" class="level3">
 <h3 class="anchored" data-anchor-id="python-installlistuninstall">Python install/list/uninstall</h3>
 <table class="caption-top table">
@@ -802,7 +807,15 @@ Tips on <code>uv</code> Python versions
 </section>
 <section id="final-thoughts" class="level1">
 <h1>Final Thoughts</h1>
-<p>Swapping virtual environment/dependency management tools is like changing out of a pair of old slippers - they’re familiar, comfortable, and not something you’d do without a good reason. For me, this is <code>venv</code> + <code>pip</code>. <code>uv</code> bring that new running show vibe - lots of fancy, innovative features that are probably a lot better for you over the long term. Most notably, <code>uv</code> offers a complete package; Python distribution and external tool management, automated project set-up, enforcement of the latest PEP standards, and a vastly improved dependency management, resolution and synchronisation - all in one place! Of course there are others tools, like <a href="https://pdm-project.org/en/latest/">PDM</a> and <a href="https://python-poetry.org">poetry</a>, which offer some of these features (and different ones too). Also, admittedly it’s not perfect - for example, I’d personally like ‘off-the-shelf’ Python testing integration (at least as part of the initial project set-up). But the rapid Rust backend, an ‘all-in-one’ tool, and the active development community, <code>uv</code> will likely become my go-to going forward.</p>
+<p>Changing virtual environment/dependency management tools is like stepping out of a pair of old slippers - they’re familiar, comfortable, and it’s not something you’d like to do without a very good reason. For me, this is <code>venv</code> + <code>pip</code>. However, <code>uv</code> brings that new running show vibe - fast, innovative features that are likely to be much better for you in the long term.</p>
+<p>The notable <code>uv</code> advantages discussed on this page are:</p>
+<ul>
+<li>Improved dependency management, resolution, and synchronisation.</li>
+<li>A complete package: from Python installation right through to package distribution.</li>
+<li>Automated project setup and configuration.</li>
+<li>Enforcement of the latest PEP standards.</li>
+</ul>
+<p>Of course others tools, like <a href="https://pdm-project.org/en/latest/">PDM</a> and <a href="https://python-poetry.org">poetry</a>, offer some of these features (and different ones too). And for sure, <code>uv</code> has room for improvement, such as providing test framework integration (at least during the initial project setup). But ultimately, the rapid Rust backend, an ‘all-in-one’ tool, and an active development community, means <code>uv</code> is an incredibly exciting choice with lots of advantages - it’s definitely worth having ‘uv’ in your toolkit!</p>
 
 
 </section>
