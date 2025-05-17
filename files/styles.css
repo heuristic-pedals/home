@@ -36,8 +36,31 @@
     grid-row-end: 1;
 }
 
+.item3 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.item4 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
 .jumbotron-icon{
     font-size: 50px;
     margin-top: -0.5rem;
     margin-bottom: -0.5rem;
+}
+
+.about-image-container {
+    margin-top: 1em;
+    margin-bottom: -1em;
+}
+
+.btn-primary{
+    background-color: #C8102E;
 }
