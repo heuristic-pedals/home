@@ -1,0 +1,16 @@
+---
+title: "All the pace but no purple?"
+description: "Taking a detailed look at qualifying on pole without setting fastest sector times."
+date: 05/18/2025
+date-modified: 05/18/2025
+date-format: iso
+layout: post
+categories: [miami, "2025", qualifying]
+image: purple-merc-wheel.jpg
+image-alt: |
+  A mercedes car wheel lit by a purple light. Photo by [RanaMotorWorks](https://unsplash.com/@rmwna?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-close-up-of-a-tire-on-a-car-wcqzRRnEnAs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+toc: true
+title-block-style: default
+title-block-banner: "#000000"
+title-block-banner-color: "#FFFFFF"
+---

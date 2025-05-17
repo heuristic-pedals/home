@@ -1,0 +1,30 @@
+---
+title: "Grid Graphs"
+listing:
+  contents: posts
+  type: grid
+  sort:
+    - "date desc"
+    - "title desc"
+  page-size: 9
+  categories: unnumbered
+  fields: [image, date, title, description, categories, reading-time]
+  filter-ui: [title, date]
+  sort-ui: [title, date]
+  date-format: iso
+---
+
+Welcome to the blog posts section! Use the dropdown, search box, and category filters to look for posts.
+
+::: {.callout-tip collapse="true"}
+
+## Each post is categorised by at least one tag using the [Diátaxis][diataxis] framework...
+
+- `explanation`: discussions focusing on understanding something.
+- `how-to`: concise instructions for getting something done.
+- `reference`: information on how something works or how to work with it. 
+- `tutorial`: lesson and learning oriented examples of something.
+
+:::
+
+[diataxis]: https://diataxis.fr
