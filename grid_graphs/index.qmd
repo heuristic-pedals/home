@@ -1,5 +1,4 @@
 ---
-title: "Grid Graphs"
 listing:
   contents: posts
   type: grid
@@ -14,17 +13,32 @@ listing:
   date-format: iso
 ---
 
-Welcome to the blog posts section! Use the dropdown, search box, and category filters to look for posts.
+:::: {.columns}
 
-::: {.callout-tip collapse="true"}
+::: {.column width="25%"}
 
-## Each post is categorised by at least one tag using the [Diátaxis][diataxis] framework...
-
-- `explanation`: discussions focusing on understanding something.
-- `how-to`: concise instructions for getting something done.
-- `reference`: information on how something works or how to work with it. 
-- `tutorial`: lesson and learning oriented examples of something.
+![](../files/grid_graphs_logo.png){fig-align="center"}
 
 :::
 
-[diataxis]: https://diataxis.fr
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="70%"}
+
+<div class="grid-graph-intro">
+
+Welcome to **Grid Graphs**! A data-driven blog series looking at Formula 1 practice, qualifying, and race events.
+
+Use the category tags, drop down, and search bar to find posts of interest.
+
+Posts are written in collaboration with [GitStopPractice]. If you have any ideas, would like to work together,
+or spot an issue please reach out on GitHub.
+</div>
+
+:::
+
+::::
+
+[GitStopPractice]: https://github.com/GitStopPractice
