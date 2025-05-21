@@ -51,6 +51,7 @@ website:
   
 format:
   html:
+    mainfont: arial
     css: files/styles.css
     theme:
       - flatly
