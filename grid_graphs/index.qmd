@@ -34,7 +34,7 @@ Welcome to **Grid Graphs**! A data-driven blog series looking at Formula 1 pract
 Use the category tags, drop down, and search bar to find posts of interest.
 
 Posts are written in collaboration with [GitStopPractice]. If you have any ideas, would like to work together,
-or spot an issue please reach out on GitHub.
+or spot an issues please reach out on GitHub.
 </div>
 
 :::

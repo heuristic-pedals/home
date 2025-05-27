@@ -1,0 +1,228 @@
+---
+title: "All the pace but no purple"
+description: "Taking a look at pole position laps without setting fastest sector times."
+layout: post
+categories: [japan, "2025", qualifying]
+image: purple-speed.jpg
+image-alt: |
+  Purple light speed space travel. Photo by [Giorgio Trovato](https://unsplash.com/@giorgiotrovato?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-pink-and-purple-light-WNs_ghAyddI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash
+toc: true
+title-block-style: default
+title-block-banner: "#000000"
+title-block-banner-color: "#FFFFFF"
+---
+
+<div class="grid-intro-section">
+
+<div class="metadata-grid-container">
+<div class="metadata-item1">
+<img class="grid-logo" src="../../../files/grid_graphs_logo.png">
+</div>
+<div class="metadata-item2">
+<p class="metadata-title">**AUTHOR**</p>
+<p class="metadata-value"><a href="https://github.com/heuristic-pedals">Heuristic Pedals</a></p>
+</div>
+<div class="metadata-item3">
+<p class="metadata-title">**PUBLISHED**</p>
+<p class="metadata-value">2025-05-28</p>
+</div>
+<div class="metadata-item4">
+<p class="metadata-title">**UPDATED**</p>
+<p class="metadata-value">2025-05-28</p>
+</div>
+</div>
+
+::: {.grid-graph-p}
+Max Verstappen bagged a [surprise pole position for the 2025 Japan Grand Prix][f1-max-pole-report]
+- Red Bull's first for the season. Perhaps even more surprisingly, Max didn't
+set the fastest time in any sector during his pole lap. How often does this
+happen and how did Max clinch pole position in Suzuka? Lets find out!
+:::
+</div>
+
+<br>
+
+::: {.grid-graph-p}
+
+Getting pole position without setting the fastest time in any sector seems like
+a rare occurrence, right? After all, being quickest over a whole lap means the 
+car and driver are doing well somewhere.
+
+However, consistency across a lap might be more critical when tracks have big
+differences between sectors. For instance, circuits with distinctive low/high
+speed sections or a significant one-lap tyre performance degradation.
+These situations often result in compromised car set-ups and tyre 'budget
+spends', putting more pressure on drivers to minimise errors when their cars
+aren't performing at their best. Let's explore this in more detail!
+
+:::
+
+### A brief history of pole positions without fastest sectors
+
+::: {.grid-graph-p}
+
+There were 159 qualifying sessions from the start of the 2018 season through to
+the 2025 Japan Grand Prix. This includes all Sprint Qualifying (2021-2022) and
+Sprint Shootout (since 2023) sessions, where the more conventional fastest lap
+format is used to set the grid for Sprint races.
+
+Across all of these sessions, the pole sitter did not set a fastest sector time
+on 11 occasions. That suggests it tends to happen roughly 1 in 14 qualifying
+sessions - quite rare indeed!
+
+:::
+
+::: {.callout-note}
+
+Only fastest sector times set during Q3/SQ3 valid laps were considered.
+This avoids potential biases introduced if conditions change significantly
+between qualifying stages or drivers gained unfair advantages during invalidated
+laps.
+
+:::
+
+::: {.grid-graph-p}
+
+From a driver's perspective (see @fig-drivers), 7 different drivers have claimed
+at least one pole position without setting a fastest sector time. It may be no
+surprise to see Verstappen and Hamilton as the only drivers to have achieved
+this feat more than once since 2018, given they have been the two most
+successful drivers on the grid over this time.
+
+:::
+
+![Pole position drivers without setting a fastest sector time](no_fastest_sectors_drivers.svg){#fig-drivers width="100%"}
+
+::: {.callout-tip}
+
+##### Fun Fact
+
+Kevin Magnussen accomplished this en route to achieving Haas's only pole
+position to date, during the action packed
+[2022 qualifying session at São Paulo][f1-2022-brazil-quali-report].
+
+:::
+
+::: {.grid-graphs-p}
+
+Looking at different tracks (see @fig-tracks), it seems that pole without a
+fastest sectors may happen more often on tracks with more pronounced high/low
+speed sector differences. Tracks like Baku, Budapest, and Yas Marina certainly
+fit this bill, but it's not possible to say for sure without a more
+sophisticated analysis than the exploratory investigation here
+(perhaps a topic for a future post 🙂).
+
+:::
+
+![Tracks where pole sitters failed to set a fastest sector time](no_fastest_sectors_tracks.svg){#fig-tracks width="100%"}
+
+### Japan 2025 Qualifying: Comparing the top 4
+
+::: {#tbl-japan-q3-top4-results}
+
+<table border="1" class="grid-graphs-table dataframe">
+  <thead>
+    <tr style="text-align: centre;">
+      <th rowspan="2" style="text-align: center;">Position</th>
+      <th rowspan="2" style="text-align: center;">Driver</th>
+      <th rowspan="2" style="text-align: center;">Lap Time</th>
+      <th rowspan="2" style="text-align: center;">P1 Delta (s)</th>
+      <th colspan="3" style="text-align: center;">Sector Times (s)</th>
+      <th colspan="4" style="text-align: center;">Speed (Km/h)</th>
+    </tr>
+    <tr style="text-align: centre;">
+      <th style="text-align: center;">1</th>
+      <th style="text-align: center;">2</th>
+      <th style="text-align: center;">3</th>
+      <th style="text-align: center;">Int. 1</th>
+      <th style="text-align: center;">Int. 2</th>
+      <th style="text-align: center;">Finish</th>
+      <th style="text-align: center;">Trap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>VER</td>
+      <td>01:26.983</td>
+      <td>-</td>
+      <td>30.387</td>
+      <td>39.355</td>
+      <td>17.241</td>
+      <td style="font-weight: bold;">288</td>
+      <td>298</td>
+      <td style="font-weight: bold;">271</td>
+      <td style="font-weight: bold;">295</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>NOR</td>
+      <td>01:26.995</td>
+      <td>0.012</td>
+      <td style="color: #8F00FF; font-weight: bold;">30.358</td>
+      <td>39.301</td>
+      <td>17.336</td>
+      <td>287</td>
+      <td style="font-weight: bold;">300</td>
+      <td>267</td>
+      <td>295</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>PIA</td>
+      <td>01:27.027</td>
+      <td>0.044</td>
+      <td>30.625</td>
+      <td style="color: #8F00FF; font-weight: bold;">39.197</td>
+      <td style="color: #8F00FF; font-weight: bold;">17.205</td>
+      <td>287</td>
+      <td>299</td>
+      <td style="font-weight: bold;">271</td>
+      <td>294</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>LEC</td>
+      <td>01:27.299</td>
+      <td>0.316</td>
+      <td>30.535</td>
+      <td>39.352</td>
+      <td>17.412</td>
+      <td style="font-weight: bold;">288</td>
+      <td>299</td>
+      <td style="font-weight: bold;">271</td>
+      <td style="font-weight: bold;">295</td>
+    </tr>
+  </tbody>
+</table>
+
+:::
+
+:::: {.grid-graphs-sources-and-icon}
+
+::: {.grid-graphs-sources}
+Sources: F1 API/FastF1 v3.5.3 (collection), Grid Graphs (analysis and
+visualisation).
+:::
+
+::: {.grid-graphs-icon-high}
+<span class="high-text-with-background">High Confidence</span>
+:::
+
+::::
+
+
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="tbl-japan-q3-top4-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Japan Q3 session results for the top 4. Bold purple sector times
+are fastest sector times. Bold speed values are fastest speeds at the
+measurement locations.
+</figcaption>
+
+![Fastest sector times during Japan Q3](fastest_sectors_map.svg){#fig-fastest-sectors width="100%"}
+
+![Speed differences to VER during Q3 fastest laps](ver_speed_differences.svg){#fig-speed-diffs width="100%"}
+
+![Time differences to VER during Q3 fastest laps](ver_time_differences.svg){#fig-time-diffs width="100%"}
+
+[f1-max-pole-report]: https://www.formula1.com/en/latest/article/verstappen-clinches-stunning-pole-position-ahead-of-norris-and-piastri-in.2r7tZSVLE1Uz9X8bVk4vQB
+[f1-2022-brazil-quali-report]: https://en.wikipedia.org/wiki/2022_São_Paulo_Grand_Prix#Qualifying_report
