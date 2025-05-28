@@ -67,7 +67,7 @@ Sprint Shootout (since 2023) sessions, where the more conventional fastest lap
 format is used to set the grid for Sprint races.
 
 Across all of these sessions, the pole sitter did not set a fastest sector time
-on 11 occasions. That suggests it tends to happen roughly 1 in 14 qualifying
+on 10 occasions. That suggests it tends to happen roughly 1 in 16 qualifying
 sessions - quite rare indeed!
 
 :::
@@ -91,7 +91,7 @@ successful drivers on the grid over this time.
 
 :::
 
-![Pole position drivers without setting a fastest sector time](no_fastest_sectors_drivers.svg){#fig-drivers width="100%"}
+![Pole position drivers without setting a fastest sector time.](no_fastest_sectors_drivers.svg){#fig-drivers width="100%"}
 
 ::: {.callout-tip}
 
@@ -114,9 +114,19 @@ sophisticated analysis than the exploratory investigation here
 
 :::
 
-![Tracks where pole sitters failed to set a fastest sector time](no_fastest_sectors_tracks.svg){#fig-tracks width="100%"}
+![Tracks where pole sitters failed to set a fastest sector time.](no_fastest_sectors_tracks.svg){#fig-tracks width="100%"}
 
-### Japan 2025 Qualifying: Comparing the top 4
+### Japan 2025 Q3: Comparing the top 4 drivers
+
+::: {.grid-graph-p}
+
+As we've just seen, Max Verstappen achieved a pole position without setting
+a fastest sector time for the 3rd time since 2018, taking him to the top of this
+leaderboard. To understand how he managed this, let's compare his pole lap with
+the other top four drivers during the Q3 session. @tbl-japan-q3-top4-results
+summarises the top 4 qualifying results.
+
+:::
 
 ::: {#tbl-japan-q3-top4-results}
 
@@ -211,18 +221,147 @@ visualisation).
 
 ::::
 
-
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="tbl-japan-q3-top4-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig extra-bottom-padding" id="tbl-japan-q3-top4-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Japan Q3 session results for the top 4. Bold purple sector times
 are fastest sector times. Bold speed values are fastest speeds at the
 measurement locations.
 </figcaption>
 
-![Fastest sector times during Japan Q3](fastest_sectors_map.svg){#fig-fastest-sectors width="100%"}
+::: {.grid-graph-p}
 
-![Speed differences to VER during Q3 fastest laps](ver_speed_differences.svg){#fig-speed-diffs width="100%"}
+So Verstappen claimed pole by just 0.012s and 0.044s from the two McLarens in P2
+and P3! Leclerc's Ferrari is a little further back at 0.316s, showing
+Verstappen and the McLarens were in a class of their own during this session.
 
-![Time differences to VER during Q3 fastest laps](ver_time_differences.svg){#fig-time-diffs width="100%"}
+The sector times suggest the McLarens were the fastest cars around the Suzuka
+circuit - they took the fastest time in every sector (see also
+@fig-fastest-sectors). This accolade was however shared between both the McLaren
+drivers, which is a first sign that Verstappen was the more consistent driver
+in Q3 - an impressive achievement given that [a McLaren topped every practice
+session plus Q1 and Q2][f1-suzuka-2025-results]!
+
+:::
+
+![Fastest sector times during Japan Q3.](fastest_sectors_map.svg){#fig-fastest-sectors width="100%"}
+
+::: {.grid-graph-p}
+
+The speed traps around the track didn't show big differences in car speeds,
+except at the finish line. Norris had a much slower car speed there compared to
+the other top 4 drivers, perhaps hinting at a driver error somewhere around this
+area.
+
+To take a closer look at driver differences, let's compare speed and time gaps
+with Verstappen's pole lap (see Figures [-@fig-speed-diffs] and 
+[-@fig-time-diffs]).
+
+:::
+
+![Speed differences to VER during Q3 fastest laps.](ver_speed_differences.svg){#fig-speed-diffs width="100%"}
+
+![Time differences to VER during Q3 fastest laps.](ver_time_differences.svg){#fig-time-diffs width="100%"}
+
+::: {.callout-warning collapse="true"}
+
+##### A note about data with moderate confidence...
+
+When you see visualisations categorised with this label, remember to take
+extra caution when comparing exact differences. You can still trust the overall
+trends and main themes, but it's best to use additional data sources (where
+possible) to help understand exact difference better. See below for more
+detailed advice for Figures [-@fig-speed-diffs] and [-@fig-time-diffs]:
+
+- Data is shared by the F1 API asynchronously at ~4-5Hz. This isn't great
+given F1 car speeds and makes it liable to aliasing and not feasible to compare
+directly. To fix this and align car data, they are not resampled onto a
+synchronised timestamp. Instead, vehicle time and speed data are combined on a
+'distance around lap' index and then interpolated using piecewise polynomials.
+This helps keep the raw data intact, but comparing any interpolated
+values can still be inaccurate when sudden changes happen.
+- Distance around lap is calculated by integrating car speed data and then 
+normalising the progress around the lap using the actual track length. This
+helps mitigate drivers taking slightly different racing lines around the track.
+- Corner labels are not precise and are included for visualisation purposes
+only.
+
+:::
+
+##### P1 vs P4 (Verstappen vs Leclerc)
+
+Leclerc makes a great start to the lap. He built up a ~0.075s lead through the
+high/medium speed T1-T4 corners. But he starts to lose out mid way through
+the 'S' curve section. Verstappen carries much more speed there and
+claws all that time back and then some, leading by ~0.1s heading into the Degnas.
+Leclerc makes time back under braking into Degna 2, but loses most of it
+in the corner exit phase.
+
+In fact, this often happened to the Ferrari in low/medium speed corners - maybe
+he's pushing too hard or perhaps the Red Bull simply has an advantage here. This
+is most notable coming out of the T11 hairpin, where Leclerc lost around 0.15s
+to Max.
+
+However, through Spoon, the Ferrari was able to pull back the corner exit loses
+down the straight and through 130R, with these differences lessening as the cars
+head towards top speed.
+
+Verstappen then definitively pulls away from the Ferrari through the Casio
+Triangle, taking a large 0.3s gap to the finish line.
+
+In summary, it's likely Red Bull achieved a better car balance for Suzuka.
+Verstappen handled the many technical corner sections much better than the
+Ferrari. Given the time loses out of the corners, perhaps Ferrari favoured a
+more high speed set-up, but this ultimately failed to make up time loses in the
+high speed/straight sections by the time the finish line approached.
+
+##### P1 vs P2/P3 (Verstappen vs the McLarens)
+
+The speed and time difference between the McLarens and Verstappen clearly
+shows that the McLaren was the better car around Suzuka. Their combined
+fastest sector times would have beaten Max by 0.223s! So, what happened?
+In short, driver errors... 
+
+Heading through the high speed T1-T2 corners, Verstappen carried an extra
+20-30 Km/h through compared to both the McLarens, giving him a 0.15-0.2s lead at
+this early stage. However, Piastri lost out more significantly, a further 10Km/h
+to Norris, after a back end loss heading into T2. This was compounded all the
+way through the 'S' curves, and by end of this section he was ~0.25s behind Max
+and ~0.3s behind Lando (after his fastest sector) - both big gaps to close down
+in F1 terms. Piastri did very well versus through the Degnas to eat into those
+leads. He also gets small amounts of time back through the T11 hairpin, Spoon,
+the back straight, 130R, and on the exit of the Casio Triangle - i.e. as he
+set the fastest sectors in 2 and 3. However, all those gains weren't enough to
+over come the T1/T2 error.
+
+For Norris, the story is similar but in reverse. He pulled out a significant gap
+after setting a fastest first sector. In the middle sector, Norris loses out to
+Max under braking on several occasions but makes nearly all of this back on
+corner exits - only minor differences here. Norris gains a lot of time on all 4
+drivers after a good exit from Spoon and along the back straight. This advantage
+increased over time, leading to a ~0.15s gap over Verstappen heading into the
+Casio Triangle - Lando's downfall. The sudden and then persistent swing in both
+speed/time deltas in T16-T17, to both Verstappen and Piastri, indicates a
+mistake. Lando lost a heap of time in this section and, as we saw previously,
+it ended in a deficit of ~4Km/h, 0.012s, and P2 at the finish line.
+
+Altogether, it was a combination of driving consistency, a balanced car set-up,
+and errors by both McLarens which lead to Verstappen claiming his 3rd
+no-fastest-sector-pole since 2018.
+
+## Conclusions
+
+Taking pole position without setting a fastest sector time, as expected, is a
+rare thing in F1 - happing roughly 1 in 16 qualifying sessions since 2018.
+
+Verstappen drove impeccably around Suzuka to achieve his 3rd
+no-fastest-sector-pole during this time. His consistency and balanced car set-up
+clearly prevailed over the rest of the field, but it this case it also required
+errors from the McLarens - who will feel like they missed out on a dominant 1-2
+at Suzuka.
+
+Ultimately, achieving rare feats like no-fastest-sector-pole positions, requires
+a mixture of skill, consistency and, just like in other sports, things to go
+your way. 
 
 [f1-max-pole-report]: https://www.formula1.com/en/latest/article/verstappen-clinches-stunning-pole-position-ahead-of-norris-and-piastri-in.2r7tZSVLE1Uz9X8bVk4vQB
 [f1-2022-brazil-quali-report]: https://en.wikipedia.org/wiki/2022_São_Paulo_Grand_Prix#Qualifying_report
+[f1-suzuka-2025-results]: https://www.formula1.com/en/results/2025/races/1256/japan/practice/3
