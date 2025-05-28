@@ -170,3 +170,12 @@ span.high-text-with-background {
     visibility: hidden;
     height: 0px;
 }
+
+.btn-primary:hover {
+  background-color: black;
+  color: white;
+}
+
+.extra-bottom-padding {
+    padding-bottom: 2em;
+}
