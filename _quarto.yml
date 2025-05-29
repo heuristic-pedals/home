@@ -27,6 +27,8 @@ website:
         href: "index.qmd"
       - text: "Blog"
         href: "blog/index.qmd"
+      - text: "Grid Graphs"
+        href: "grid_graphs/index.qmd"
       - text: "Codebases"
         href: "codebases/index.qmd"
 
@@ -49,6 +51,7 @@ website:
   
 format:
   html:
+    mainfont: arial
     css: files/styles.css
     theme:
       - flatly

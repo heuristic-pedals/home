@@ -1,29 +1,49 @@
 ---
-title: "Heuristic Pedals"
 about:
-    template: solana
-    image: ./files/hp_logo_reduced.png
-    links:
-        - icon: github
-          text: Github
-          href: https://github.com/heuristic-pedals
+    template: marquee
+    image: ./files/hp_full_horizontal.png
 ---
 
-A data scientist, ex-engineer, and even ex-er-physicist mainly writing about `python` and `rust`.
+A data scientist, ex-engineer, and even ex-er-physicist writing about:
 
-This website serves as a place for me to record useful things I pick up and to improve my writing skills. At the same time I hope you find the content interesting and helpful too!
+- Python 🐍 and Rust 🦀
+- Software development 👨‍💻
+- And cloud engineering ☁️
 
-### Where next?
+Additionally, in collaboration with [GitStopPractice], a section of this site is dedicated to **Grid Graphs** - a data-driven blog series covering Formula 1. Each blog post will delve deep into specific aspects of practice, qualifying, and the race, such as:
+
+- Fastest laps 🚀
+- Pit stop strategies 🛠
+- Driver performance analysis 🏎️
+- Team tactics 🏁🤝
+- And much, much more! 🌟
+
+This website primarily serves as a place for me to record useful things and improve my writing skills. At the same time I hope you find the content interesting and helpful too!
+
+## Where next?
 
 <div class="grid-container">
 <div class="grid-item item1 jumbotron">
 <p class="jumbotron-icon">📝</p>
-<p>Posts covering software and coding topics</p>
+<p>**Interested in coding?**<br>Posts covering Cloud and software topics</p>
 <a class="btn btn-primary" href="./blog/index.qmd" role="button">Blog</a>
 </div>
 <div class="grid-item item2 jumbotron">
-<p class="jumbotron-icon">👨‍💻</p>
-<p>Summary of `heuristic-pedals` repositories</p>
+<p class="jumbotron-icon">🏎️</p>
+<p>**Calling all race fans!**<br>A data focused look at F1 events</p>
+<a class="btn btn-primary" href="./grid_graphs/index.qmd" role="button">Grid Graphs</a>
+</div>
+<div class="grid-item item3 jumbotron">
+<p class="jumbotron-icon">💾</p>
+<p>**Want to know more?**<br>Summary of `heuristic-pedals` repositories</p>
 <a class="btn btn-primary" href="./codebases/index.qmd" role="button">Codebases</a>
 </div>
+<div class="grid-item item4 jumbotron">
+<p class="jumbotron-icon">👨‍💻</p>
+<p>**Looking to collaborate?**<br>Contribute or report an issue on GitHub</p>
+<a class="btn btn-primary" href="https://github.com/heuristic-pedals" role="button">GitHub</a>
 </div>
+</div>
+
+
+[GitStopPractice]: https://github.com/GitStopPractice

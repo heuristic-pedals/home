@@ -1,0 +1,44 @@
+---
+listing:
+  contents: posts
+  type: grid
+  sort:
+    - "date desc"
+    - "title desc"
+  page-size: 9
+  categories: unnumbered
+  fields: [image, date, title, description, categories, reading-time]
+  filter-ui: [title, date]
+  sort-ui: [title, date]
+  date-format: iso
+---
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+![](../files/grid_graphs_logo.png){fig-align="center"}
+
+:::
+
+::: {.column width="5%"}
+
+:::
+
+::: {.column width="70%"}
+
+<div class="grid-graph-intro">
+
+Welcome to **Grid Graphs**! A data-driven blog series looking at Formula 1 practice, qualifying, and race events.
+
+Use the category tags, drop down, and search bar to find posts of interest.
+
+Posts are written in collaboration with [GitStopPractice]. If you have any ideas, would like to work together,
+or spot any issues please reach out on GitHub.
+</div>
+
+:::
+
+::::
+
+[GitStopPractice]: https://github.com/GitStopPractice
