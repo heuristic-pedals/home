@@ -106,7 +106,7 @@ position to date, during the action packed
 ::: {.grid-graphs-p}
 
 Looking at different tracks (see @fig-tracks), it seems that pole without a
-fastest sectors may happen more often on tracks with more pronounced high/low
+fastest sector may happen more often on tracks with more pronounced high/low
 speed sector differences. Tracks like Baku, Budapest, and Yas Marina certainly
 fit this bill, but it's not possible to say for sure without a more
 sophisticated analysis than the exploratory investigation here
@@ -235,10 +235,10 @@ Verstappen and the McLarens were in a class of their own during this session.
 
 The sector times suggest the McLarens were the fastest cars around the Suzuka
 circuit - they took the fastest time in every sector (see also
-@fig-fastest-sectors). This accolade was however shared between both the McLaren
-drivers, which is a first sign that Verstappen was the more consistent driver
-in Q3 - an impressive achievement given that [a McLaren topped every practice
-session plus Q1 and Q2][f1-suzuka-2025-results]!
+@fig-fastest-sectors). However, this accolade was however shared between both
+the McLaren drivers, which is a first sign that Verstappen was the more
+consistent driver in Q3 - an impressive achievement given that [a McLaren topped
+every practice session plus Q1 and Q2][f1-suzuka-2025-results]!
 
 :::
 
@@ -328,7 +328,7 @@ way through the 'S' curves, and by end of this section he was ~0.25s behind Max
 and ~0.3s behind Lando (after his fastest sector) - both big gaps to close down
 in F1 terms. Piastri did very well versus through the Degnas to eat into those
 leads. He also gets small amounts of time back through the T11 hairpin, Spoon,
-the back straight, 130R, and on the exit of the Casio Triangle - i.e. as he
+the back straight, 130R, and on the exit of the Casio Triangle - i.e., as he
 set the fastest sectors in 2 and 3. However, all those gains weren't enough to
 over come the T1/T2 error.
 
@@ -358,7 +358,7 @@ clearly prevailed over the rest of the field, but it this case it also required
 errors from the McLarens - who will feel like they missed out on a dominant 1-2
 at Suzuka.
 
-Ultimately, achieving rare feats like no-fastest-sector-pole positions, requires
+Ultimately, achieving rare feats like no-fastest-sector-pole positions requires
 a mixture of skill, consistency and, just like in other sports, things to go
 your way. 
 
