@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-05-06">
 <meta name="description" content="A (hopefully) useful blogging site mainly about <code>python</code> and <code>rust</code>">
 
-<title>‘Jazzing Up’ zsh with oh-my-zsh – Heuristic Pedals</title>
+<title>All the pace but no purple – Heuristic Pedals</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -124,12 +88,12 @@ background: #000000;
 
 
 <link rel="stylesheet" href="../../../files/styles.css">
-<meta property="og:title" content="‘Jazzing Up’ zsh with oh-my-zsh – Heuristic Pedals">
+<meta property="og:title" content="All the pace but no purple – Heuristic Pedals">
 <meta property="og:description" content="A (hopefully) useful blogging site mainly about python and rust">
-<meta property="og:image" content="https://heuristicpedals.com/blog/posts/oh-my-zsh-setup/jazz.jpg">
+<meta property="og:image" content="https://heuristicpedals.com/grid_graphs/posts/ver-japan-25/purple-speed.jpg">
 <meta property="og:site_name" content="Heuristic Pedals">
 <meta property="og:locale" content="en_UK">
-<meta property="og:image:alt" content="A man playing jazz on a saxophone. Photo by [Jens Thekkeveettil](https://unsplash.com/@jensth?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-playing-saxophone-dBWvUqBoOU8?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash)
+<meta property="og:image:alt" content="Purple light speed space travel. Photo by [Giorgio Trovato](https://unsplash.com/@giorgiotrovato?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-pink-and-purple-light-WNs_ghAyddI?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash
 ">
 </head>
 
@@ -187,15 +151,16 @@ background: #000000;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">‘Jazzing Up’ <code>zsh</code> with <code>oh-my-zsh</code></h1>
+      <h1 class="title">All the pace but no purple</h1>
                   <div>
         <div class="description">
-          How to set-up <code>oh-my-zsh</code> with some helpful plugins and themes.
+          Taking a look at pole position laps without setting fastest sector times.
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">cli</div>
-                <div class="quarto-category">how-to</div>
+                <div class="quarto-category">japan</div>
+                <div class="quarto-category">2025</div>
+                <div class="quarto-category">qualifying</div>
               </div>
                   </div>
   </div>
@@ -204,19 +169,7 @@ background: #000000;
   <div class="quarto-title-meta">
 
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">2024-05-06</p>
-      </div>
-    </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">2024-05-06</p>
-      </div>
-    </div>
       
     </div>
     
@@ -229,14 +182,9 @@ background: #000000;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#plugins" id="toc-plugins" class="nav-link" data-scroll-target="#plugins">Plugins</a>
-  <ul class="collapse">
-  <li><a href="#installing-plugins" id="toc-installing-plugins" class="nav-link" data-scroll-target="#installing-plugins">Installing Plugins</a></li>
-  <li><a href="#addingmodifying-plugin-configuration" id="toc-addingmodifying-plugin-configuration" class="nav-link" data-scroll-target="#addingmodifying-plugin-configuration">Adding/Modifying Plugin Configuration</a></li>
-  </ul></li>
-  <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes">Themes</a></li>
-  <li><a href="#further-reading-final-thoughts" id="toc-further-reading-final-thoughts" class="nav-link" data-scroll-target="#further-reading-final-thoughts">Further Reading &amp; Final Thoughts</a></li>
+  <li><a href="#a-brief-history-of-pole-positions-without-fastest-sectors" id="toc-a-brief-history-of-pole-positions-without-fastest-sectors" class="nav-link active" data-scroll-target="#a-brief-history-of-pole-positions-without-fastest-sectors">A brief history of pole positions without fastest sectors</a></li>
+  <li><a href="#japan-2025-q3-comparing-the-top-4-drivers" id="toc-japan-2025-q3-comparing-the-top-4-drivers" class="nav-link" data-scroll-target="#japan-2025-q3-comparing-the-top-4-drivers">Japan 2025 Q3: Comparing the top 4 drivers</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
   </ul>
 </nav>
     </div>
@@ -247,124 +195,398 @@ background: #000000;
 
 
 
-<p>This guide will show you how to:</p>
-<div class="intro-div">
-<ul>
-<li>Install <a href="../../../blog/posts/oh-my-zsh-setup/index.html#installation">oh-my-zsh</a>.</li>
-<li>Install <a href="../../../blog/posts/oh-my-zsh-setup/index.html#auto-suggestion">auto-suggestion</a> and <a href="../../../blog/posts/oh-my-zsh-setup/index.html#syntax-highlighting">syntax highlighting</a> plugins.</li>
-<li>Modify your <code>oh-my-zsh</code> <a href="../../../blog/posts/oh-my-zsh-setup/index.html#addingmodifying-plugin-configuration">plugin configuration</a>.</li>
-<li>Modify your <code>oh-my-zsh</code> <a href="../../../blog/posts/oh-my-zsh-setup/index.html#themes">theme</a>.</li>
-</ul>
+<div class="grid-intro-section">
+<div class="metadata-grid-container">
+<div class="metadata-item1">
+<p><img class="grid-logo" src="../../../files/grid_graphs_logo.png"></p>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="metadata-item2">
+<p class="metadata-title">
+<strong>AUTHOR</strong>
+</p>
+<p class="metadata-value">
+<a href="https://github.com/heuristic-pedals">Heuristic Pedals</a>
+</p>
+</div>
+<div class="metadata-item3">
+<p class="metadata-title">
+<strong>PUBLISHED</strong>
+</p>
+<p class="metadata-value">
+2025-05-29
+</p>
+</div>
+<div class="metadata-item4">
+<p class="metadata-title">
+<strong>UPDATED</strong>
+</p>
+<p class="metadata-value">
+2025-05-29
+</p>
+</div>
+</div>
+<div class="grid-graph-p">
+<p>Max Verstappen bagged a <a href="https://www.formula1.com/en/latest/article/verstappen-clinches-stunning-pole-position-ahead-of-norris-and-piastri-in.2r7tZSVLE1Uz9X8bVk4vQB">surprise pole position for the 2025 Japan Grand Prix</a> - Red Bull’s first for the season. Perhaps even more surprisingly, Max didn’t set the fastest time in any sector during his pole lap. How often does this happen and how did Max clinch pole position in Suzuka? Lets find out!</p>
+</div>
+</div>
+<p><br></p>
+<div class="grid-graph-p">
+<p>Getting pole position without setting the fastest time in any sector seems like a rare occurrence, right? After all, being quickest over a whole lap means the car and driver are doing well somewhere.</p>
+<p>However, consistency across a lap might be more critical when tracks have big differences between sectors. For instance, circuits with distinctive low/high speed sections or a significant one-lap tyre performance degradation. These situations often result in compromised car set-ups and tyre ‘budget spends’, putting more pressure on drivers to minimise errors when their cars aren’t performing at their best. Let’s explore this in more detail!</p>
+</div>
+<section id="a-brief-history-of-pole-positions-without-fastest-sectors" class="level3">
+<h3 class="anchored" data-anchor-id="a-brief-history-of-pole-positions-without-fastest-sectors">A brief history of pole positions without fastest sectors</h3>
+<div class="grid-graph-p">
+<p>There were 159 qualifying sessions from the start of the 2018 season through to the 2025 Japan Grand Prix. This includes all Sprint Qualifying (2021-2022) and Sprint Shootout (since 2023) sessions, where the more conventional fastest lap format is used to set the grid for Sprint races.</p>
+<p>Across all of these sessions, the pole sitter did not set a fastest sector time on 10 occasions. That suggests it tends to happen roughly 1 in 16 qualifying sessions - quite rare indeed!</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Make sure the following prerequisites are installed before continuing…
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#zsh">zsh</a> (needed to install and use <a href="https://ohmyz.sh">oh-my-zsh</a>).</li>
-<li><a href="https://github.com/git-guides/install-git">git</a> (used here to install plugins and – optionally if you chose to use it – for the git plugin itself).</li>
-</ul>
-<p>You can check this by calling <code>zsh --version</code>/<code>git --version</code> in a terminal.</p>
+<p>Only fastest sector times set during Q3/SQ3 valid laps were considered. This avoids potential biases introduced if conditions change significantly between qualifying stages or drivers gained unfair advantages during invalidated laps.</p>
 </div>
 </div>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>Follow these steps to install <code>oh-my-zsh</code>:</p>
-<ol type="1">
-<li>Retrieve and execute the installation script (located in the main branch of the <a href="https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/install.sh">oh-my-zsh GitHub repo</a>):</li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sh</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>You may then need to restart your terminal session for these changes to take effect.</li>
-</ol>
-<p>That’s it, the base installation of <code>oh-my-zsh</code> is then ready to go!</p>
-</section>
-<section id="plugins" class="level2">
-<h2 class="anchored" data-anchor-id="plugins">Plugins</h2>
-<p><code>oh-my-zsh</code> comes with a wide range of built-in plugins. These are listed on the <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">plugins page of the oh my zsh website</a>.</p>
-<p>However, some plugins (mainly custom ones) need to be installed before use. The <a href="../../../blog/posts/oh-my-zsh-setup/index.html#installing-plugins">installing plugins section</a> shows you how to install two such useful plugins: <code>zsh-auto-suggestion</code> and <code>zsh-syntax-highlighting</code>.</p>
-<p>The <a href="../../../blog/posts/oh-my-zsh-setup/index.html#addingmodifying-plugin-configuration">adding/modifying plugins section</a> walks you through how to add new, and change the configuration of, your plugins. This section is applicable to both built-in and custom plugins.</p>
-<section id="installing-plugins" class="level3">
-<h3 class="anchored" data-anchor-id="installing-plugins">Installing Plugins</h3>
-<section id="auto-suggestion" class="level4">
-<h4 class="anchored" data-anchor-id="auto-suggestion">Auto-suggestion</h4>
-<p>The <a href="https://github.com/zsh-users/zsh-autosuggestions/tree/master">zsh-auto-suggestion plugin</a> recommends commands as you type in the terminal based on your recent history and completions. It can be installed as follows:</p>
-<ol type="1">
-<li>Clone the plugin from the GitHub repository into the local custom plugins directory:</li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/zsh-users/zsh-autosuggestions <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">${ZSH_CUSTOM</span><span class="op">:-</span><span class="pp">~</span>/.oh-my-zsh/custom<span class="va">}</span>/plugins/zsh-autosuggestions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Add the plugin to your <code>oh-my-zsh</code> configuration as outlined in the <a href="../../../blog/posts/oh-my-zsh-setup/index.html#addingmodifying-plugin-configuration">adding/modifying plugins section</a>.</li>
-</ol>
-<p>That’s it! For alternative ways of installing this plugin, see the <a href="https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md">zsh-auto-suggestion installation instructions</a>.</p>
-</section>
-<section id="syntax-highlighting" class="level4">
-<h4 class="anchored" data-anchor-id="syntax-highlighting">Syntax Highlighting</h4>
-<p>The <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting plugin</a> enables command highlighting as you type - available and correctly entered commands are coloured green and unavailable/mistyped commands are red. It can be installed in a similar way to <code>zsh-auto-suggestions</code>:</p>
-<ol type="1">
-<li>Clone the plugin from the GitHub repository into the local custom plugins directory:</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="dt">\</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">${ZSH_CUSTOM</span><span class="op">:-</span><span class="pp">~</span>/.oh-my-zsh/custom<span class="va">}</span>/plugins/zsh-syntax-highlighting</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>Add the plugin to your <code>oh-my-zsh</code> configuration as outlined in the <a href="../../../blog/posts/oh-my-zsh-setup/index.html#addingmodifying-plugin-configuration">adding/modifying plugins section</a>.</li>
-</ol>
-<p>And you’re done! For alternative ways of installing the plugin, see the <a href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md">zsh-syntax-highlighting installation instructions</a>.</p>
-</section>
-</section>
-<section id="addingmodifying-plugin-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="addingmodifying-plugin-configuration">Adding/Modifying Plugin Configuration</h3>
-<p>You can add built-in/installed custom plugins, or changing your plugin configuration, as follows:</p>
-<ol type="1">
-<li>Open your <code>.zshrc</code> config file:</li>
-</ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> ~/.zshrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li><p>Find the <code>plugins</code> variable. This should look something like <code>plugins=(... &lt;PLUGIN_NAME&gt; ...)</code>. This is a space separated list of activated plugins surrounded by brackets. At the start, this list will likely only contain the <code>git</code> plugin.</p></li>
-<li><p>Add/remove the name(s) of the plugin(s) you’d like to activate/deactivate. Ensure the list of plugin names is space separated.</p></li>
-<li><p>Save your <code>.zshrc</code> configuration file, and restart your terminal session for the changes to take effect.</p></li>
-</ol>
-</section>
-</section>
-<section id="themes" class="level2">
-<h2 class="anchored" data-anchor-id="themes">Themes</h2>
-<p>A list of <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">built-in themes is recorded on the oh-my-zsh website</a>. To change your <code>oh-my-zsh</code> theme, just follow these steps:</p>
-<ol type="1">
-<li>Open your <code>.zshrc</code> config file:</li>
-</ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> ~/.zshrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li><p>Find the <code>ZSH_THEME</code> variable, and change this to match the name of your theme of choice. At the start, this will likely be set to the default built-in theme <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell">robbyrussell</a>.</p></li>
-<li><p>Save your <code>.zshrc</code> configuration file, and restart your terminal session for the changes to take effect.</p></li>
-</ol>
-</section>
-<section id="further-reading-final-thoughts" class="level2">
-<h2 class="anchored" data-anchor-id="further-reading-final-thoughts">Further Reading &amp; Final Thoughts</h2>
-<p>The <a href="https://ohmyz.sh">oh-my-zsh website</a> is a great place to go for detailed and up-to-date information.</p>
-<p>All the available <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">built-in plugins</a> are recorded on the oh-my-zsh website. I find the following plugins helpful: <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git">git</a> (aliases), <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker">docker</a> (completion support and aliases), <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gcloud">gcloud</a> (completion support), <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/python">python</a> (aliases and virtual environment commands) and <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/terraform">terraform</a> (completion support and aliases). This is by no means a complete list though, there are lots to choose from! Try not to add too many plugins at once otherwise you may find the terminal slow, particularly at startup.</p>
-<p>All the available <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">built-in themes</a> are listed on the oh-my-zsh website. I use the <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#gnzh">gnzh</a> theme because it is simple, clean and separates the command line onto a separate line - I personally find that easier to read and scan quickly. Some themes are reportedly more easy to customise, like <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#agnoster">agnoster</a>, but if you aren’t looking to edit/build your own then the choice of theme is purely personal preference.</p>
-<p>If you’re wondering what else <code>oh-my-zsh</code> could offer you, take a look at <a href="https://dev.to/equiman/why-oh-my-zsh-is-so-cool-31gd">this great post</a> which gives a quick overview of it’s main offerings. Also, if you’re finding your terminal too slow due to lots of plugins and unnecessary ‘bloat’, you’re definitely not alone! Check out <a href="https://ianyepan.github.io/posts/moving-away-from-ohmyzsh/">this interesting article</a> which shows you how to set-up an <code>oh-my-zsh</code>-like terminal without using <code>oh-my-zsh</code>.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="grid-graph-p">
+<p>From a driver’s perspective (see <a href="#fig-drivers" class="quarto-xref">Figure&nbsp;1</a>), 7 different drivers have claimed at least one pole position without setting a fastest sector time. It may be no surprise to see Verstappen and Hamilton as the only drivers to have achieved this feat more than once since 2018, given they have been the two most successful drivers on the grid over this time.</p>
+</div>
+<div id="fig-drivers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-drivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="no_fastest_sectors_drivers.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-drivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Pole position drivers without setting a fastest sector time.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hooray
+Fun Fact
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>🎉 You made it to the end of the first ever <code>heuristic-pedals</code> blog post! Thanks for your time and I hope you found this helpful! 🎉</p>
+<p>Kevin Magnussen accomplished this en route to achieving Haas’s only pole position to date, during the action packed <a href="https://en.wikipedia.org/wiki/2022_São_Paulo_Grand_Prix#Qualifying_report">2022 qualifying session at São Paulo</a>.</p>
 </div>
 </div>
+<div class="grid-graphs-p">
+<p>Looking at different tracks (see <a href="#fig-tracks" class="quarto-xref">Figure&nbsp;2</a>), it seems that pole without a fastest sector may happen more often on tracks with more pronounced high/low speed sector differences. Tracks like Baku, Budapest, and Yas Marina certainly fit this bill, but it’s not possible to say for sure without a more sophisticated analysis than the exploratory investigation here (perhaps a topic for a future post 🙂).</p>
+</div>
+<div id="fig-tracks" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tracks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="no_fastest_sectors_tracks.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tracks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Tracks where pole sitters failed to set a fastest sector time.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="japan-2025-q3-comparing-the-top-4-drivers" class="level3">
+<h3 class="anchored" data-anchor-id="japan-2025-q3-comparing-the-top-4-drivers">Japan 2025 Q3: Comparing the top 4 drivers</h3>
+<div class="grid-graph-p">
+<p>As we’ve just seen, Max Verstappen achieved a pole position without setting a fastest sector time for the 3rd time since 2018, taking him to the top of this leaderboard. To understand how he managed this, let’s compare his pole lap with the other top four drivers during the Q3 session. <a href="#tbl-japan-q3-top4-results" class="quarto-xref">Table&nbsp;1</a> summarises the top 4 qualifying results.</p>
+</div>
+<div id="tbl-japan-q3-top4-results" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-japan-q3-top4-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-japan-q3-top4-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="grid-graphs-table dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th rowspan="2" style="text-align: center;">
+Position
+</th>
+<th rowspan="2" style="text-align: center;">
+Driver
+</th>
+<th rowspan="2" style="text-align: center;">
+Lap Time
+</th>
+<th rowspan="2" style="text-align: center;">
+P1 Delta (s)
+</th>
+<th colspan="3" style="text-align: center;">
+Sector Times (s)
+</th>
+<th colspan="4" style="text-align: center;">
+Speed (Km/h)
+</th>
+</tr>
+<tr>
+<th style="text-align: center;">
+1
+</th>
+<th style="text-align: center;">
+2
+</th>
+<th style="text-align: center;">
+3
+</th>
+<th style="text-align: center;">
+Int. 1
+</th>
+<th style="text-align: center;">
+Int. 2
+</th>
+<th style="text-align: center;">
+Finish
+</th>
+<th style="text-align: center;">
+Trap
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+VER
+</td>
+<td>
+01:26.983
+</td>
+<td>
+-
+</td>
+<td>
+30.387
+</td>
+<td>
+39.355
+</td>
+<td>
+17.241
+</td>
+<td style="font-weight: bold;">
+288
+</td>
+<td>
+298
+</td>
+<td style="font-weight: bold;">
+271
+</td>
+<td style="font-weight: bold;">
+295
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+NOR
+</td>
+<td>
+01:26.995
+</td>
+<td>
+0.012
+</td>
+<td style="color: #8F00FF; font-weight: bold;">
+30.358
+</td>
+<td>
+39.301
+</td>
+<td>
+17.336
+</td>
+<td>
+287
+</td>
+<td style="font-weight: bold;">
+300
+</td>
+<td>
+267
+</td>
+<td>
+295
+</td>
+</tr>
+<tr>
+<td>
+3
+</td>
+<td>
+PIA
+</td>
+<td>
+01:27.027
+</td>
+<td>
+0.044
+</td>
+<td>
+30.625
+</td>
+<td style="color: #8F00FF; font-weight: bold;">
+39.197
+</td>
+<td style="color: #8F00FF; font-weight: bold;">
+17.205
+</td>
+<td>
+287
+</td>
+<td>
+299
+</td>
+<td style="font-weight: bold;">
+271
+</td>
+<td>
+294
+</td>
+</tr>
+<tr>
+<td>
+4
+</td>
+<td>
+LEC
+</td>
+<td>
+01:27.299
+</td>
+<td>
+0.316
+</td>
+<td>
+30.535
+</td>
+<td>
+39.352
+</td>
+<td>
+17.412
+</td>
+<td style="font-weight: bold;">
+288
+</td>
+<td>
+299
+</td>
+<td style="font-weight: bold;">
+271
+</td>
+<td style="font-weight: bold;">
+295
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="grid-graphs-sources-and-icon">
+<div class="grid-graphs-sources">
+<p>Sources: F1 API/FastF1 v3.5.3 (collection), Grid Graphs (analysis and visualisation).</p>
+</div>
+<div class="grid-graphs-icon-high">
+<p><span class="high-text-with-background">High Confidence</span></p>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig extra-bottom-padding" id="tbl-japan-q3-top4-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Japan Q3 session results for the top 4. Bold purple sector times are fastest sector times. Bold speed values are fastest speeds at the measurement locations.
+</figcaption>
+<div class="grid-graph-p">
+<p>So Verstappen claimed pole by just 0.012s and 0.044s from the two McLarens in P2 and P3! Leclerc’s Ferrari is a little further back at 0.316s, showing Verstappen and the McLarens were in a class of their own during this session.</p>
+<p>The sector times suggest the McLarens were the fastest cars around the Suzuka circuit - they took the fastest time in every sector (see also <a href="#fig-fastest-sectors" class="quarto-xref">Figure&nbsp;3</a>). However, this accolade was however shared between both the McLaren drivers, which is a first sign that Verstappen was the more consistent driver in Q3 - an impressive achievement given that <a href="https://www.formula1.com/en/results/2025/races/1256/japan/practice/3">a McLaren topped every practice session plus Q1 and Q2</a>!</p>
+</div>
+<div id="fig-fastest-sectors" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fastest-sectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fastest_sectors_map.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fastest-sectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Fastest sector times during Japan Q3.
+</figcaption>
+</figure>
+</div>
+<div class="grid-graph-p">
+<p>The speed traps around the track didn’t show big differences in car speeds, except at the finish line. Norris had a much slower car speed there compared to the other top 4 drivers, perhaps hinting at a driver error somewhere around this area.</p>
+<p>To take a closer look at driver differences, let’s compare speed and time gaps with Verstappen’s pole lap (see Figures <a href="#fig-speed-diffs" class="quarto-xref">4</a> and <a href="#fig-time-diffs" class="quarto-xref">5</a>).</p>
+</div>
+<div id="fig-speed-diffs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-speed-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ver_speed_differences.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-speed-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Speed differences to VER during Q3 fastest laps.
+</figcaption>
+</figure>
+</div>
+<div id="fig-time-diffs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-time-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ver_time_differences.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-time-diffs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Time differences to VER during Q3 fastest laps.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A note about data with moderate confidence…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When you see visualisations categorised with this label, remember to take extra caution when comparing exact differences. You can still trust the overall trends and main themes, but it’s best to use additional data sources (where possible) to help understand exact difference better. See below for more detailed advice for Figures <a href="#fig-speed-diffs" class="quarto-xref">4</a> and <a href="#fig-time-diffs" class="quarto-xref">5</a>:</p>
+<ul>
+<li>Data is shared by the F1 API asynchronously at ~4-5Hz. This isn’t great given F1 car speeds and makes it liable to aliasing and not feasible to compare directly. To fix this and align car data, they are not resampled onto a synchronised timestamp. Instead, vehicle time and speed data are combined on a ‘distance around lap’ index and then interpolated using piecewise polynomials. This helps keep the raw data intact, but comparing any interpolated values can still be inaccurate when sudden changes happen.</li>
+<li>Distance around lap is calculated by integrating car speed data and then normalising the progress around the lap using the actual track length. This helps mitigate drivers taking slightly different racing lines around the track.</li>
+<li>Corner labels are not precise and are included for visualisation purposes only.</li>
+</ul>
+</div>
+</div>
+</div>
+<section id="p1-vs-p4-verstappen-vs-leclerc" class="level5">
+<h5 class="anchored" data-anchor-id="p1-vs-p4-verstappen-vs-leclerc">P1 vs P4 (Verstappen vs Leclerc)</h5>
+<p>Leclerc makes a great start to the lap. He built up a ~0.075s lead through the high/medium speed T1-T4 corners. But he starts to lose out mid way through the ‘S’ curve section. Verstappen carries much more speed there and claws all that time back and then some, leading by ~0.1s heading into the Degnas. Leclerc makes time back under braking into Degna 2, but loses most of it in the corner exit phase.</p>
+<p>In fact, this often happened to the Ferrari in low/medium speed corners - maybe he’s pushing too hard or perhaps the Red Bull simply has an advantage here. This is most notable coming out of the T11 hairpin, where Leclerc lost around 0.15s to Max.</p>
+<p>However, through Spoon, the Ferrari was able to pull back the corner exit loses down the straight and through 130R, with these differences lessening as the cars head towards top speed.</p>
+<p>Verstappen then definitively pulls away from the Ferrari through the Casio Triangle, taking a large 0.3s gap to the finish line.</p>
+<p>In summary, it’s likely Red Bull achieved a better car balance for Suzuka. Verstappen handled the many technical corner sections much better than the Ferrari. Given the time loses out of the corners, perhaps Ferrari favoured a more high speed set-up, but this ultimately failed to make up time loses in the high speed/straight sections by the time the finish line approached.</p>
+</section>
+<section id="p1-vs-p2p3-verstappen-vs-the-mclarens" class="level5">
+<h5 class="anchored" data-anchor-id="p1-vs-p2p3-verstappen-vs-the-mclarens">P1 vs P2/P3 (Verstappen vs the McLarens)</h5>
+<p>The speed and time difference between the McLarens and Verstappen clearly shows that the McLaren was the better car around Suzuka. Their combined fastest sector times would have beaten Max by 0.223s! So, what happened? In short, driver errors…</p>
+<p>Heading through the high speed T1-T2 corners, Verstappen carried an extra 20-30 Km/h through compared to both the McLarens, giving him a 0.15-0.2s lead at this early stage. However, Piastri lost out more significantly, a further 10Km/h to Norris, after a back end loss heading into T2. This was compounded all the way through the ‘S’ curves, and by end of this section he was ~0.25s behind Max and ~0.3s behind Lando (after his fastest sector) - both big gaps to close down in F1 terms. Piastri did very well versus through the Degnas to eat into those leads. He also gets small amounts of time back through the T11 hairpin, Spoon, the back straight, 130R, and on the exit of the Casio Triangle - i.e., as he set the fastest sectors in 2 and 3. However, all those gains weren’t enough to over come the T1/T2 error.</p>
+<p>For Norris, the story is similar but in reverse. He pulled out a significant gap after setting a fastest first sector. In the middle sector, Norris loses out to Max under braking on several occasions but makes nearly all of this back on corner exits - only minor differences here. Norris gains a lot of time on all 4 drivers after a good exit from Spoon and along the back straight. This advantage increased over time, leading to a ~0.15s gap over Verstappen heading into the Casio Triangle - Lando’s downfall. The sudden and then persistent swing in both speed/time deltas in T16-T17, to both Verstappen and Piastri, indicates a mistake. Lando lost a heap of time in this section and, as we saw previously, it ended in a deficit of ~4Km/h, 0.012s, and P2 at the finish line.</p>
+<p>Altogether, it was a combination of driving consistency, a balanced car set-up, and errors by both McLarens which lead to Verstappen claiming his 3rd no-fastest-sector-pole since 2018.</p>
+</section>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<p>Taking pole position without setting a fastest sector time, as expected, is a rare thing in F1 - happing roughly 1 in 16 qualifying sessions since 2018.</p>
+<p>Verstappen drove impeccably around Suzuka to achieve his 3rd no-fastest-sector-pole during this time. His consistency and balanced car set-up clearly prevailed over the rest of the field, but it this case it also required errors from the McLarens - who will feel like they missed out on a dominant 1-2 at Suzuka.</p>
+<p>Ultimately, achieving rare feats like no-fastest-sector-pole positions requires a mixture of skill, consistency and, just like in other sports, things to go your way.</p>
 
 
 </section>
